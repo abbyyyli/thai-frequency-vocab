@@ -3974,6 +3974,31 @@ if ('speechSynthesis' in window) {
 } else {
   setStatus('此瀏覽器不支援系統語音；仍會嘗試線上音訊。');
 }
+
+// iOS audio unlock
+let _audioUnlocked=false;
+document.addEventListener('click',()=>{
+  if(_audioUnlocked)return;
+  const _s=new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=');
+  _s.play().then(()=>{_audioUnlocked=true;}).catch(()=>{});
+},{once:false});
+
+// ── Mobile audio fix: iOS/Android capture-phase intercept ──────────────
+(function(){
+  if(!/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) return;
+  document.addEventListener('click', function(e){
+    var btn = e.target && e.target.closest && e.target.closest('.speak');
+    if(!btn) return;
+    e.stopImmediatePropagation();
+    window.speechSynthesis && window.speechSynthesis.cancel();
+    var text = btn.getAttribute('data-thai') || btn.textContent.trim();
+    if(!text) return;
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang='th-TH'; u.rate=0.82; u.pitch=1.0;
+    window.speechSynthesis && window.speechSynthesis.speak(u);
+  }, true); // capture phase — runs before all bubble-phase handlers
+})();
+// ── End mobile audio fix ────────────────────────────────────────────────
 </script>
 </body>
 </html>

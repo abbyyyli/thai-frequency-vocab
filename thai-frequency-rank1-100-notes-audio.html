@@ -4702,7 +4702,15 @@
       if (btn) {
         e.preventDefault();
         e.stopPropagation();
-        speakThai(btn.dataset.thai || btn.textContent.trim());
+        const text = btn.dataset.thai || btn.textContent.trim();
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+          window.speechSynthesis.cancel();
+          const u = new SpeechSynthesisUtterance(text);
+          u.lang = 'th-TH'; u.rate = 0.78; u.pitch = 1.0;
+          window.speechSynthesis.speak(u);
+        } else {
+          speakThai(text);
+        }
       }
     });
 
@@ -4749,6 +4757,31 @@
     } else {
       setStatus('這個瀏覽器不支援語音朗讀。');
     }
-  </script>
+  
+// iOS audio unlock
+let _audioUnlocked=false;
+document.addEventListener('click',()=>{
+  if(_audioUnlocked)return;
+  const _s=new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=');
+  _s.play().then(()=>{_audioUnlocked=true;}).catch(()=>{});
+},{once:false});
+
+// ── Mobile audio fix: iOS/Android capture-phase intercept ──────────────
+(function(){
+  if(!/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) return;
+  document.addEventListener('click', function(e){
+    var btn = e.target && e.target.closest && e.target.closest('.speak');
+    if(!btn) return;
+    e.stopImmediatePropagation();
+    window.speechSynthesis && window.speechSynthesis.cancel();
+    var text = btn.getAttribute('data-thai') || btn.textContent.trim();
+    if(!text) return;
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang='th-TH'; u.rate=0.82; u.pitch=1.0;
+    window.speechSynthesis && window.speechSynthesis.speak(u);
+  }, true); // capture phase — runs before all bubble-phase handlers
+})();
+// ── End mobile audio fix ────────────────────────────────────────────────
+</script>
 </body>
 </html>

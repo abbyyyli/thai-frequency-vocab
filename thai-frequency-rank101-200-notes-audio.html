@@ -2654,6 +2654,31 @@
     if(voiceSelect) voiceSelect.addEventListener('change',()=>{ selectedVoiceName=voiceSelect.value; setStatus(`已選擇瀏覽器語音：${selectedVoiceName}`); }); if(stopAudio) stopAudio.addEventListener('click',()=>{ ttsAudio.pause(); ttsAudio.currentTime=0; if('speechSynthesis' in window) window.speechSynthesis.cancel(); setStatus('已停止播放。'); });
     const search=document.getElementById('search'); const cards=[...document.querySelectorAll('.word-card')]; if(search) search.addEventListener('input',()=>{ const q=search.value.trim().toLowerCase(); cards.forEach(card=>{ const hay=(card.dataset.search||'').toLowerCase(); card.style.display=hay.includes(q)?'':'none'; }); }); const showAll=document.getElementById('showAll'); if(showAll) showAll.addEventListener('click',()=>{ if(search) search.value=''; cards.forEach(card=>card.style.display=''); }); const playVisible=document.getElementById('playVisible'); if(playVisible) playVisible.addEventListener('click',()=>{ const visible=cards.filter(c=>c.style.display!=='none').slice(0,25); speakThai(visible.map(c=>c.dataset.word).join(' ... '), playVisible); });
     if('speechSynthesis' in window){ refreshVoices(); window.speechSynthesis.onvoiceschanged=refreshVoices; setTimeout(refreshVoices,300); setTimeout(refreshVoices,1000); } setStatus('音訊就緒：預設 Online TTS audio 優先；若失敗會改用 Browser Thai voice。');
-  </script>
+  
+// iOS audio unlock
+let _audioUnlocked=false;
+document.addEventListener('click',()=>{
+  if(_audioUnlocked)return;
+  const _s=new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=');
+  _s.play().then(()=>{_audioUnlocked=true;}).catch(()=>{});
+},{once:false});
+
+// ── Mobile audio fix: iOS/Android capture-phase intercept ──────────────
+(function(){
+  if(!/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) return;
+  document.addEventListener('click', function(e){
+    var btn = e.target && e.target.closest && e.target.closest('.speak');
+    if(!btn) return;
+    e.stopImmediatePropagation();
+    window.speechSynthesis && window.speechSynthesis.cancel();
+    var text = btn.getAttribute('data-thai') || btn.textContent.trim();
+    if(!text) return;
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang='th-TH'; u.rate=0.82; u.pitch=1.0;
+    window.speechSynthesis && window.speechSynthesis.speak(u);
+  }, true); // capture phase — runs before all bubble-phase handlers
+})();
+// ── End mobile audio fix ────────────────────────────────────────────────
+</script>
 </body>
 </html>

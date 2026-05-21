@@ -1841,4 +1841,29 @@ function speakByBrowserVoice(text){return new Promise((resolve,reject)=>{if(!('s
 function speakByOnlineAudio(text){return new Promise((resolve,reject)=>{try{const url='https://translate.google.com/translate_tts?ie=UTF-8&tl=th&client=tw-ob&q='+encodeURIComponent(text);currentAudio=new Audio(url);currentAudio.onplay=()=>setStatus('正在使用 Online Thai TTS 播放。若 file:/// 無聲，放到 GitHub Pages 通常更穩。');currentAudio.onended=()=>resolve();currentAudio.onerror=()=>reject('online audio failed');currentAudio.play().catch(reject)}catch(e){reject(e)}})}
 async function speakThai(text){if(!text)return;stopAudio();try{await speakByOnlineAudio(text)}catch(e){try{await speakByBrowserVoice(text)}catch(err){setStatus('音訊播放失敗：請確認瀏覽器音量、允許播放，或改用 Chrome/Safari。')}}}
 document.addEventListener('click',e=>{const btn=e.target.closest('.speak');if(btn){speakThai(btn.dataset.thai||btn.textContent.trim())}});document.getElementById('playVisible')?.addEventListener('click',async()=>{const visible=cards.filter(c=>c.style.display!=='none').slice(0,20);for(const c of visible){await speakThai(c.dataset.word);await new Promise(r=>setTimeout(r,350))}});
+
+// iOS audio unlock
+let _audioUnlocked=false;
+document.addEventListener('click',()=>{
+  if(_audioUnlocked)return;
+  const _s=new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=');
+  _s.play().then(()=>{_audioUnlocked=true;}).catch(()=>{});
+},{once:false});
+
+// ── Mobile audio fix: iOS/Android capture-phase intercept ──────────────
+(function(){
+  if(!/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) return;
+  document.addEventListener('click', function(e){
+    var btn = e.target && e.target.closest && e.target.closest('.speak');
+    if(!btn) return;
+    e.stopImmediatePropagation();
+    window.speechSynthesis && window.speechSynthesis.cancel();
+    var text = btn.getAttribute('data-thai') || btn.textContent.trim();
+    if(!text) return;
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang='th-TH'; u.rate=0.82; u.pitch=1.0;
+    window.speechSynthesis && window.speechSynthesis.speak(u);
+  }, true); // capture phase — runs before all bubble-phase handlers
+})();
+// ── End mobile audio fix ────────────────────────────────────────────────
 </script></body></html>
