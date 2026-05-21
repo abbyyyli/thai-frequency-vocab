@@ -244,14 +244,7 @@
         音訊設計：每個小喇叭會直接朗讀泰文。這不是預先產生 mp3，也不會消耗 API token；是使用瀏覽器內建的
         <b>SpeechSynthesis Thai voice</b>。若電腦沒有 Thai 語音，可在系統語音設定新增 Thai。
       </div>
-      <div class="audio-check">
-        <b>🔊 Audio Test｜先點這裡測試</b>
-        <div class="audio-check-row">
-          <button class="speak" type="button" data-thai="สวัสดีค่ะ พูดไทยได้นิดหน่อยค่ะ">🔊 測試泰文語音</button>
-          <button id="stopAudio" type="button" class="tab" style="position:static;">停止</button>
-          <select id="voiceSelect" class="audio-select" aria-label="voice select"><option>正在載入語音...</option></select>
-        </div>
-        <div id="audioStatus" class="audio-status">如果按了沒聲音：請先確認瀏覽器允許自動播放/聲音、電腦音量、或改用 Chrome / Safari 開啟。</div>
+      <div class="audio-check"><b>🔊 Audio Test｜先點這裡測試</b><div class="audio-check-row"><button class="speak" type="button" data-thai="สวัสดีค่ะ วันนี้เราจะฝึกคำศัพท์ไทยอันดับหนึ่งร้อยหนึ่งถึงสองร้อยค่ะ">🔊</button><button id="stopAudio" type="button" class="tab" style="position:static;">停止</button><select id="audioMode" class="audio-select"><option value="online">Online TTS audio 優先（推薦）</option><option value="speech">Browser Thai voice 優先</option></select><select id="voiceSelect" class="audio-select"><option>Kanya (th-TH)</option></select></div><div id="audioStatus" class="audio-status">使用 Online Thai TTS audio 播放中。</div>
       </div>
       <h3>學習順序建議</h3>
       <div class="patterns">
