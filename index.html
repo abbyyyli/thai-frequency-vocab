@@ -1,310 +1,306 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>泰文學習系統 | 核心高頻詞彙資料庫</title>
-    <style>
-        :root {
-            --primary: #0284c7; /* 精緻蔚藍色，高頻詞彙專屬 */
-            --secondary: #0f172a; /* 深藍偏黑，高質感文字色 */
-            --bg: #f8fafc; /* 乾淨輕盈的灰白底色 */
-            --card: #ffffff;
-            --accent: #f59e0b; /* 琥珀金點綴 */
-            --muted: #64748b; /* 優雅的次要說明灰 */
-            --line: rgba(148, 163, 184, 0.12);
-            --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.04), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
-            --shadow-hover: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 10px 10px -6px rgba(15, 23, 42, 0.06);
-        }
-        
-        * {
-            box-sizing: border-box;
-            transition: all 0.25s ease;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>泰文學習系統｜核心高頻詞彙資料庫</title>
+  <style>
+    :root {
+      --bg: #f4f8ff;
+      --text: #1a2840;
+      --muted: #5a6e8a;
+      --line: rgba(58,100,180,.14);
+      --card: rgba(255,255,255,.92);
+      --blue: #2e6fd4;
+      --blue-soft: #deeaff;
+      --blue-mid: #8eb4f0;
+      --blue-deep: #1a4fa8;
+      --orange: #f2a35d;
+      --orange-soft: #fff1df;
+      --shadow: 0 12px 28px rgba(30,60,140,.08);
+      --shadow-hover: 0 20px 40px rgba(30,60,140,.14);
+      --radius: 18px;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", "Noto Sans Thai", sans-serif;
-            background-color: var(--bg);
-            color: var(--secondary);
-            padding: 40px 20px;
-            margin: 0;
-            line-height: 1.6;
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .header {
-            text-align: center;
-            margin-bottom: 45px;
-            padding: 35px 25px;
-            background: var(--card);
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--line);
-        }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC", "Noto Sans TC", "Noto Sans Thai", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(46,111,212,.18), transparent 40%),
+        radial-gradient(circle at bottom right, rgba(46,111,212,.10), transparent 40%),
+        linear-gradient(150deg, #eef4ff 0%, #f4f8ff 50%, #edf3ff 100%);
+      color: var(--text);
+      padding: 52px 20px 72px;
+      line-height: 1.68;
+      min-height: 100vh;
+    }
 
-        h1 {
-            color: var(--secondary);
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin: 0 0 12px 0;
-            letter-spacing: -0.025em;
-        }
+    .container { max-width: 980px; margin: 0 auto; }
 
-        .subtitle {
-            color: var(--muted);
-            font-size: 1.05rem;
-            margin-bottom: 20px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    /* ── Header ── */
+    .eyebrow {
+      font-size: 11.5px;
+      font-weight: 720;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 22px;
+      height: 2px;
+      background: var(--blue);
+      border-radius: 2px;
+    }
 
-        .status-badge {
-            display: inline-block;
-            background: #e0f2fe;
-            color: #0369a1;
-            padding: 6px 18px;
-            border-radius: 30px;
-            font-size: 0.88rem;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-        }
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 860;
+      letter-spacing: -.03em;
+      line-height: 1.16;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
 
-        .section-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--secondary);
-            margin: 40px 0 20px 5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+    .subtitle {
+      font-size: 0.97rem;
+      color: var(--muted);
+      max-width: 660px;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
 
-        .section-title::before {
-            content: '';
-            display: inline-block;
-            width: 4px;
-            height: 18px;
-            background-color: var(--primary);
-            border-radius: 4px;
-        }
+    .header-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 48px; }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-        
-        .card {
-            background: var(--card);
-            padding: 24px;
-            border-radius: 16px;
-            text-decoration: none;
-            color: inherit;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--line);
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-        }
+    .header-tag {
+      font-size: 0.76rem;
+      font-weight: 650;
+      border-radius: 999px;
+      padding: 4px 11px;
+      background: var(--blue-soft);
+      color: var(--blue-deep);
+      border: 1px solid var(--blue-mid);
+    }
 
-        .card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: transparent;
-        }
+    /* ── Section heading ── */
+    .section-title {
+      font-size: 0.82rem;
+      font-weight: 760;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 38px 0 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
 
-        /* 核心突破區主題色 */
-        .core-zone .card::after {
-            background: linear-gradient(90deg, var(--primary), #38bdf8);
-        }
-        /* 進階推進區主題色 */
-        .advance-zone .card::after {
-            background: linear-gradient(90deg, #64748b, #cbd5e1);
-        }
+    /* ── Grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(268px, 1fr));
+      gap: 16px;
+    }
 
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-hover);
-            border-color: rgba(2, 132, 199, 0.2);
-        }
-        
-        .card-day {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: 0.05em;
-            margin-bottom: 6px;
-        }
+    /* ── Card ── */
+    .card {
+      background: var(--card);
+      padding: 20px 22px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      color: inherit;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
 
-        .card-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: var(--secondary);
-        }
-        
-        .card-desc {
-            font-size: 0.92rem;
-            color: var(--muted);
-            line-height: 1.5;
-            flex-grow: 1;
-        }
+    .core-zone .card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--blue-deep), var(--blue-mid));
+    }
 
-        /* 未解鎖卡片樣式 */
-        .card.locked {
-            opacity: 0.65;
-            background: #f1f5f9;
-            cursor: not-allowed;
-        }
-        .card.locked:hover {
-            transform: none;
-            box-shadow: var(--shadow);
-            border-color: var(--line);
-        }
-        .card.locked .card-day {
-            color: #94a3b8;
-        }
-        .card.locked .badge-locked {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 0.75rem;
-            background: #e2e8f0;
-            color: #64748b;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-weight: 600;
-        }
+    .advance-zone .card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--blue), #a8c8f8);
+      opacity: .45;
+    }
 
-        .tools {
-            margin-top: 60px;
-            text-align: center;
-            padding: 24px;
-            background: #f1f5f9;
-            border-radius: 14px;
-            font-size: 0.92rem;
-            color: var(--muted);
-            border: 1px dashed #cbd5e1;
-        }
-        
-        .tools strong {
-            color: var(--secondary);
-            margin-right: 12px;
-        }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(46,111,212,.3);
+    }
 
-        .tools a {
-            color: var(--primary);
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: 500;
-        }
-        
-        .tools a:hover {
-            text-underline-offset: 4px;
-            text-decoration: underline;
-        }
+    .card-rank {
+      font-size: 0.75rem;
+      font-weight: 780;
+      color: var(--blue);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
 
-        @media (max-width: 640px) {
-            body { padding: 20px 15px; }
-            h1 { font-size: 1.8rem; }
-            .grid { grid-template-columns: 1fr; }
-        }
-    </style>
+    .advance-zone .card-rank { color: #7090b8; }
+
+    .card-title {
+      font-size: 1.06rem;
+      font-weight: 780;
+      color: var(--text);
+      margin-bottom: 7px;
+      letter-spacing: -.01em;
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.58;
+      flex-grow: 1;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .footer-note { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
+
+    .footer-links { display: flex; gap: 6px; flex-wrap: wrap; }
+
+    .footer-link {
+      font-size: 0.81rem;
+      font-weight: 660;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.72);
+      transition: all .18s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--blue);
+      border-color: rgba(46,111,212,.35);
+      background: var(--blue-soft);
+    }
+
+    @media (max-width: 680px) {
+      body { padding: 34px 14px 56px; }
+      h1 { font-size: 1.9rem; }
+      .grid { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        
-        <div class="header">
-            <h1>泰文高頻詞彙庫</h1>
-            <div class="subtitle">基於泰文官方語料庫巨量資料統計，精選前 4000 高頻核心單字，搭配音訊朗讀與搜尋系統，全方位突破泰語核心。</div>
-            <div class="status-badge">✨ 已同步至進度首頁 (Top 4000 詞彙系統)</div>
-        </div>
+<div class="container">
 
-        <div class="section-title">核心突破區</div>
-        <div class="grid core-zone">
-            <a href="thai-frequency-rank1-100-notes-audio.html" class="card">
-                <div class="card-day">Rank 1 – 100</div>
-                <div class="card-title">超高頻核心基礎</div>
-                <div class="card-desc">涵蓋最核心的代名詞、連接詞、基礎動詞與語氣助詞，是所有泰文句型的骨架。</div>
-            </a>
-            
-            <a href="thai-frequency-rank101-200-notes-audio.html" class="card">
-                <div class="card-day">Rank 101 – 200</div>
-                <div class="card-title">初階日常銜接</div>
-                <div class="card-desc">高頻生活必備詞彙、常見動詞與時間介詞，開始建立完整日常對話的實戰力。</div>
-            </a>
-            
-            <a href="thai-frequency-rank201-300-notes-audio.html" class="card">
-                <div class="card-day">Rank 201 – 300</div>
-                <div class="card-title">常用情境累積</div>
-                <div class="card-desc">進階描述性形容詞、生活具體名詞，豐富句子細節與語意完整度的黃金推進點。</div>
-            </a>
-        </div>
+  <div class="eyebrow">Top 4000 · Corpus-Based Frequency</div>
+  <h1>泰文高頻詞彙庫</h1>
+  <div class="subtitle">基於泰文官方語料庫巨量資料統計，精選前 4000 高頻核心單字，搭配音訊朗讀與搜尋系統，全方位突破泰語核心。</div>
+  <div class="header-tags">
+    <span class="header-tag">Top 4000 詞彙系統</span>
+    <span class="header-tag">TTS Audio</span>
+    <span class="header-tag">Corpus-Based</span>
+    <span class="header-tag">ABBY.</span>
+  </div>
 
-        <div class="section-title">高頻推進區</div>
-        <div class="grid advance-zone">
-            <a href="thai-frequency-rank301-400-notes-audio.html" class="card">
-                <div class="card-day">Rank 301 – 400</div>
-                <div class="card-title">全新進度推進</div>
-                <div class="card-desc">接下來即將開啟的全新詞彙區段，攻克更多抽象觀念、日常社交與實用功能性詞彙。</div>
-            </a>
+  <div class="section-title">核心突破區</div>
+  <div class="grid core-zone">
+    <a href="thai-frequency-rank1-100-notes-audio.html" class="card">
+      <div class="card-rank">Rank 1 – 100</div>
+      <div class="card-title">超高頻核心基礎</div>
+      <div class="card-desc">涵蓋最核心的代名詞、連接詞、基礎動詞與語氣助詞，是所有泰文句型的骨架。</div>
+    </a>
+    <a href="thai-frequency-rank101-200-notes-audio.html" class="card">
+      <div class="card-rank">Rank 101 – 200</div>
+      <div class="card-title">初階日常銜接</div>
+      <div class="card-desc">高頻生活必備詞彙、常見動詞與時間介詞，開始建立完整日常對話的實戰力。</div>
+    </a>
+    <a href="thai-frequency-rank201-300-notes-audio.html" class="card">
+      <div class="card-rank">Rank 201 – 300</div>
+      <div class="card-title">常用情境累積</div>
+      <div class="card-desc">進階描述性形容詞、生活具體名詞，豐富句子細節與語意完整度的黃金推進點。</div>
+    </a>
+  </div>
 
-            <a href="thai-frequency-rank401-500-notes-audio.html" class="card">
-                <div class="card-day">Rank 401 – 500</div>
-                <div class="card-title">實用表達擴充</div>
-                <div class="card-desc">預留章節。擴展日常生活、情緒表達、基礎社交等多元場景的核心詞彙。</div>
-            </a>
+  <div class="section-title">高頻推進區</div>
+  <div class="grid advance-zone">
+    <a href="thai-frequency-rank301-400-notes-audio.html" class="card">
+      <div class="card-rank">Rank 301 – 400</div>
+      <div class="card-title">全新進度推進</div>
+      <div class="card-desc">接下來即將開啟的全新詞彙區段，攻克更多抽象觀念、日常社交與實用功能性詞彙。</div>
+    </a>
+    <a href="thai-frequency-rank401-500-notes-audio.html" class="card">
+      <div class="card-rank">Rank 401 – 500</div>
+      <div class="card-title">實用表達擴充</div>
+      <div class="card-desc">擴展日常生活、情緒表達、基礎社交等多元場景的核心詞彙。</div>
+    </a>
+    <a href="thai-frequency-rank501-600-notes-audio.html" class="card">
+      <div class="card-rank">Rank 501 – 600</div>
+      <div class="card-title">常用詞彙分水嶺</div>
+      <div class="card-desc">字彙量持續向外輻射，進一步強化聽力與短文閱讀的理解機率。</div>
+    </a>
+    <a href="thai-frequency-rank601-700-notes-audio.html" class="card">
+      <div class="card-rank">Rank 601 – 700</div>
+      <div class="card-title">中階流利突破</div>
+      <div class="card-desc">邁向流利交談、工作環境溝通不可或缺的黃金中階詞庫。</div>
+    </a>
+    <a href="thai-frequency-rank701-800-notes-audio.html" class="card">
+      <div class="card-rank">Rank 701 – 800</div>
+      <div class="card-title">語意深度深化</div>
+      <div class="card-desc">深入探討更複雜的社會現象、文化交流與精準的口語修飾表達。</div>
+    </a>
+    <a href="thai-frequency-rank801-900-notes-audio.html" class="card">
+      <div class="card-rank">Rank 801 – 900</div>
+      <div class="card-title">功能主題擴展</div>
+      <div class="card-desc">涵蓋更廣泛的學術觀念、媒體常見詞彙與多情境通用字。</div>
+    </a>
+    <a href="thai-frequency-rank901-1000-notes-audio.html" class="card">
+      <div class="card-rank">Rank 901 – 1000</div>
+      <div class="card-title">前壹千字大關</div>
+      <div class="card-desc">完全攻克前 1000 核心詞彙的終點線，全面解鎖高比例日常閱讀力。</div>
+    </a>
+  </div>
 
-            <a href="thai-frequency-rank501-600-notes-audio.html" class="card">
-                <div class="card-day">Rank 501 – 600</div>
-                <div class="card-title">常用詞彙分水嶺</div>
-                <div class="card-desc">預留章節。字彙量持續向外輻射，進一步強化聽力與短文閱讀的理解機率。</div>
-            </a>
-
-            <a href="thai-frequency-rank601-700-notes-audio.html" class="card">
-                <div class="card-day">Rank 601 – 700</div>
-                <div class="card-title">中階流利突破</div>
-                <div class="card-desc">預留章節。邁向流利交談、工作環境溝通不可或缺的黃金中階詞庫。</div>
-            </a>
-
-            <a href="thai-frequency-rank701-800-notes-audio.html" class="card">
-                <div class="card-day">Rank 701 – 800</div>
-                <div class="card-title">語意深度深化</div>
-                <div class="card-desc">預留章節。深入探討更複雜的社會現象、文化交流與精準的口語修飾表達。</div>
-            </a>
-
-            <a href="thai-frequency-rank801-900-notes-audio.html" class="card">
-                <div class="card-day">Rank 801 – 900</div>
-                <div class="card-title">功能主題擴展</div>
-                <div class="card-desc">預留章節。涵蓋更廣泛的學術觀念、媒體常見詞彙與多情境通用字。</div>
-            </a>
-
-            <a href="thai-frequency-rank901-1000-notes-audio.html" class="card">
-                <div class="card-day">Rank 901 – 1000</div>
-                <div class="card-title">前壹千字大關</div>
-                <div class="card-desc">預留章節。完全攻克前 1000 核心詞彙的終點線，全面解鎖高比例日常閱讀力。</div>
-            </a>
-        </div>
-
-        <div class="tools">
-            <strong>📚 系統導覽工具</strong>
-            <a href="https://abbyyyli.github.io/thai-index/">← 返回首頁入口</a> |
-            <a href="https://github.com/abbyyyli/thai-frequency-vocab.git" target="_blank">🗂️ GitHub 專案倉庫</a>
-        </div>
-
+  <footer class="footer">
+    <div class="footer-note">Top 4000 詞彙系統 · Corpus-Based · Created for ABBY.</div>
+    <div class="footer-links">
+      <a href="https://abbyyyli.github.io/thai-index/" class="footer-link">← 學習入口</a>
+      <a href="https://github.com/abbyyyli/thai-frequency-vocab.git" target="_blank" class="footer-link">🗂️ GitHub</a>
     </div>
+  </footer>
 
+</div>
 </body>
 </html>
