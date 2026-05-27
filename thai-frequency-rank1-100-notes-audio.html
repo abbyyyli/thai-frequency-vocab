@@ -206,7 +206,14 @@
       .grid { grid-template-columns: 1fr; }
       .bubble { max-width: 100%; }
     }
-  .colloc-chip{display:inline-flex;align-items:center;gap:4px;border:.5px solid rgba(120,130,140,.22);border-radius:999px;padding:3px 8px;margin:3px 5px 3px 0;background:rgba(255,255,255,.55)}
+  .colloc-chip{display:inline-flex;flex-direction:column;align-items:center;gap:1px;border:.5px solid rgba(120,130,140,.22);border-radius:12px;padding:5px 10px;margin:3px 5px 3px 0;background:rgba(255,255,255,.55);cursor:pointer}
+.colloc-chip .thai{font-size:14px;font-family:"Noto Sans Thai","Tahoma",sans-serif;font-weight:600}
+.colloc-chip .en-colloc{font-size:10.5px;color:#6b7280;line-height:1.2}
+.colloc-chip .speak{display:none}
+.ex{display:block !important}
+.ex .speak.mini{display:none}
+.ex .thai{cursor:pointer}
+.ex .thai:hover{color:var(--orange)}
     /* ── 收藏功能 (auto-injected) ──────────────────────────────────────────── */
     .fav-btn {
       position: absolute; right: 14px; bottom: 13px;
@@ -329,7 +336,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>核心功能詞：可表示地點，也可接在名詞後形成關係子句；在口語中非常常見。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ที่บ้าน" aria-label="play">🔊</button><span class="thai">ที่บ้าน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ที่ทำงาน" aria-label="play">🔊</button><span class="thai">ที่ทำงาน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="คนที่" aria-label="play">🔊</button><span class="thai">คนที่</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ร้านที่" aria-label="play">🔊</button><span class="thai">ร้านที่</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ที่บ้าน" aria-label="play">🔊</button><span class="thai">ที่บ้าน</span><span class="en-colloc">at home</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ที่ทำงาน" aria-label="play">🔊</button><span class="thai">ที่ทำงาน</span><span class="en-colloc">at work</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="คนที่" aria-label="play">🔊</button><span class="thai">คนที่</span><span class="en-colloc">the person who</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ร้านที่" aria-label="play">🔊</button><span class="thai">ร้านที่</span><span class="en-colloc">the shop that</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="อยู่ที่ไหนคะ" aria-label="play">🔊</button>
@@ -361,7 +368,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>放在動詞後可表示「做得到」；放在動詞前常有「有做到／獲得」的感覺。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำได้" aria-label="play">🔊</button><span class="thai">ทำได้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="กินได้" aria-label="play">🔊</button><span class="thai">กินได้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ได้แล้ว" aria-label="play">🔊</button><span class="thai">ได้แล้ว</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไม่ได้" aria-label="play">🔊</button><span class="thai">ไม่ได้</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำได้" aria-label="play">🔊</button><span class="thai">ทำได้</span><span class="en-colloc">can do</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="กินได้" aria-label="play">🔊</button><span class="thai">กินได้</span><span class="en-colloc">can eat</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ได้แล้ว" aria-label="play">🔊</button><span class="thai">ได้แล้ว</span><span class="en-colloc">done/got it</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไม่ได้" aria-label="play">🔊</button><span class="thai">ไม่ได้</span><span class="en-colloc">cannot</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ฉันพูดไทยได้นิดหน่อย" aria-label="play">🔊</button>
@@ -393,7 +400,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>放在動詞前表示未來或打算；口語中常縮短成很自然的「จะ + V」。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="จะไป" aria-label="play">🔊</button><span class="thai">จะไป</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="จะกิน" aria-label="play">🔊</button><span class="thai">จะกิน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="จะซื้อ" aria-label="play">🔊</button><span class="thai">จะซื้อ</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="จะเอา" aria-label="play">🔊</button><span class="thai">จะเอา</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="จะไป" aria-label="play">🔊</button><span class="thai">จะไป</span><span class="en-colloc">will go</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="จะกิน" aria-label="play">🔊</button><span class="thai">จะกิน</span><span class="en-colloc">will eat</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="จะซื้อ" aria-label="play">🔊</button><span class="thai">จะซื้อ</span><span class="en-colloc">will buy</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="จะเอา" aria-label="play">🔊</button><span class="thai">จะเอา</span><span class="en-colloc">will take</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="พรุ่งนี้จะไปสยาม" aria-label="play">🔊</button>
@@ -425,7 +432,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>指近的東西；放在名詞後面：อันนี้ / วันนี้ / ร้านนี้。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="วันนี้" aria-label="play">🔊</button><span class="thai">วันนี้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อันนี้" aria-label="play">🔊</button><span class="thai">อันนี้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ร้านนี้" aria-label="play">🔊</button><span class="thai">ร้านนี้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="คนนี้" aria-label="play">🔊</button><span class="thai">คนนี้</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="วันนี้" aria-label="play">🔊</button><span class="thai">วันนี้</span><span class="en-colloc">today</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อันนี้" aria-label="play">🔊</button><span class="thai">อันนี้</span><span class="en-colloc">this one</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ร้านนี้" aria-label="play">🔊</button><span class="thai">ร้านนี้</span><span class="en-colloc">this shop</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="คนนี้" aria-label="play">🔊</button><span class="thai">คนนี้</span><span class="en-colloc">this person</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="อันนี้เท่าไหร่คะ" aria-label="play">🔊</button>
@@ -457,7 +464,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>常接在พูด / คิด / บอก / รู้ 後面，引出內容。口語中很重要。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="คิดว่า" aria-label="play">🔊</button><span class="thai">คิดว่า</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="บอกว่า" aria-label="play">🔊</button><span class="thai">บอกว่า</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="พูดว่า" aria-label="play">🔊</button><span class="thai">พูดว่า</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="รู้ว่า" aria-label="play">🔊</button><span class="thai">รู้ว่า</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="คิดว่า" aria-label="play">🔊</button><span class="thai">คิดว่า</span><span class="en-colloc">think that</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="บอกว่า" aria-label="play">🔊</button><span class="thai">บอกว่า</span><span class="en-colloc">said that</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="พูดว่า" aria-label="play">🔊</button><span class="thai">พูดว่า</span><span class="en-colloc">say that</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="รู้ว่า" aria-label="play">🔊</button><span class="thai">รู้ว่า</span><span class="en-colloc">know that</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="เขาบอกว่าจะมาช้า" aria-label="play">🔊</button>
@@ -489,7 +496,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>用來表示身分、狀態、疾病，也可表示「會做某技能」如 ว่ายน้ำเป็น。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เป็นคน" aria-label="play">🔊</button><span class="thai">เป็นคน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เป็นอะไร" aria-label="play">🔊</button><span class="thai">เป็นอะไร</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เป็นไข้" aria-label="play">🔊</button><span class="thai">เป็นไข้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำอาหารเป็น" aria-label="play">🔊</button><span class="thai">ทำอาหารเป็น</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เป็นคน" aria-label="play">🔊</button><span class="thai">เป็นคน</span><span class="en-colloc">is a person</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เป็นอะไร" aria-label="play">🔊</button><span class="thai">เป็นอะไร</span><span class="en-colloc">what's wrong</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เป็นไข้" aria-label="play">🔊</button><span class="thai">เป็นไข้</span><span class="en-colloc">have a fever</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำอาหารเป็น" aria-label="play">🔊</button><span class="thai">ทำอาหารเป็น</span><span class="en-colloc">can cook</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="เขาเป็นคนไทย" aria-label="play">🔊</button>
@@ -521,7 +528,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可以表示某人擁有，也可表示某地有某物。比英文 have 更廣。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มีเวลา" aria-label="play">🔊</button><span class="thai">มีเวลา</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มีเงิน" aria-label="play">🔊</button><span class="thai">มีเงิน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มีไหม" aria-label="play">🔊</button><span class="thai">มีไหม</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไม่มี" aria-label="play">🔊</button><span class="thai">ไม่มี</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มีเวลา" aria-label="play">🔊</button><span class="thai">มีเวลา</span><span class="en-colloc">have time</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มีเงิน" aria-label="play">🔊</button><span class="thai">มีเงิน</span><span class="en-colloc">have money</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มีไหม" aria-label="play">🔊</button><span class="thai">มีไหม</span><span class="en-colloc">do you have?</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไม่มี" aria-label="play">🔊</button><span class="thai">ไม่มี</span><span class="en-colloc">there isn't</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ร้านนี้มีชาไทยไหมคะ" aria-label="play">🔊</button>
@@ -553,7 +560,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可作動詞「給」，也可放在句中表示讓某人做，或替某人做。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ให้หน่อย" aria-label="play">🔊</button><span class="thai">ให้หน่อย</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ให้ฉัน" aria-label="play">🔊</button><span class="thai">ให้ฉัน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำให้" aria-label="play">🔊</button><span class="thai">ทำให้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ขอให้" aria-label="play">🔊</button><span class="thai">ขอให้</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ให้หน่อย" aria-label="play">🔊</button><span class="thai">ให้หน่อย</span><span class="en-colloc">give me a bit</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ให้ฉัน" aria-label="play">🔊</button><span class="thai">ให้ฉัน</span><span class="en-colloc">give me</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำให้" aria-label="play">🔊</button><span class="thai">ทำให้</span><span class="en-colloc">do for</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ขอให้" aria-label="play">🔊</button><span class="thai">ขอให้</span><span class="en-colloc">wish/please</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ช่วยเปิดประตูให้หน่อยค่ะ" aria-label="play">🔊</button>
@@ -585,7 +592,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>表示義務或必要；點餐時也可說 ต้องการ...「需要／想要」。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ต้องไป" aria-label="play">🔊</button><span class="thai">ต้องไป</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ต้องทำ" aria-label="play">🔊</button><span class="thai">ต้องทำ</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ต้องใช้" aria-label="play">🔊</button><span class="thai">ต้องใช้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ต้องการ" aria-label="play">🔊</button><span class="thai">ต้องการ</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ต้องไป" aria-label="play">🔊</button><span class="thai">ต้องไป</span><span class="en-colloc">must go</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ต้องทำ" aria-label="play">🔊</button><span class="thai">ต้องทำ</span><span class="en-colloc">must do</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ต้องใช้" aria-label="play">🔊</button><span class="thai">ต้องใช้</span><span class="en-colloc">need to use</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ต้องการ" aria-label="play">🔊</button><span class="thai">ต้องการ</span><span class="en-colloc">need/want</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ฉันต้องไปแล้วค่ะ" aria-label="play">🔊</button>
@@ -617,7 +624,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>表示所有關係，也可當「東西」。常見：ของฉัน、ของกิน、ของใช้。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ของฉัน" aria-label="play">🔊</button><span class="thai">ของฉัน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ของเขา" aria-label="play">🔊</button><span class="thai">ของเขา</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ของกิน" aria-label="play">🔊</button><span class="thai">ของกิน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ของใช้" aria-label="play">🔊</button><span class="thai">ของใช้</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ของฉัน" aria-label="play">🔊</button><span class="thai">ของฉัน</span><span class="en-colloc">mine</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ของเขา" aria-label="play">🔊</button><span class="thai">ของเขา</span><span class="en-colloc">his/hers</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ของกิน" aria-label="play">🔊</button><span class="thai">ของกิน</span><span class="en-colloc">food/snack</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ของใช้" aria-label="play">🔊</button><span class="thai">ของใช้</span><span class="en-colloc">everyday items</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="นี่ของฉันค่ะ" aria-label="play">🔊</button>
@@ -649,7 +656,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>連接人或事物；口語中常用於「跟誰一起」。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="กับเพื่อน" aria-label="play">🔊</button><span class="thai">กับเพื่อน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="กับข้าว" aria-label="play">🔊</button><span class="thai">กับข้าว</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไปกับ" aria-label="play">🔊</button><span class="thai">ไปกับ</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="คุยกับ" aria-label="play">🔊</button><span class="thai">คุยกับ</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="กับเพื่อน" aria-label="play">🔊</button><span class="thai">กับเพื่อน</span><span class="en-colloc">with a friend</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="กับข้าว" aria-label="play">🔊</button><span class="thai">กับข้าว</span><span class="en-colloc">side dish</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไปกับ" aria-label="play">🔊</button><span class="thai">ไปกับ</span><span class="en-colloc">go with</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="คุยกับ" aria-label="play">🔊</button><span class="thai">คุยกับ</span><span class="en-colloc">talk with</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ฉันไปกับเพื่อน" aria-label="play">🔊</button>
@@ -681,7 +688,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>放在動詞或形容詞前否定。聲調是 falling tone，和 ใหม่ mài「新」不同。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไม่เอา" aria-label="play">🔊</button><span class="thai">ไม่เอา</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไม่ได้" aria-label="play">🔊</button><span class="thai">ไม่ได้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไม่มี" aria-label="play">🔊</button><span class="thai">ไม่มี</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไม่ค่อย" aria-label="play">🔊</button><span class="thai">ไม่ค่อย</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไม่เอา" aria-label="play">🔊</button><span class="thai">ไม่เอา</span><span class="en-colloc">don't want it</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไม่ได้" aria-label="play">🔊</button><span class="thai">ไม่ได้</span><span class="en-colloc">cannot</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไม่มี" aria-label="play">🔊</button><span class="thai">ไม่มี</span><span class="en-colloc">there isn't</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไม่ค่อย" aria-label="play">🔊</button><span class="thai">ไม่ค่อย</span><span class="en-colloc">not really</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ไม่เอาถุงค่ะ" aria-label="play">🔊</button>
@@ -713,7 +720,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>較書面；日常口語更常用 กับ gàp 或直接停頓連接。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="A และ B" aria-label="play">🔊</button><span class="thai">A และ B</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทั้ง...และ" aria-label="play">🔊</button><span class="thai">ทั้ง...และ</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="A และ B" aria-label="play">🔊</button><span class="thai">A และ B</span><span class="en-colloc">A and B</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทั้ง...และ" aria-label="play">🔊</button><span class="thai">ทั้ง...และ</span><span class="en-colloc">both...and</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ฉันชอบชาและกาแฟ" aria-label="play">🔊</button>
@@ -745,7 +752,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>表示內部空間或抽象範圍，如ในกรุงเทพฯ、ในชีวิต。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ในบ้าน" aria-label="play">🔊</button><span class="thai">ในบ้าน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ในร้าน" aria-label="play">🔊</button><span class="thai">ในร้าน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ในกรุงเทพฯ" aria-label="play">🔊</button><span class="thai">ในกรุงเทพฯ</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ในชีวิต" aria-label="play">🔊</button><span class="thai">ในชีวิต</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ในบ้าน" aria-label="play">🔊</button><span class="thai">ในบ้าน</span><span class="en-colloc">inside the house</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ในร้าน" aria-label="play">🔊</button><span class="thai">ในร้าน</span><span class="en-colloc">in the shop</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ในกรุงเทพฯ" aria-label="play">🔊</button><span class="thai">ในกรุงเทพฯ</span><span class="en-colloc">in Bangkok</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ในชีวิต" aria-label="play">🔊</button><span class="thai">ในชีวิต</span><span class="en-colloc">in life</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="อยู่ในกระเป๋าค่ะ" aria-label="play">🔊</button>
@@ -777,7 +784,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>常放句尾表示一起做；รักกัน 是彼此相愛。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ด้วยกัน" aria-label="play">🔊</button><span class="thai">ด้วยกัน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไปกัน" aria-label="play">🔊</button><span class="thai">ไปกัน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="คุยกัน" aria-label="play">🔊</button><span class="thai">คุยกัน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="รักกัน" aria-label="play">🔊</button><span class="thai">รักกัน</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ด้วยกัน" aria-label="play">🔊</button><span class="thai">ด้วยกัน</span><span class="en-colloc">together</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไปกัน" aria-label="play">🔊</button><span class="thai">ไปกัน</span><span class="en-colloc">let's go</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="คุยกัน" aria-label="play">🔊</button><span class="thai">คุยกัน</span><span class="en-colloc">chat together</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="รักกัน" aria-label="play">🔊</button><span class="thai">รักกัน</span><span class="en-colloc">love each other</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ไปกินข้าวกันไหม" aria-label="play">🔊</button>
@@ -809,7 +816,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>接在動詞後表示方向向上；接形容詞表示程度增加。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ดีขึ้น" aria-label="play">🔊</button><span class="thai">ดีขึ้น</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มากขึ้น" aria-label="play">🔊</button><span class="thai">มากขึ้น</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ขึ้นรถ" aria-label="play">🔊</button><span class="thai">ขึ้นรถ</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ขึ้นราคา" aria-label="play">🔊</button><span class="thai">ขึ้นราคา</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ดีขึ้น" aria-label="play">🔊</button><span class="thai">ดีขึ้น</span><span class="en-colloc">getting better</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มากขึ้น" aria-label="play">🔊</button><span class="thai">มากขึ้น</span><span class="en-colloc">more and more</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ขึ้นรถ" aria-label="play">🔊</button><span class="thai">ขึ้นรถ</span><span class="en-colloc">get on vehicle</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ขึ้นราคา" aria-label="play">🔊</button><span class="thai">ขึ้นราคา</span><span class="en-colloc">price increase</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ราคาขึ้นอีกแล้ว" aria-label="play">🔊</button>
@@ -841,7 +848,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>句尾可表示「也」；放名詞後可表示使用工具或一起。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ด้วยกัน" aria-label="play">🔊</button><span class="thai">ด้วยกัน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เอา...ด้วย" aria-label="play">🔊</button><span class="thai">เอา...ด้วย</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ช่วยด้วย" aria-label="play">🔊</button><span class="thai">ช่วยด้วย</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไปด้วย" aria-label="play">🔊</button><span class="thai">ไปด้วย</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ด้วยกัน" aria-label="play">🔊</button><span class="thai">ด้วยกัน</span><span class="en-colloc">together</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เอา...ด้วย" aria-label="play">🔊</button><span class="thai">เอา...ด้วย</span><span class="en-colloc">bring along too</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ช่วยด้วย" aria-label="play">🔊</button><span class="thai">ช่วยด้วย</span><span class="en-colloc">please help</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไปด้วย" aria-label="play">🔊</button><span class="thai">ไปด้วย</span><span class="en-colloc">go along</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="เอาน้ำด้วยค่ะ" aria-label="play">🔊</button>
@@ -873,7 +880,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>表示來源、出發點；從某處來、從某人得到。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="จากบ้าน" aria-label="play">🔊</button><span class="thai">จากบ้าน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="จากไทย" aria-label="play">🔊</button><span class="thai">จากไทย</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มาจาก" aria-label="play">🔊</button><span class="thai">มาจาก</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ได้จาก" aria-label="play">🔊</button><span class="thai">ได้จาก</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="จากบ้าน" aria-label="play">🔊</button><span class="thai">จากบ้าน</span><span class="en-colloc">from home</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="จากไทย" aria-label="play">🔊</button><span class="thai">จากไทย</span><span class="en-colloc">from Thailand</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มาจาก" aria-label="play">🔊</button><span class="thai">มาจาก</span><span class="en-colloc">come from</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ได้จาก" aria-label="play">🔊</button><span class="thai">ได้จาก</span><span class="en-colloc">get from</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ฉันมาจากไต้หวัน" aria-label="play">🔊</button>
@@ -905,7 +912,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>放在動詞前，把動作變成名詞；較正式，常見於書面。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="การเรียน" aria-label="play">🔊</button><span class="thai">การเรียน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="การทำงาน" aria-label="play">🔊</button><span class="thai">การทำงาน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="การเดินทาง" aria-label="play">🔊</button><span class="thai">การเดินทาง</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="การเรียน" aria-label="play">🔊</button><span class="thai">การเรียน</span><span class="en-colloc">studying</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="การทำงาน" aria-label="play">🔊</button><span class="thai">การทำงาน</span><span class="en-colloc">working</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="การเดินทาง" aria-label="play">🔊</button><span class="thai">การเดินทาง</span><span class="en-colloc">traveling</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="การเรียนไทยสนุกมาก" aria-label="play">🔊</button>
@@ -937,7 +944,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可作主要動詞，也常接在動詞後表示方向或動作延伸。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไปไหน" aria-label="play">🔊</button><span class="thai">ไปไหน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไปด้วย" aria-label="play">🔊</button><span class="thai">ไปด้วย</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="กลับไป" aria-label="play">🔊</button><span class="thai">กลับไป</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เดินไป" aria-label="play">🔊</button><span class="thai">เดินไป</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไปไหน" aria-label="play">🔊</button><span class="thai">ไปไหน</span><span class="en-colloc">go where</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไปด้วย" aria-label="play">🔊</button><span class="thai">ไปด้วย</span><span class="en-colloc">go along</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="กลับไป" aria-label="play">🔊</button><span class="thai">กลับไป</span><span class="en-colloc">go back</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เดินไป" aria-label="play">🔊</button><span class="thai">เดินไป</span><span class="en-colloc">walk there</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ไปไหนดีคะ" aria-label="play">🔊</button>
@@ -969,7 +976,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可作主要動詞，也常接在動詞後表示動作朝向自己。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มาแล้ว" aria-label="play">🔊</button><span class="thai">มาแล้ว</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มาจาก" aria-label="play">🔊</button><span class="thai">มาจาก</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ซื้อมา" aria-label="play">🔊</button><span class="thai">ซื้อมา</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="กลับมา" aria-label="play">🔊</button><span class="thai">กลับมา</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มาแล้ว" aria-label="play">🔊</button><span class="thai">มาแล้ว</span><span class="en-colloc">arrived</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มาจาก" aria-label="play">🔊</button><span class="thai">มาจาก</span><span class="en-colloc">come from</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ซื้อมา" aria-label="play">🔊</button><span class="thai">ซื้อมา</span><span class="en-colloc">bought it</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="กลับมา" aria-label="play">🔊</button><span class="thai">กลับมา</span><span class="en-colloc">come back</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="มาที่นี่ได้ไหมคะ" aria-label="play">🔊</button>
@@ -1001,7 +1008,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可表示抵達，也可表示時間或程度到某點。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ถึงบ้าน" aria-label="play">🔊</button><span class="thai">ถึงบ้าน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ถึงแล้ว" aria-label="play">🔊</button><span class="thai">ถึงแล้ว</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ถึงกี่โมง" aria-label="play">🔊</button><span class="thai">ถึงกี่โมง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตั้งแต่...ถึง" aria-label="play">🔊</button><span class="thai">ตั้งแต่...ถึง</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ถึงบ้าน" aria-label="play">🔊</button><span class="thai">ถึงบ้าน</span><span class="en-colloc">arrived home</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ถึงแล้ว" aria-label="play">🔊</button><span class="thai">ถึงแล้ว</span><span class="en-colloc">arrived</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ถึงกี่โมง" aria-label="play">🔊</button><span class="thai">ถึงกี่โมง</span><span class="en-colloc">until what time</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตั้งแต่...ถึง" aria-label="play">🔊</button><span class="thai">ตั้งแต่...ถึง</span><span class="en-colloc">from...to</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ถึงบ้านแล้วค่ะ" aria-label="play">🔊</button>
@@ -1033,7 +1040,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>比較句核心：A + adj + กว่า + B；數量後可表示超過。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ดีกว่า" aria-label="play">🔊</button><span class="thai">ดีกว่า</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แพงกว่า" aria-label="play">🔊</button><span class="thai">แพงกว่า</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มากกว่า" aria-label="play">🔊</button><span class="thai">มากกว่า</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="น้อยกว่า" aria-label="play">🔊</button><span class="thai">น้อยกว่า</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ดีกว่า" aria-label="play">🔊</button><span class="thai">ดีกว่า</span><span class="en-colloc">better than</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แพงกว่า" aria-label="play">🔊</button><span class="thai">แพงกว่า</span><span class="en-colloc">more expensive</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มากกว่า" aria-label="play">🔊</button><span class="thai">มากกว่า</span><span class="en-colloc">more than</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="น้อยกว่า" aria-label="play">🔊</button><span class="thai">น้อยกว่า</span><span class="en-colloc">less than</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="อันนี้ถูกกว่า" aria-label="play">🔊</button>
@@ -1065,7 +1072,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>常用 ทั้งหมด「全部」、ทั้งสอง「兩個都」、ทั้ง...และ...「既…又…」。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทั้งหมด" aria-label="play">🔊</button><span class="thai">ทั้งหมด</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทั้งสอง" aria-label="play">🔊</button><span class="thai">ทั้งสอง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทั้งวัน" aria-label="play">🔊</button><span class="thai">ทั้งวัน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทั้ง...ทั้ง" aria-label="play">🔊</button><span class="thai">ทั้ง...ทั้ง</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทั้งหมด" aria-label="play">🔊</button><span class="thai">ทั้งหมด</span><span class="en-colloc">all/everything</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทั้งสอง" aria-label="play">🔊</button><span class="thai">ทั้งสอง</span><span class="en-colloc">both</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทั้งวัน" aria-label="play">🔊</button><span class="thai">ทั้งวัน</span><span class="en-colloc">all day</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทั้ง...ทั้ง" aria-label="play">🔊</button><span class="thai">ทั้ง...ทั้ง</span><span class="en-colloc">both...and</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="เอาทั้งสองอันค่ะ" aria-label="play">🔊</button>
@@ -1097,7 +1104,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>較書面；口語常用 ตอน tɔɔn。เมื่อวาน = yesterday。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เมื่อวาน" aria-label="play">🔊</button><span class="thai">เมื่อวาน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เมื่อกี้" aria-label="play">🔊</button><span class="thai">เมื่อกี้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เมื่อไหร่" aria-label="play">🔊</button><span class="thai">เมื่อไหร่</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เมื่อถึง" aria-label="play">🔊</button><span class="thai">เมื่อถึง</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เมื่อวาน" aria-label="play">🔊</button><span class="thai">เมื่อวาน</span><span class="en-colloc">yesterday</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เมื่อกี้" aria-label="play">🔊</button><span class="thai">เมื่อกี้</span><span class="en-colloc">just now</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เมื่อไหร่" aria-label="play">🔊</button><span class="thai">เมื่อไหร่</span><span class="en-colloc">when</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เมื่อถึง" aria-label="play">🔊</button><span class="thai">เมื่อถึง</span><span class="en-colloc">when arrived</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="เมื่อวานไปไหนมา" aria-label="play">🔊</button>
@@ -1129,7 +1136,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可當名詞「人」，也是人的量詞：คนหนึ่ง、สองคน。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="คนไทย" aria-label="play">🔊</button><span class="thai">คนไทย</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="คนนี้" aria-label="play">🔊</button><span class="thai">คนนี้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="กี่คน" aria-label="play">🔊</button><span class="thai">กี่คน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="สองคน" aria-label="play">🔊</button><span class="thai">สองคน</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="คนไทย" aria-label="play">🔊</button><span class="thai">คนไทย</span><span class="en-colloc">Thai person</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="คนนี้" aria-label="play">🔊</button><span class="thai">คนนี้</span><span class="en-colloc">this person</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="กี่คน" aria-label="play">🔊</button><span class="thai">กี่คน</span><span class="en-colloc">how many people</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="สองคน" aria-label="play">🔊</button><span class="thai">สองคน</span><span class="en-colloc">two people</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="คนนี้เป็นเพื่อนฉัน" aria-label="play">🔊</button>
@@ -1161,7 +1168,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>作連接詞「但是」；有時也表示「只」。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แต่" aria-label="play">🔊</button><span class="thai">แต่</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตั้งแต่" aria-label="play">🔊</button><span class="thai">ตั้งแต่</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แต่ละ" aria-label="play">🔊</button><span class="thai">แต่ละ</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เอาแต่" aria-label="play">🔊</button><span class="thai">เอาแต่</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แต่" aria-label="play">🔊</button><span class="thai">แต่</span><span class="en-colloc">but</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตั้งแต่" aria-label="play">🔊</button><span class="thai">ตั้งแต่</span><span class="en-colloc">since/from</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แต่ละ" aria-label="play">🔊</button><span class="thai">แต่ละ</span><span class="en-colloc">each/every</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เอาแต่" aria-label="play">🔊</button><span class="thai">เอาแต่</span><span class="en-colloc">only want</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="อยากไปแต่ไม่มีเวลา" aria-label="play">🔊</button>
@@ -1193,7 +1200,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>表示位置或持續狀態；放句尾可表正在做。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อยู่ไหน" aria-label="play">🔊</button><span class="thai">อยู่ไหน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อยู่บ้าน" aria-label="play">🔊</button><span class="thai">อยู่บ้าน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="กำลัง...อยู่" aria-label="play">🔊</button><span class="thai">กำลัง...อยู่</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อยู่ไหน" aria-label="play">🔊</button><span class="thai">อยู่ไหน</span><span class="en-colloc">where are you</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อยู่บ้าน" aria-label="play">🔊</button><span class="thai">อยู่บ้าน</span><span class="en-colloc">stay home</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="กำลัง...อยู่" aria-label="play">🔊</button><span class="thai">กำลัง...อยู่</span><span class="en-colloc">currently doing</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ตอนนี้อยู่ไหนคะ" aria-label="play">🔊</button>
@@ -1225,7 +1232,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>超高頻語氣詞，常讓句子更自然；可表示「那就、也、其實」。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ก็ได้" aria-label="play">🔊</button><span class="thai">ก็ได้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ก็เลย" aria-label="play">🔊</button><span class="thai">ก็เลย</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ก็ยัง" aria-label="play">🔊</button><span class="thai">ก็ยัง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ฉันก็" aria-label="play">🔊</button><span class="thai">ฉันก็</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ก็ได้" aria-label="play">🔊</button><span class="thai">ก็ได้</span><span class="en-colloc">that's fine</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ก็เลย" aria-label="play">🔊</button><span class="thai">ก็เลย</span><span class="en-colloc">so then</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ก็ยัง" aria-label="play">🔊</button><span class="thai">ก็ยัง</span><span class="en-colloc">still also</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ฉันก็" aria-label="play">🔊</button><span class="thai">ฉันก็</span><span class="en-colloc">I also</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="งั้นก็เอาอันนี้ค่ะ" aria-label="play">🔊</button>
@@ -1257,7 +1264,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>用來指事情、話題、問題；เรื่องนี้ = this matter。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เรื่องนี้" aria-label="play">🔊</button><span class="thai">เรื่องนี้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เรื่องงาน" aria-label="play">🔊</button><span class="thai">เรื่องงาน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มีเรื่อง" aria-label="play">🔊</button><span class="thai">มีเรื่อง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="คุยเรื่อง" aria-label="play">🔊</button><span class="thai">คุยเรื่อง</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เรื่องนี้" aria-label="play">🔊</button><span class="thai">เรื่องนี้</span><span class="en-colloc">this matter</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เรื่องงาน" aria-label="play">🔊</button><span class="thai">เรื่องงาน</span><span class="en-colloc">work matters</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มีเรื่อง" aria-label="play">🔊</button><span class="thai">มีเรื่อง</span><span class="en-colloc">there's something</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="คุยเรื่อง" aria-label="play">🔊</button><span class="thai">คุยเรื่อง</span><span class="en-colloc">talk about</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="เรื่องนี้สำคัญมาก" aria-label="play">🔊</button>
@@ -1289,7 +1296,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可表示一種東西，也可表示方式：อย่างนี้「這樣」。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อย่างนี้" aria-label="play">🔊</button><span class="thai">อย่างนี้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อย่างนั้น" aria-label="play">🔊</button><span class="thai">อย่างนั้น</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="บางอย่าง" aria-label="play">🔊</button><span class="thai">บางอย่าง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทุกอย่าง" aria-label="play">🔊</button><span class="thai">ทุกอย่าง</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อย่างนี้" aria-label="play">🔊</button><span class="thai">อย่างนี้</span><span class="en-colloc">like this</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อย่างนั้น" aria-label="play">🔊</button><span class="thai">อย่างนั้น</span><span class="en-colloc">like that</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="บางอย่าง" aria-label="play">🔊</button><span class="thai">บางอย่าง</span><span class="en-colloc">some things</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทุกอย่าง" aria-label="play">🔊</button><span class="thai">ทุกอย่าง</span><span class="en-colloc">everything</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="เอาอย่างนี้ได้ไหมคะ" aria-label="play">🔊</button>
@@ -1321,7 +1328,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>放在形容詞或動詞前形成抽象名詞，如 ความรัก、ความสุข。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ความรัก" aria-label="play">🔊</button><span class="thai">ความรัก</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ความสุข" aria-label="play">🔊</button><span class="thai">ความสุข</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ความจริง" aria-label="play">🔊</button><span class="thai">ความจริง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ความคิด" aria-label="play">🔊</button><span class="thai">ความคิด</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ความรัก" aria-label="play">🔊</button><span class="thai">ความรัก</span><span class="en-colloc">love</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ความสุข" aria-label="play">🔊</button><span class="thai">ความสุข</span><span class="en-colloc">happiness</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ความจริง" aria-label="play">🔊</button><span class="thai">ความจริง</span><span class="en-colloc">truth</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ความคิด" aria-label="play">🔊</button><span class="thai">ความคิด</span><span class="en-colloc">thought/idea</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ความจริงคืออะไร" aria-label="play">🔊</button>
@@ -1353,7 +1360,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>指較遠或前文提到的事物；正式比 นั่น 一點。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อันนั้น" aria-label="play">🔊</button><span class="thai">อันนั้น</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="คนนั้น" aria-label="play">🔊</button><span class="thai">คนนั้น</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตอนนั้น" aria-label="play">🔊</button><span class="thai">ตอนนั้น</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ร้านนั้น" aria-label="play">🔊</button><span class="thai">ร้านนั้น</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อันนั้น" aria-label="play">🔊</button><span class="thai">อันนั้น</span><span class="en-colloc">that one</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="คนนั้น" aria-label="play">🔊</button><span class="thai">คนนั้น</span><span class="en-colloc">that person</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตอนนั้น" aria-label="play">🔊</button><span class="thai">ตอนนั้น</span><span class="en-colloc">at that time</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ร้านนั้น" aria-label="play">🔊</button><span class="thai">ร้านนั้น</span><span class="en-colloc">that shop</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="อันนั้นเท่าไหร่คะ" aria-label="play">🔊</button>
@@ -1385,7 +1392,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>放形容詞後表示很；มากกว่า 表示更多／比較多。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มากๆ" aria-label="play">🔊</button><span class="thai">มากๆ</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไม่มาก" aria-label="play">🔊</button><span class="thai">ไม่มาก</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มากกว่า" aria-label="play">🔊</button><span class="thai">มากกว่า</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มากที่สุด" aria-label="play">🔊</button><span class="thai">มากที่สุด</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มากๆ" aria-label="play">🔊</button><span class="thai">มากๆ</span><span class="en-colloc">a lot</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไม่มาก" aria-label="play">🔊</button><span class="thai">ไม่มาก</span><span class="en-colloc">not much</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มากกว่า" aria-label="play">🔊</button><span class="thai">มากกว่า</span><span class="en-colloc">more than</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มากที่สุด" aria-label="play">🔊</button><span class="thai">มากที่สุด</span><span class="en-colloc">the most</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="อร่อยมากค่ะ" aria-label="play">🔊</button>
@@ -1417,7 +1424,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>常放句尾表示完成；也可連接事件順序。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แล้วค่ะ" aria-label="play">🔊</button><span class="thai">แล้วค่ะ</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มาแล้ว" aria-label="play">🔊</button><span class="thai">มาแล้ว</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เสร็จแล้ว" aria-label="play">🔊</button><span class="thai">เสร็จแล้ว</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แล้วก็" aria-label="play">🔊</button><span class="thai">แล้วก็</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แล้วค่ะ" aria-label="play">🔊</button><span class="thai">แล้วค่ะ</span><span class="en-colloc">already (polite)</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มาแล้ว" aria-label="play">🔊</button><span class="thai">มาแล้ว</span><span class="en-colloc">arrived</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เสร็จแล้ว" aria-label="play">🔊</button><span class="thai">เสร็จแล้ว</span><span class="en-colloc">finished</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แล้วก็" aria-label="play">🔊</button><span class="thai">แล้วก็</span><span class="en-colloc">and then</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="กินแล้วค่ะ" aria-label="play">🔊</button>
@@ -1449,7 +1456,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>高頻多義詞：ราคาถูก 是便宜；ถูกถาม 是被問；ถูกต้อง 是正確。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ราคาถูก" aria-label="play">🔊</button><span class="thai">ราคาถูก</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ถูกต้อง" aria-label="play">🔊</button><span class="thai">ถูกต้อง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ถูกถาม" aria-label="play">🔊</button><span class="thai">ถูกถาม</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ถูกใจ" aria-label="play">🔊</button><span class="thai">ถูกใจ</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ราคาถูก" aria-label="play">🔊</button><span class="thai">ราคาถูก</span><span class="en-colloc">low price</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ถูกต้อง" aria-label="play">🔊</button><span class="thai">ถูกต้อง</span><span class="en-colloc">correct</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ถูกถาม" aria-label="play">🔊</button><span class="thai">ถูกถาม</span><span class="en-colloc">was asked</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ถูกใจ" aria-label="play">🔊</button><span class="thai">ถูกใจ</span><span class="en-colloc">to one's liking</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ร้านนี้ถูกมาก" aria-label="play">🔊</button>
@@ -1481,7 +1488,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>放在動詞後表示保留、先做著以備後用。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เก็บไว้" aria-label="play">🔊</button><span class="thai">เก็บไว้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="จองไว้" aria-label="play">🔊</button><span class="thai">จองไว้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เอาไว้" aria-label="play">🔊</button><span class="thai">เอาไว้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไว้ก่อน" aria-label="play">🔊</button><span class="thai">ไว้ก่อน</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เก็บไว้" aria-label="play">🔊</button><span class="thai">เก็บไว้</span><span class="en-colloc">keep/save</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="จองไว้" aria-label="play">🔊</button><span class="thai">จองไว้</span><span class="en-colloc">reserved</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เอาไว้" aria-label="play">🔊</button><span class="thai">เอาไว้</span><span class="en-colloc">put aside</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไว้ก่อน" aria-label="play">🔊</button><span class="thai">ไว้ก่อน</span><span class="en-colloc">hold on</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="เก็บไว้ก่อนค่ะ" aria-label="play">🔊</button>
@@ -1513,7 +1520,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>書面與正式口語常見；日常口語也常說 หรือเปล่า rʉ̌ʉ bplàao。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หรือเปล่า" aria-label="play">🔊</button><span class="thai">หรือเปล่า</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หรือไม่" aria-label="play">🔊</button><span class="thai">หรือไม่</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="A หรือ B" aria-label="play">🔊</button><span class="thai">A หรือ B</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หรือเปล่า" aria-label="play">🔊</button><span class="thai">หรือเปล่า</span><span class="en-colloc">or not?</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หรือไม่" aria-label="play">🔊</button><span class="thai">หรือไม่</span><span class="en-colloc">or not</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="A หรือ B" aria-label="play">🔊</button><span class="thai">A หรือ B</span><span class="en-colloc">A or B</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="เอาร้อนหรือเย็นคะ" aria-label="play">🔊</button>
@@ -1545,7 +1552,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>接原因；เพราะว่า 更完整但口語中 เพราะ 就很常用。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เพราะว่า" aria-label="play">🔊</button><span class="thai">เพราะว่า</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เพราะอะไร" aria-label="play">🔊</button><span class="thai">เพราะอะไร</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เพราะฝนตก" aria-label="play">🔊</button><span class="thai">เพราะฝนตก</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เพราะว่า" aria-label="play">🔊</button><span class="thai">เพราะว่า</span><span class="en-colloc">because</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เพราะอะไร" aria-label="play">🔊</button><span class="thai">เพราะอะไร</span><span class="en-colloc">why</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เพราะฝนตก" aria-label="play">🔊</button><span class="thai">เพราะฝนตก</span><span class="en-colloc">because it's raining</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ไม่ไปเพราะฝนตก" aria-label="play">🔊</button>
@@ -1577,7 +1584,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可指時間點或時間量；เวลาไหน「什麼時間」。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มีเวลา" aria-label="play">🔊</button><span class="thai">มีเวลา</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไม่มีเวลา" aria-label="play">🔊</button><span class="thai">ไม่มีเวลา</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เวลาไหน" aria-label="play">🔊</button><span class="thai">เวลาไหน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ใช้เวลา" aria-label="play">🔊</button><span class="thai">ใช้เวลา</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มีเวลา" aria-label="play">🔊</button><span class="thai">มีเวลา</span><span class="en-colloc">have time</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไม่มีเวลา" aria-label="play">🔊</button><span class="thai">ไม่มีเวลา</span><span class="en-colloc">no time</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เวลาไหน" aria-label="play">🔊</button><span class="thai">เวลาไหน</span><span class="en-colloc">what time</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ใช้เวลา" aria-label="play">🔊</button><span class="thai">ใช้เวลา</span><span class="en-colloc">takes time</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="มีเวลาไหมคะ" aria-label="play">🔊</button>
@@ -1609,7 +1616,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>搭配 ไม่ 成為 ยังไม่ = not yet；句尾 ยัง? 可問「還…嗎」。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ยังไม่" aria-label="play">🔊</button><span class="thai">ยังไม่</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ยังอยู่" aria-label="play">🔊</button><span class="thai">ยังอยู่</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ยังมี" aria-label="play">🔊</button><span class="thai">ยังมี</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ยังไง" aria-label="play">🔊</button><span class="thai">ยังไง</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ยังไม่" aria-label="play">🔊</button><span class="thai">ยังไม่</span><span class="en-colloc">not yet</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ยังอยู่" aria-label="play">🔊</button><span class="thai">ยังอยู่</span><span class="en-colloc">still here</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ยังมี" aria-label="play">🔊</button><span class="thai">ยังมี</span><span class="en-colloc">still have</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ยังไง" aria-label="play">🔊</button><span class="thai">ยังไง</span><span class="en-colloc">how/anyway</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ยังไม่ถึงค่ะ" aria-label="play">🔊</button>
@@ -1641,7 +1648,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>最核心動詞之一；做事、做飯、做工作都可用。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำงาน" aria-label="play">🔊</button><span class="thai">ทำงาน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำอาหาร" aria-label="play">🔊</button><span class="thai">ทำอาหาร</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำไม" aria-label="play">🔊</button><span class="thai">ทำไม</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำให้" aria-label="play">🔊</button><span class="thai">ทำให้</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำงาน" aria-label="play">🔊</button><span class="thai">ทำงาน</span><span class="en-colloc">work</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำอาหาร" aria-label="play">🔊</button><span class="thai">ทำอาหาร</span><span class="en-colloc">cook food</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำไม" aria-label="play">🔊</button><span class="thai">ทำไม</span><span class="en-colloc">why</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำให้" aria-label="play">🔊</button><span class="thai">ทำให้</span><span class="en-colloc">do for</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ทำอะไรอยู่คะ" aria-label="play">🔊</button>
@@ -1673,7 +1680,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可表示視覺看到，也可搭配ว่า表示「覺得／認為」。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เห็นไหม" aria-label="play">🔊</button><span class="thai">เห็นไหม</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เห็นด้วย" aria-label="play">🔊</button><span class="thai">เห็นด้วย</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มองเห็น" aria-label="play">🔊</button><span class="thai">มองเห็น</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เห็นไหม" aria-label="play">🔊</button><span class="thai">เห็นไหม</span><span class="en-colloc">can you see?</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เห็นด้วย" aria-label="play">🔊</button><span class="thai">เห็นด้วย</span><span class="en-colloc">agree</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มองเห็น" aria-label="play">🔊</button><span class="thai">มองเห็น</span><span class="en-colloc">can see</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="เห็นเขาไหมคะ" aria-label="play">🔊</button>
@@ -1705,7 +1712,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>เข้าใจ = understand；เข้า + place = enter/go into。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เข้าใจ" aria-label="play">🔊</button><span class="thai">เข้าใจ</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เข้าไป" aria-label="play">🔊</button><span class="thai">เข้าไป</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เข้าห้อง" aria-label="play">🔊</button><span class="thai">เข้าห้อง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เข้างาน" aria-label="play">🔊</button><span class="thai">เข้างาน</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เข้าใจ" aria-label="play">🔊</button><span class="thai">เข้าใจ</span><span class="en-colloc">understand</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เข้าไป" aria-label="play">🔊</button><span class="thai">เข้าไป</span><span class="en-colloc">go in</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เข้าห้อง" aria-label="play">🔊</button><span class="thai">เข้าห้อง</span><span class="en-colloc">enter room</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เข้างาน" aria-label="play">🔊</button><span class="thai">เข้างาน</span><span class="en-colloc">start work</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="เข้าใจแล้วค่ะ" aria-label="play">🔊</button>
@@ -1737,7 +1744,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>在百貨公司、捷運站常用；也可表示社會階層。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ชั้นหนึ่ง" aria-label="play">🔊</button><span class="thai">ชั้นหนึ่ง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ชั้นบน" aria-label="play">🔊</button><span class="thai">ชั้นบน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ชั้นล่าง" aria-label="play">🔊</button><span class="thai">ชั้นล่าง</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ชั้นหนึ่ง" aria-label="play">🔊</button><span class="thai">ชั้นหนึ่ง</span><span class="en-colloc">first floor</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ชั้นบน" aria-label="play">🔊</button><span class="thai">ชั้นบน</span><span class="en-colloc">upper floor</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ชั้นล่าง" aria-label="play">🔊</button><span class="thai">ชั้นล่าง</span><span class="en-colloc">lower floor</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ร้านอยู่ชั้นสามค่ะ" aria-label="play">🔊</button>
@@ -1769,7 +1776,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>較書面，用來連接補充說明；口語常改用 ที่ thîi。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ซึ่งแปลว่า" aria-label="play">🔊</button><span class="thai">ซึ่งแปลว่า</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ซึ่งทำให้" aria-label="play">🔊</button><span class="thai">ซึ่งทำให้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ซึ่งเป็น" aria-label="play">🔊</button><span class="thai">ซึ่งเป็น</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ซึ่งแปลว่า" aria-label="play">🔊</button><span class="thai">ซึ่งแปลว่า</span><span class="en-colloc">which means</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ซึ่งทำให้" aria-label="play">🔊</button><span class="thai">ซึ่งทำให้</span><span class="en-colloc">which makes</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ซึ่งเป็น" aria-label="play">🔊</button><span class="thai">ซึ่งเป็น</span><span class="en-colloc">which is</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="นี่คือร้านที่ฉันชอบ" aria-label="play">🔊</button>
@@ -1801,7 +1808,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>接在動詞後表示方向向下；接形容詞表示程度下降。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ลงรถ" aria-label="play">🔊</button><span class="thai">ลงรถ</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ลงบีทีเอส" aria-label="play">🔊</button><span class="thai">ลงบีทีเอส</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ลดลง" aria-label="play">🔊</button><span class="thai">ลดลง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ช้าลง" aria-label="play">🔊</button><span class="thai">ช้าลง</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ลงรถ" aria-label="play">🔊</button><span class="thai">ลงรถ</span><span class="en-colloc">get off vehicle</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ลงบีทีเอส" aria-label="play">🔊</button><span class="thai">ลงบีทีเอส</span><span class="en-colloc">get off BTS</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ลดลง" aria-label="play">🔊</button><span class="thai">ลดลง</span><span class="en-colloc">decrease</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ช้าลง" aria-label="play">🔊</button><span class="thai">ช้าลง</span><span class="en-colloc">slowing down</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ราคาลงแล้ว" aria-label="play">🔊</button>
@@ -1833,7 +1840,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>條件句開頭；常搭配 ก็：ถ้า...ก็... = if...then...</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ถ้าได้" aria-label="play">🔊</button><span class="thai">ถ้าได้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ถ้ามี" aria-label="play">🔊</button><span class="thai">ถ้ามี</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ถ้าอย่างนั้น" aria-label="play">🔊</button><span class="thai">ถ้าอย่างนั้น</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ถ้าได้" aria-label="play">🔊</button><span class="thai">ถ้าได้</span><span class="en-colloc">if possible</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ถ้ามี" aria-label="play">🔊</button><span class="thai">ถ้ามี</span><span class="en-colloc">if there is</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ถ้าอย่างนั้น" aria-label="play">🔊</button><span class="thai">ถ้าอย่างนั้น</span><span class="en-colloc">if so/in that case</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ถ้าฝนตกไม่ไปนะ" aria-label="play">🔊</button>
@@ -1865,7 +1872,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>用於動物、衣服、字母等；ตัวเอง = oneself。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตัวเอง" aria-label="play">🔊</button><span class="thai">ตัวเอง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เสื้อตัวนี้" aria-label="play">🔊</button><span class="thai">เสื้อตัวนี้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="สองตัว" aria-label="play">🔊</button><span class="thai">สองตัว</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตัวเอง" aria-label="play">🔊</button><span class="thai">ตัวเอง</span><span class="en-colloc">oneself</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เสื้อตัวนี้" aria-label="play">🔊</button><span class="thai">เสื้อตัวนี้</span><span class="en-colloc">this shirt</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="สองตัว" aria-label="play">🔊</button><span class="thai">สองตัว</span><span class="en-colloc">two pieces</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="เสื้อตัวนี้สวยมาก" aria-label="play">🔊</button>
@@ -1897,7 +1904,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>用工具、語言、時間都可用 ใช้。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ใช้เงิน" aria-label="play">🔊</button><span class="thai">ใช้เงิน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ใช้เวลา" aria-label="play">🔊</button><span class="thai">ใช้เวลา</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ใช้ได้" aria-label="play">🔊</button><span class="thai">ใช้ได้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ใช้ภาษาไทย" aria-label="play">🔊</button><span class="thai">ใช้ภาษาไทย</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ใช้เงิน" aria-label="play">🔊</button><span class="thai">ใช้เงิน</span><span class="en-colloc">spend money</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ใช้เวลา" aria-label="play">🔊</button><span class="thai">ใช้เวลา</span><span class="en-colloc">takes time</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ใช้ได้" aria-label="play">🔊</button><span class="thai">ใช้ได้</span><span class="en-colloc">usable</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ใช้ภาษาไทย" aria-label="play">🔊</button><span class="thai">ใช้ภาษาไทย</span><span class="en-colloc">use Thai language</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ใช้บัตรได้ไหมคะ" aria-label="play">🔊</button>
@@ -1929,7 +1936,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可表示跟隨，也表示依照規則或要求。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตามมา" aria-label="play">🔊</button><span class="thai">ตามมา</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตามใจ" aria-label="play">🔊</button><span class="thai">ตามใจ</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตามที่" aria-label="play">🔊</button><span class="thai">ตามที่</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตามปกติ" aria-label="play">🔊</button><span class="thai">ตามปกติ</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตามมา" aria-label="play">🔊</button><span class="thai">ตามมา</span><span class="en-colloc">follow/come after</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตามใจ" aria-label="play">🔊</button><span class="thai">ตามใจ</span><span class="en-colloc">as you like</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตามที่" aria-label="play">🔊</button><span class="thai">ตามที่</span><span class="en-colloc">as per</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตามปกติ" aria-label="play">🔊</button><span class="thai">ตามปกติ</span><span class="en-colloc">as usual</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ตามฉันมาค่ะ" aria-label="play">🔊</button>
@@ -1961,7 +1968,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>บางคน = some people；บางๆ = thinly/lightly。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="บางคน" aria-label="play">🔊</button><span class="thai">บางคน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="บางครั้ง" aria-label="play">🔊</button><span class="thai">บางครั้ง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="บางอย่าง" aria-label="play">🔊</button><span class="thai">บางอย่าง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="บางๆ" aria-label="play">🔊</button><span class="thai">บางๆ</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="บางคน" aria-label="play">🔊</button><span class="thai">บางคน</span><span class="en-colloc">some people</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="บางครั้ง" aria-label="play">🔊</button><span class="thai">บางครั้ง</span><span class="en-colloc">sometimes</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="บางอย่าง" aria-label="play">🔊</button><span class="thai">บางอย่าง</span><span class="en-colloc">some things</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="บางๆ" aria-label="play">🔊</button><span class="thai">บางๆ</span><span class="en-colloc">thin/light</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="บางร้านไม่รับบัตร" aria-label="play">🔊</button>
@@ -1993,7 +2000,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>點餐超實用：อีกหน่อย、อีกแก้ว、อีกที。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อีกที" aria-label="play">🔊</button><span class="thai">อีกที</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อีกหน่อย" aria-label="play">🔊</button><span class="thai">อีกหน่อย</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อีกครั้ง" aria-label="play">🔊</button><span class="thai">อีกครั้ง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อีกแล้ว" aria-label="play">🔊</button><span class="thai">อีกแล้ว</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อีกที" aria-label="play">🔊</button><span class="thai">อีกที</span><span class="en-colloc">one more time</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อีกหน่อย" aria-label="play">🔊</button><span class="thai">อีกหน่อย</span><span class="en-colloc">a little more</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อีกครั้ง" aria-label="play">🔊</button><span class="thai">อีกครั้ง</span><span class="en-colloc">once more</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อีกแล้ว" aria-label="play">🔊</button><span class="thai">อีกแล้ว</span><span class="en-colloc">again</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ขออีกแก้วค่ะ" aria-label="play">🔊</button>
@@ -2025,7 +2032,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>後面接結果；比單純 ทำ 更有因果感。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำให้ดีขึ้น" aria-label="play">🔊</button><span class="thai">ทำให้ดีขึ้น</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำให้เข้าใจ" aria-label="play">🔊</button><span class="thai">ทำให้เข้าใจ</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำให้เหนื่อย" aria-label="play">🔊</button><span class="thai">ทำให้เหนื่อย</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำให้ดีขึ้น" aria-label="play">🔊</button><span class="thai">ทำให้ดีขึ้น</span><span class="en-colloc">makes it better</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำให้เข้าใจ" aria-label="play">🔊</button><span class="thai">ทำให้เข้าใจ</span><span class="en-colloc">helps understand</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำให้เหนื่อย" aria-label="play">🔊</button><span class="thai">ทำให้เหนื่อย</span><span class="en-colloc">makes tired</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ฝนทำให้รถติดมาก" aria-label="play">🔊</button>
@@ -2057,7 +2064,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可指道路，也可指管道、方面：ทางไลน์、ทางนี้。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทางนี้" aria-label="play">🔊</button><span class="thai">ทางนี้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทางออก" aria-label="play">🔊</button><span class="thai">ทางออก</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทางไลน์" aria-label="play">🔊</button><span class="thai">ทางไลน์</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ระหว่างทาง" aria-label="play">🔊</button><span class="thai">ระหว่างทาง</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทางนี้" aria-label="play">🔊</button><span class="thai">ทางนี้</span><span class="en-colloc">this way</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทางออก" aria-label="play">🔊</button><span class="thai">ทางออก</span><span class="en-colloc">exit</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทางไลน์" aria-label="play">🔊</button><span class="thai">ทางไลน์</span><span class="en-colloc">via LINE</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ระหว่างทาง" aria-label="play">🔊</button><span class="thai">ระหว่างทาง</span><span class="en-colloc">on the way</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ไปทางไหนคะ" aria-label="play">🔊</button>
@@ -2089,7 +2096,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>口語高頻：แบบนี้「這樣的」、แบบว่า「就是說…」。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แบบนี้" aria-label="play">🔊</button><span class="thai">แบบนี้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แบบนั้น" aria-label="play">🔊</button><span class="thai">แบบนั้น</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แบบไหน" aria-label="play">🔊</button><span class="thai">แบบไหน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แบบว่า" aria-label="play">🔊</button><span class="thai">แบบว่า</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แบบนี้" aria-label="play">🔊</button><span class="thai">แบบนี้</span><span class="en-colloc">like this</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แบบนั้น" aria-label="play">🔊</button><span class="thai">แบบนั้น</span><span class="en-colloc">like that</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แบบไหน" aria-label="play">🔊</button><span class="thai">แบบไหน</span><span class="en-colloc">which type</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แบบว่า" aria-label="play">🔊</button><span class="thai">แบบว่า</span><span class="en-colloc">kind of/like</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="เอาแบบนี้ค่ะ" aria-label="play">🔊</button>
@@ -2121,7 +2128,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>出門、離開、拿出來都可用；ทางออก = exit。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ออกไป" aria-label="play">🔊</button><span class="thai">ออกไป</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ออกมา" aria-label="play">🔊</button><span class="thai">ออกมา</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทางออก" aria-label="play">🔊</button><span class="thai">ทางออก</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="บอกออกมา" aria-label="play">🔊</button><span class="thai">บอกออกมา</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ออกไป" aria-label="play">🔊</button><span class="thai">ออกไป</span><span class="en-colloc">go out</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ออกมา" aria-label="play">🔊</button><span class="thai">ออกมา</span><span class="en-colloc">come out</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทางออก" aria-label="play">🔊</button><span class="thai">ทางออก</span><span class="en-colloc">exit</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="บอกออกมา" aria-label="play">🔊</button><span class="thai">บอกออกมา</span><span class="en-colloc">speak out</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ออกไปข้างนอกก่อนนะ" aria-label="play">🔊</button>
@@ -2153,7 +2160,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>形容詞 + ที่สุด = 最；常用於喜歡、好吃、方便等。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ดีที่สุด" aria-label="play">🔊</button><span class="thai">ดีที่สุด</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มากที่สุด" aria-label="play">🔊</button><span class="thai">มากที่สุด</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ชอบที่สุด" aria-label="play">🔊</button><span class="thai">ชอบที่สุด</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ดีที่สุด" aria-label="play">🔊</button><span class="thai">ดีที่สุด</span><span class="en-colloc">best</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="มากที่สุด" aria-label="play">🔊</button><span class="thai">มากที่สุด</span><span class="en-colloc">the most</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ชอบที่สุด" aria-label="play">🔊</button><span class="thai">ชอบที่สุด</span><span class="en-colloc">like most</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ร้านนี้อร่อยที่สุด" aria-label="play">🔊</button>
@@ -2185,7 +2192,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可指「我們」，也可在柔和口語中當「我」使用，較親近自然。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="พวกเรา" aria-label="play">🔊</button><span class="thai">พวกเรา</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="บ้านเรา" aria-label="play">🔊</button><span class="thai">บ้านเรา</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เราว่า" aria-label="play">🔊</button><span class="thai">เราว่า</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="พวกเรา" aria-label="play">🔊</button><span class="thai">พวกเรา</span><span class="en-colloc">we/us</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="บ้านเรา" aria-label="play">🔊</button><span class="thai">บ้านเรา</span><span class="en-colloc">our home/country</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เราว่า" aria-label="play">🔊</button><span class="thai">เราว่า</span><span class="en-colloc">I think</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="เราไปด้วยกันไหม" aria-label="play">🔊</button>
@@ -2217,7 +2224,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>較正式，表示方式、途徑、執行者；日常可用 ทาง thaang 取代部分用法。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="โดยรถไฟฟ้า" aria-label="play">🔊</button><span class="thai">โดยรถไฟฟ้า</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="โดยบัตร" aria-label="play">🔊</button><span class="thai">โดยบัตร</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="โดยตรง" aria-label="play">🔊</button><span class="thai">โดยตรง</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="โดยรถไฟฟ้า" aria-label="play">🔊</button><span class="thai">โดยรถไฟฟ้า</span><span class="en-colloc">by BTS/MRT</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="โดยบัตร" aria-label="play">🔊</button><span class="thai">โดยบัตร</span><span class="en-colloc">by card</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="โดยตรง" aria-label="play">🔊</button><span class="thai">โดยตรง</span><span class="en-colloc">directly</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="จ่ายโดยบัตรได้ไหมคะ" aria-label="play">🔊</button>
@@ -2249,7 +2256,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>形容詞，也可放句尾讓語氣變成「蠻…」。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ดีมาก" aria-label="play">🔊</button><span class="thai">ดีมาก</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ดีขึ้น" aria-label="play">🔊</button><span class="thai">ดีขึ้น</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ดีไหม" aria-label="play">🔊</button><span class="thai">ดีไหม</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ก็ได้" aria-label="play">🔊</button><span class="thai">ก็ได้</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ดีมาก" aria-label="play">🔊</button><span class="thai">ดีมาก</span><span class="en-colloc">very good</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ดีขึ้น" aria-label="play">🔊</button><span class="thai">ดีขึ้น</span><span class="en-colloc">getting better</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ดีไหม" aria-label="play">🔊</button><span class="thai">ดีไหม</span><span class="en-colloc">is it good?</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ก็ได้" aria-label="play">🔊</button><span class="thai">ก็ได้</span><span class="en-colloc">that's fine</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ดีมากค่ะ" aria-label="play">🔊</button>
@@ -2281,7 +2288,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>表示目的；比 ให้ 更正式清楚。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เพื่ออะไร" aria-label="play">🔊</button><span class="thai">เพื่ออะไร</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เพื่อให้" aria-label="play">🔊</button><span class="thai">เพื่อให้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เพื่อเรียน" aria-label="play">🔊</button><span class="thai">เพื่อเรียน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เพื่ออนาคต" aria-label="play">🔊</button><span class="thai">เพื่ออนาคต</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เพื่ออะไร" aria-label="play">🔊</button><span class="thai">เพื่ออะไร</span><span class="en-colloc">for what</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เพื่อให้" aria-label="play">🔊</button><span class="thai">เพื่อให้</span><span class="en-colloc">in order to</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เพื่อเรียน" aria-label="play">🔊</button><span class="thai">เพื่อเรียน</span><span class="en-colloc">to study</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เพื่ออนาคต" aria-label="play">🔊</button><span class="thai">เพื่ออนาคต</span><span class="en-colloc">for the future</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ฉันเรียนไทยเพื่อคุยกับคนไทย" aria-label="play">🔊</button>
@@ -2313,7 +2320,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>較正式；口語常用 เลย 或 ก็เลย。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="จึงทำให้" aria-label="play">🔊</button><span class="thai">จึงทำให้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="จึงต้อง" aria-label="play">🔊</button><span class="thai">จึงต้อง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="จึงไม่" aria-label="play">🔊</button><span class="thai">จึงไม่</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="จึงทำให้" aria-label="play">🔊</button><span class="thai">จึงทำให้</span><span class="en-colloc">therefore makes</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="จึงต้อง" aria-label="play">🔊</button><span class="thai">จึงต้อง</span><span class="en-colloc">therefore must</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="จึงไม่" aria-label="play">🔊</button><span class="thai">จึงไม่</span><span class="en-colloc">therefore not</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ฝนตก รถจึงติดมาก" aria-label="play">🔊</button>
@@ -2345,7 +2352,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可表示接續、對象，也可表示單位：ต่อคน per person。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ต่อไป" aria-label="play">🔊</button><span class="thai">ต่อไป</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ต่อคน" aria-label="play">🔊</button><span class="thai">ต่อคน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ต่อด้วย" aria-label="play">🔊</button><span class="thai">ต่อด้วย</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ติดต่อ" aria-label="play">🔊</button><span class="thai">ติดต่อ</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ต่อไป" aria-label="play">🔊</button><span class="thai">ต่อไป</span><span class="en-colloc">continue/next</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ต่อคน" aria-label="play">🔊</button><span class="thai">ต่อคน</span><span class="en-colloc">per person</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ต่อด้วย" aria-label="play">🔊</button><span class="thai">ต่อด้วย</span><span class="en-colloc">continue with</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ติดต่อ" aria-label="play">🔊</button><span class="thai">ติดต่อ</span><span class="en-colloc">contact</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="คุยต่อได้ไหม" aria-label="play">🔊</button>
@@ -2377,7 +2384,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>事件次數量詞；อีกครั้ง = once again。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ครั้งแรก" aria-label="play">🔊</button><span class="thai">ครั้งแรก</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ครั้งหน้า" aria-label="play">🔊</button><span class="thai">ครั้งหน้า</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อีกครั้ง" aria-label="play">🔊</button><span class="thai">อีกครั้ง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หลายครั้ง" aria-label="play">🔊</button><span class="thai">หลายครั้ง</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ครั้งแรก" aria-label="play">🔊</button><span class="thai">ครั้งแรก</span><span class="en-colloc">first time</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ครั้งหน้า" aria-label="play">🔊</button><span class="thai">ครั้งหน้า</span><span class="en-colloc">next time</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อีกครั้ง" aria-label="play">🔊</button><span class="thai">อีกครั้ง</span><span class="en-colloc">once more</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หลายครั้ง" aria-label="play">🔊</button><span class="thai">หลายครั้ง</span><span class="en-colloc">many times</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ไปครั้งแรกค่ะ" aria-label="play">🔊</button>
@@ -2409,7 +2416,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>第三人稱代詞；口語中可泛指對方或某人。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เขาบอกว่า" aria-label="play">🔊</button><span class="thai">เขาบอกว่า</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เขามาแล้ว" aria-label="play">🔊</button><span class="thai">เขามาแล้ว</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ของเขา" aria-label="play">🔊</button><span class="thai">ของเขา</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เขาบอกว่า" aria-label="play">🔊</button><span class="thai">เขาบอกว่า</span><span class="en-colloc">he/she said that</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เขามาแล้ว" aria-label="play">🔊</button><span class="thai">เขามาแล้ว</span><span class="en-colloc">he/she arrived</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ของเขา" aria-label="play">🔊</button><span class="thai">ของเขา</span><span class="en-colloc">his/hers</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="เขายังไม่มา" aria-label="play">🔊</button>
@@ -2441,7 +2448,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>放在名詞前；หลายคน、หลายวัน、หลายครั้ง。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หลายคน" aria-label="play">🔊</button><span class="thai">หลายคน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หลายวัน" aria-label="play">🔊</button><span class="thai">หลายวัน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หลายอย่าง" aria-label="play">🔊</button><span class="thai">หลายอย่าง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หลายครั้ง" aria-label="play">🔊</button><span class="thai">หลายครั้ง</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หลายคน" aria-label="play">🔊</button><span class="thai">หลายคน</span><span class="en-colloc">many people</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หลายวัน" aria-label="play">🔊</button><span class="thai">หลายวัน</span><span class="en-colloc">many days</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หลายอย่าง" aria-label="play">🔊</button><span class="thai">หลายอย่าง</span><span class="en-colloc">many things</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หลายครั้ง" aria-label="play">🔊</button><span class="thai">หลายครั้ง</span><span class="en-colloc">many times</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="มีหลายร้านให้เลือก" aria-label="play">🔊</button>
@@ -2473,7 +2480,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>較書面，用於角色或身份：ผู้เรียน learner、ผู้ใช้ user。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ผู้เรียน" aria-label="play">🔊</button><span class="thai">ผู้เรียน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ผู้ใช้" aria-label="play">🔊</button><span class="thai">ผู้ใช้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ผู้ชาย" aria-label="play">🔊</button><span class="thai">ผู้ชาย</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ผู้หญิง" aria-label="play">🔊</button><span class="thai">ผู้หญิง</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ผู้เรียน" aria-label="play">🔊</button><span class="thai">ผู้เรียน</span><span class="en-colloc">learner</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ผู้ใช้" aria-label="play">🔊</button><span class="thai">ผู้ใช้</span><span class="en-colloc">user</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ผู้ชาย" aria-label="play">🔊</button><span class="thai">ผู้ชาย</span><span class="en-colloc">man</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ผู้หญิง" aria-label="play">🔊</button><span class="thai">ผู้หญิง</span><span class="en-colloc">woman</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ผู้เรียนควรฝึกทุกวัน" aria-label="play">🔊</button>
@@ -2505,7 +2512,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>放在時間或名詞前：ทุกวัน、ทุกคน、ทุกอย่าง。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทุกวัน" aria-label="play">🔊</button><span class="thai">ทุกวัน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทุกคน" aria-label="play">🔊</button><span class="thai">ทุกคน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทุกครั้ง" aria-label="play">🔊</button><span class="thai">ทุกครั้ง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทุกอย่าง" aria-label="play">🔊</button><span class="thai">ทุกอย่าง</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทุกวัน" aria-label="play">🔊</button><span class="thai">ทุกวัน</span><span class="en-colloc">every day</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทุกคน" aria-label="play">🔊</button><span class="thai">ทุกคน</span><span class="en-colloc">everyone</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทุกครั้ง" aria-label="play">🔊</button><span class="thai">ทุกครั้ง</span><span class="en-colloc">every time</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทุกอย่าง" aria-label="play">🔊</button><span class="thai">ทุกอย่าง</span><span class="en-colloc">everything</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ฉันเรียนไทยทุกวัน" aria-label="play">🔊</button>
@@ -2537,7 +2544,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可表數量少；นิดหน่อย 更口語的「一點點」。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="น้อยมาก" aria-label="play">🔊</button><span class="thai">น้อยมาก</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="น้อยกว่า" aria-label="play">🔊</button><span class="thai">น้อยกว่า</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="นิดหน่อย" aria-label="play">🔊</button><span class="thai">นิดหน่อย</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เล็กน้อย" aria-label="play">🔊</button><span class="thai">เล็กน้อย</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="น้อยมาก" aria-label="play">🔊</button><span class="thai">น้อยมาก</span><span class="en-colloc">very little</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="น้อยกว่า" aria-label="play">🔊</button><span class="thai">น้อยกว่า</span><span class="en-colloc">less than</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="นิดหน่อย" aria-label="play">🔊</button><span class="thai">นิดหน่อย</span><span class="en-colloc">a little bit</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เล็กน้อย" aria-label="play">🔊</button><span class="thai">เล็กน้อย</span><span class="en-colloc">a little</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ขอน้ำตาลน้อยค่ะ" aria-label="play">🔊</button>
@@ -2569,7 +2576,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>用於定義、解釋；比 เป็น 更像「也就是」。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="คืออะไร" aria-label="play">🔊</button><span class="thai">คืออะไร</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หมายถึง" aria-label="play">🔊</button><span class="thai">หมายถึง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="นั่นคือ" aria-label="play">🔊</button><span class="thai">นั่นคือ</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="คืออะไร" aria-label="play">🔊</button><span class="thai">คืออะไร</span><span class="en-colloc">what is it</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หมายถึง" aria-label="play">🔊</button><span class="thai">หมายถึง</span><span class="en-colloc">means</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="นั่นคือ" aria-label="play">🔊</button><span class="thai">นั่นคือ</span><span class="en-colloc">that is</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="นี่คืออะไรคะ" aria-label="play">🔊</button>
@@ -2601,7 +2608,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>較正式版本的 ถ้า；書面常見。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หากว่า" aria-label="play">🔊</button><span class="thai">หากว่า</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หากมี" aria-label="play">🔊</button><span class="thai">หากมี</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หากต้องการ" aria-label="play">🔊</button><span class="thai">หากต้องการ</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หากว่า" aria-label="play">🔊</button><span class="thai">หากว่า</span><span class="en-colloc">if</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หากมี" aria-label="play">🔊</button><span class="thai">หากมี</span><span class="en-colloc">if there is</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หากต้องการ" aria-label="play">🔊</button><span class="thai">หากต้องการ</span><span class="en-colloc">if needed</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="หากมีคำถามถามได้ค่ะ" aria-label="play">🔊</button>
@@ -2633,7 +2640,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可說事情發生，也可指出生；เกิดอะไรขึ้น = what happened?</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เกิดขึ้น" aria-label="play">🔊</button><span class="thai">เกิดขึ้น</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เกิดที่" aria-label="play">🔊</button><span class="thai">เกิดที่</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="วันเกิด" aria-label="play">🔊</button><span class="thai">วันเกิด</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เกิดขึ้น" aria-label="play">🔊</button><span class="thai">เกิดขึ้น</span><span class="en-colloc">happen/occur</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เกิดที่" aria-label="play">🔊</button><span class="thai">เกิดที่</span><span class="en-colloc">born at</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="วันเกิด" aria-label="play">🔊</button><span class="thai">วันเกิด</span><span class="en-colloc">birthday</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="เกิดอะไรขึ้นคะ" aria-label="play">🔊</button>
@@ -2665,7 +2672,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>時間單位；也可問年齡：กี่ปี / อายุเท่าไหร่。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ปีนี้" aria-label="play">🔊</button><span class="thai">ปีนี้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ปีหน้า" aria-label="play">🔊</button><span class="thai">ปีหน้า</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทุกปี" aria-label="play">🔊</button><span class="thai">ทุกปี</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="กี่ปี" aria-label="play">🔊</button><span class="thai">กี่ปี</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ปีนี้" aria-label="play">🔊</button><span class="thai">ปีนี้</span><span class="en-colloc">this year</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ปีหน้า" aria-label="play">🔊</button><span class="thai">ปีหน้า</span><span class="en-colloc">next year</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทุกปี" aria-label="play">🔊</button><span class="thai">ทุกปี</span><span class="en-colloc">every year</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="กี่ปี" aria-label="play">🔊</button><span class="thai">กี่ปี</span><span class="en-colloc">how many years</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ปีนี้อยากเรียนไทยให้ดีขึ้น" aria-label="play">🔊</button>
@@ -2697,7 +2704,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可指工作，也可指活動：งานแต่ง wedding、งานเลี้ยง party。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำงาน" aria-label="play">🔊</button><span class="thai">ทำงาน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ที่ทำงาน" aria-label="play">🔊</button><span class="thai">ที่ทำงาน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="งานแต่ง" aria-label="play">🔊</button><span class="thai">งานแต่ง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="งานเลี้ยง" aria-label="play">🔊</button><span class="thai">งานเลี้ยง</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำงาน" aria-label="play">🔊</button><span class="thai">ทำงาน</span><span class="en-colloc">work</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ที่ทำงาน" aria-label="play">🔊</button><span class="thai">ที่ทำงาน</span><span class="en-colloc">at work</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="งานแต่ง" aria-label="play">🔊</button><span class="thai">งานแต่ง</span><span class="en-colloc">wedding</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="งานเลี้ยง" aria-label="play">🔊</button><span class="thai">งานเลี้ยง</span><span class="en-colloc">party/banquet</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="วันนี้มีงานเยอะมาก" aria-label="play">🔊</button>
@@ -2729,7 +2736,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>聲調低 tone，和 ไม่ mâi「不」不同。ใหม่ 也可放句尾表示 again。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ของใหม่" aria-label="play">🔊</button><span class="thai">ของใหม่</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ใหม่กว่า" aria-label="play">🔊</button><span class="thai">ใหม่กว่า</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อีกครั้ง" aria-label="play">🔊</button><span class="thai">อีกครั้ง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เริ่มใหม่" aria-label="play">🔊</button><span class="thai">เริ่มใหม่</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ของใหม่" aria-label="play">🔊</button><span class="thai">ของใหม่</span><span class="en-colloc">new item</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ใหม่กว่า" aria-label="play">🔊</button><span class="thai">ใหม่กว่า</span><span class="en-colloc">newer</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อีกครั้ง" aria-label="play">🔊</button><span class="thai">อีกครั้ง</span><span class="en-colloc">once more</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เริ่มใหม่" aria-label="play">🔊</button><span class="thai">เริ่มใหม่</span><span class="en-colloc">start fresh</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ร้านนี้เปิดใหม่ค่ะ" aria-label="play">🔊</button>
@@ -2761,7 +2768,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>多義：ตั้งแต่ = since/from；ตั้งใจ = intend/focus。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตั้งแต่" aria-label="play">🔊</button><span class="thai">ตั้งแต่</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตั้งใจ" aria-label="play">🔊</button><span class="thai">ตั้งใจ</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตั้งอยู่" aria-label="play">🔊</button><span class="thai">ตั้งอยู่</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตั้งคำถาม" aria-label="play">🔊</button><span class="thai">ตั้งคำถาม</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตั้งแต่" aria-label="play">🔊</button><span class="thai">ตั้งแต่</span><span class="en-colloc">since/from</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตั้งใจ" aria-label="play">🔊</button><span class="thai">ตั้งใจ</span><span class="en-colloc">intentionally</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตั้งอยู่" aria-label="play">🔊</button><span class="thai">ตั้งอยู่</span><span class="en-colloc">located at</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตั้งคำถาม" aria-label="play">🔊</button><span class="thai">ตั้งคำถาม</span><span class="en-colloc">ask a question</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ตั้งแต่วันนี้จะฝึกทุกวัน" aria-label="play">🔊</button>
@@ -2793,7 +2800,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可表示部分，也可用 ส่วนฉัน...「至於我…」。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ส่วนนี้" aria-label="play">🔊</button><span class="thai">ส่วนนี้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ส่วนตัว" aria-label="play">🔊</button><span class="thai">ส่วนตัว</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ส่วนใหญ่" aria-label="play">🔊</button><span class="thai">ส่วนใหญ่</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ส่วนฉัน" aria-label="play">🔊</button><span class="thai">ส่วนฉัน</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ส่วนนี้" aria-label="play">🔊</button><span class="thai">ส่วนนี้</span><span class="en-colloc">this part</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ส่วนตัว" aria-label="play">🔊</button><span class="thai">ส่วนตัว</span><span class="en-colloc">personal</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ส่วนใหญ่" aria-label="play">🔊</button><span class="thai">ส่วนใหญ่</span><span class="en-colloc">mostly</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ส่วนฉัน" aria-label="play">🔊</button><span class="thai">ส่วนฉัน</span><span class="en-colloc">as for me</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ส่วนนี้ไม่เข้าใจค่ะ" aria-label="play">🔊</button>
@@ -2825,7 +2832,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>商店常用：รับบัตรไหม = accept cards? รับอะไรดี = What would you like?</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="รับเงิน" aria-label="play">🔊</button><span class="thai">รับเงิน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="รับบัตร" aria-label="play">🔊</button><span class="thai">รับบัตร</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="รับได้" aria-label="play">🔊</button><span class="thai">รับได้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="รับอะไรดี" aria-label="play">🔊</button><span class="thai">รับอะไรดี</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="รับเงิน" aria-label="play">🔊</button><span class="thai">รับเงิน</span><span class="en-colloc">receive money</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="รับบัตร" aria-label="play">🔊</button><span class="thai">รับบัตร</span><span class="en-colloc">accept card</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="รับได้" aria-label="play">🔊</button><span class="thai">รับได้</span><span class="en-colloc">can accept</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="รับอะไรดี" aria-label="play">🔊</button><span class="thai">รับอะไรดี</span><span class="en-colloc">what would you like</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="รับบัตรไหมคะ" aria-label="play">🔊</button>
@@ -2857,7 +2864,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>常見：ครั้งแรก、วันแรก、อันแรก。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ครั้งแรก" aria-label="play">🔊</button><span class="thai">ครั้งแรก</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="วันแรก" aria-label="play">🔊</button><span class="thai">วันแรก</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อันแรก" aria-label="play">🔊</button><span class="thai">อันแรก</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แรกๆ" aria-label="play">🔊</button><span class="thai">แรกๆ</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ครั้งแรก" aria-label="play">🔊</button><span class="thai">ครั้งแรก</span><span class="en-colloc">first time</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="วันแรก" aria-label="play">🔊</button><span class="thai">วันแรก</span><span class="en-colloc">first day</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อันแรก" aria-label="play">🔊</button><span class="thai">อันแรก</span><span class="en-colloc">the first one</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แรกๆ" aria-label="play">🔊</button><span class="thai">แรกๆ</span><span class="en-colloc">at first</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="นี่เป็นครั้งแรกของฉัน" aria-label="play">🔊</button>
@@ -2889,7 +2896,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>常見於泰國文化：พระ = monk/Buddha depending context。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="พระสงฆ์" aria-label="play">🔊</button><span class="thai">พระสงฆ์</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไหว้พระ" aria-label="play">🔊</button><span class="thai">ไหว้พระ</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="วัดพระแก้ว" aria-label="play">🔊</button><span class="thai">วัดพระแก้ว</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="พระสงฆ์" aria-label="play">🔊</button><span class="thai">พระสงฆ์</span><span class="en-colloc">monk</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไหว้พระ" aria-label="play">🔊</button><span class="thai">ไหว้พระ</span><span class="en-colloc">pay respects</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="วัดพระแก้ว" aria-label="play">🔊</button><span class="thai">วัดพระแก้ว</span><span class="en-colloc">Emerald Buddha Temple</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="วัดนี้มีพระเยอะ" aria-label="play">🔊</button>
@@ -2921,7 +2928,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>動詞片語；ที่ทำงาน = workplace。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไปทำงาน" aria-label="play">🔊</button><span class="thai">ไปทำงาน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ที่ทำงาน" aria-label="play">🔊</button><span class="thai">ที่ทำงาน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำงานหนัก" aria-label="play">🔊</button><span class="thai">ทำงานหนัก</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไปทำงาน" aria-label="play">🔊</button><span class="thai">ไปทำงาน</span><span class="en-colloc">go to work</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ที่ทำงาน" aria-label="play">🔊</button><span class="thai">ที่ทำงาน</span><span class="en-colloc">at work</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำงานหนัก" aria-label="play">🔊</button><span class="thai">ทำงานหนัก</span><span class="en-colloc">work hard</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="วันนี้ต้องทำงานทั้งวัน" aria-label="play">🔊</button>
@@ -2953,7 +2960,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>時間核心字：วันนี้、วันพรุ่งนี้、ทุกวัน。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="วันนี้" aria-label="play">🔊</button><span class="thai">วันนี้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="พรุ่งนี้" aria-label="play">🔊</button><span class="thai">พรุ่งนี้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทุกวัน" aria-label="play">🔊</button><span class="thai">ทุกวัน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="วันเกิด" aria-label="play">🔊</button><span class="thai">วันเกิด</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="วันนี้" aria-label="play">🔊</button><span class="thai">วันนี้</span><span class="en-colloc">today</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="พรุ่งนี้" aria-label="play">🔊</button><span class="thai">พรุ่งนี้</span><span class="en-colloc">tomorrow</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทุกวัน" aria-label="play">🔊</button><span class="thai">ทุกวัน</span><span class="en-colloc">every day</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="วันเกิด" aria-label="play">🔊</button><span class="thai">วันเกิด</span><span class="en-colloc">birthday</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="วันนี้วันอะไรคะ" aria-label="play">🔊</button>
@@ -2985,7 +2992,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可當動詞「幫」，也可放動詞前形成禮貌請求。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ช่วยด้วย" aria-label="play">🔊</button><span class="thai">ช่วยด้วย</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ช่วย...หน่อย" aria-label="play">🔊</button><span class="thai">ช่วย...หน่อย</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ช่วยให้" aria-label="play">🔊</button><span class="thai">ช่วยให้</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ช่วยด้วย" aria-label="play">🔊</button><span class="thai">ช่วยด้วย</span><span class="en-colloc">please help</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ช่วย...หน่อย" aria-label="play">🔊</button><span class="thai">ช่วย...หน่อย</span><span class="en-colloc">help me a bit</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ช่วยให้" aria-label="play">🔊</button><span class="thai">ช่วยให้</span><span class="en-colloc">help to</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ช่วยพูดช้าหน่อยค่ะ" aria-label="play">🔊</button>
@@ -3017,7 +3024,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>較書面；口語更常用 แค่ khâe。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เพียงแค่" aria-label="play">🔊</button><span class="thai">เพียงแค่</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เพียงพอ" aria-label="play">🔊</button><span class="thai">เพียงพอ</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แค่" aria-label="play">🔊</button><span class="thai">แค่</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เพียงแค่" aria-label="play">🔊</button><span class="thai">เพียงแค่</span><span class="en-colloc">just/only</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เพียงพอ" aria-label="play">🔊</button><span class="thai">เพียงพอ</span><span class="en-colloc">enough</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แค่" aria-label="play">🔊</button><span class="thai">แค่</span><span class="en-colloc">just</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="มีเพียงสองคน" aria-label="play">🔊</button>
@@ -3049,7 +3056,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>表示不確定的可能；常用 อาจจะ + V。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อาจจะ" aria-label="play">🔊</button><span class="thai">อาจจะ</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อาจเป็น" aria-label="play">🔊</button><span class="thai">อาจเป็น</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อาจต้อง" aria-label="play">🔊</button><span class="thai">อาจต้อง</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อาจจะ" aria-label="play">🔊</button><span class="thai">อาจจะ</span><span class="en-colloc">might/maybe</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อาจเป็น" aria-label="play">🔊</button><span class="thai">อาจเป็น</span><span class="en-colloc">might be</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อาจต้อง" aria-label="play">🔊</button><span class="thai">อาจต้อง</span><span class="en-colloc">might need to</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="วันนี้อาจจะฝนตก" aria-label="play">🔊</button>
@@ -3081,7 +3088,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可問尺寸，也可表程度：ขนาดนี้ = this much / this size。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ขนาดเล็ก" aria-label="play">🔊</button><span class="thai">ขนาดเล็ก</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ขนาดใหญ่" aria-label="play">🔊</button><span class="thai">ขนาดใหญ่</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ขนาดนี้" aria-label="play">🔊</button><span class="thai">ขนาดนี้</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ขนาดเล็ก" aria-label="play">🔊</button><span class="thai">ขนาดเล็ก</span><span class="en-colloc">small size</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ขนาดใหญ่" aria-label="play">🔊</button><span class="thai">ขนาดใหญ่</span><span class="en-colloc">large size</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ขนาดนี้" aria-label="play">🔊</button><span class="thai">ขนาดนี้</span><span class="en-colloc">this size</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="มีขนาดเล็กไหมคะ" aria-label="play">🔊</button>
@@ -3113,7 +3120,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>放在名詞後：ร้านอื่น、คนอื่น、อย่างอื่น。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="คนอื่น" aria-label="play">🔊</button><span class="thai">คนอื่น</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อย่างอื่น" aria-label="play">🔊</button><span class="thai">อย่างอื่น</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ที่อื่น" aria-label="play">🔊</button><span class="thai">ที่อื่น</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อื่นๆ" aria-label="play">🔊</button><span class="thai">อื่นๆ</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="คนอื่น" aria-label="play">🔊</button><span class="thai">คนอื่น</span><span class="en-colloc">other people</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อย่างอื่น" aria-label="play">🔊</button><span class="thai">อย่างอื่น</span><span class="en-colloc">other things</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ที่อื่น" aria-label="play">🔊</button><span class="thai">ที่อื่น</span><span class="en-colloc">somewhere else</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="อื่นๆ" aria-label="play">🔊</button><span class="thai">อื่นๆ</span><span class="en-colloc">etc./others</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="มีสีอื่นไหมคะ" aria-label="play">🔊</button>
@@ -3145,7 +3152,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>作程度副詞時多用於否定：ไม่...นัก = not very；作前綴如 นักเรียน。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไม่...นัก" aria-label="play">🔊</button><span class="thai">ไม่...นัก</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="นักเรียน" aria-label="play">🔊</button><span class="thai">นักเรียน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="นักท่องเที่ยว" aria-label="play">🔊</button><span class="thai">นักท่องเที่ยว</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ไม่...นัก" aria-label="play">🔊</button><span class="thai">ไม่...นัก</span><span class="en-colloc">not so much</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="นักเรียน" aria-label="play">🔊</button><span class="thai">นักเรียน</span><span class="en-colloc">student</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="นักท่องเที่ยว" aria-label="play">🔊</button><span class="thai">นักท่องเที่ยว</span><span class="en-colloc">tourist</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="วันนี้ไม่ร้อนนัก" aria-label="play">🔊</button>
@@ -3177,7 +3184,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>接動詞：เริ่มเรียน、เริ่มทำงาน。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เริ่มต้น" aria-label="play">🔊</button><span class="thai">เริ่มต้น</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เริ่มเรียน" aria-label="play">🔊</button><span class="thai">เริ่มเรียน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เริ่มทำ" aria-label="play">🔊</button><span class="thai">เริ่มทำ</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เริ่มแล้ว" aria-label="play">🔊</button><span class="thai">เริ่มแล้ว</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เริ่มต้น" aria-label="play">🔊</button><span class="thai">เริ่มต้น</span><span class="en-colloc">begin</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เริ่มเรียน" aria-label="play">🔊</button><span class="thai">เริ่มเรียน</span><span class="en-colloc">start studying</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เริ่มทำ" aria-label="play">🔊</button><span class="thai">เริ่มทำ</span><span class="en-colloc">start doing</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เริ่มแล้ว" aria-label="play">🔊</button><span class="thai">เริ่มแล้ว</span><span class="en-colloc">started</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="เริ่มเรียนกี่โมงคะ" aria-label="play">🔊</button>
@@ -3209,7 +3216,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可指孩子，也可形容年紀小；เด็กกว่า = younger。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เด็กๆ" aria-label="play">🔊</button><span class="thai">เด็กๆ</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตอนเด็ก" aria-label="play">🔊</button><span class="thai">ตอนเด็ก</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เด็กกว่า" aria-label="play">🔊</button><span class="thai">เด็กกว่า</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เด็กๆ" aria-label="play">🔊</button><span class="thai">เด็กๆ</span><span class="en-colloc">children</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตอนเด็ก" aria-label="play">🔊</button><span class="thai">ตอนเด็ก</span><span class="en-colloc">when young</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เด็กกว่า" aria-label="play">🔊</button><span class="thai">เด็กกว่า</span><span class="en-colloc">younger than</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="เด็กคนนั้นน่ารักมาก" aria-label="play">🔊</button>
@@ -3241,7 +3248,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可指人生或日常生活；ชีวิตประจำวัน = daily life。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ชีวิตจริง" aria-label="play">🔊</button><span class="thai">ชีวิตจริง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ชีวิตประจำวัน" aria-label="play">🔊</button><span class="thai">ชีวิตประจำวัน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ใช้ชีวิต" aria-label="play">🔊</button><span class="thai">ใช้ชีวิต</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ชีวิตจริง" aria-label="play">🔊</button><span class="thai">ชีวิตจริง</span><span class="en-colloc">real life</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ชีวิตประจำวัน" aria-label="play">🔊</button><span class="thai">ชีวิตประจำวัน</span><span class="en-colloc">daily life</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ใช้ชีวิต" aria-label="play">🔊</button><span class="thai">ใช้ชีวิต</span><span class="en-colloc">live life</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ชีวิตในกรุงเทพฯ สนุกแต่เหนื่อย" aria-label="play">🔊</button>
@@ -3273,7 +3280,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可指高度、價格、身高、程度。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="สูงมาก" aria-label="play">🔊</button><span class="thai">สูงมาก</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ราคาสูง" aria-label="play">🔊</button><span class="thai">ราคาสูง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตัวสูง" aria-label="play">🔊</button><span class="thai">ตัวสูง</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="สูงมาก" aria-label="play">🔊</button><span class="thai">สูงมาก</span><span class="en-colloc">very tall/high</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ราคาสูง" aria-label="play">🔊</button><span class="thai">ราคาสูง</span><span class="en-colloc">high price</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ตัวสูง" aria-label="play">🔊</button><span class="thai">ตัวสูง</span><span class="en-colloc">tall person</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ตึกนี้สูงมาก" aria-label="play">🔊</button>
@@ -3305,7 +3312,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>時間上在前；句尾可表示「先…」。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ก่อนนะ" aria-label="play">🔊</button><span class="thai">ก่อนนะ</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ก่อนกลับ" aria-label="play">🔊</button><span class="thai">ก่อนกลับ</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เมื่อก่อน" aria-label="play">🔊</button><span class="thai">เมื่อก่อน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ก่อนอื่น" aria-label="play">🔊</button><span class="thai">ก่อนอื่น</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ก่อนนะ" aria-label="play">🔊</button><span class="thai">ก่อนนะ</span><span class="en-colloc">see you/bye for now</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ก่อนกลับ" aria-label="play">🔊</button><span class="thai">ก่อนกลับ</span><span class="en-colloc">before going back</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เมื่อก่อน" aria-label="play">🔊</button><span class="thai">เมื่อก่อน</span><span class="en-colloc">used to</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ก่อนอื่น" aria-label="play">🔊</button><span class="thai">ก่อนอื่น</span><span class="en-colloc">first of all</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="กินข้าวก่อนนะ" aria-label="play">🔊</button>
@@ -3337,7 +3344,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可用於換東西、換計畫、改變想法。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เปลี่ยนใจ" aria-label="play">🔊</button><span class="thai">เปลี่ยนใจ</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เปลี่ยนเป็น" aria-label="play">🔊</button><span class="thai">เปลี่ยนเป็น</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เปลี่ยนแผน" aria-label="play">🔊</button><span class="thai">เปลี่ยนแผน</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เปลี่ยนใจ" aria-label="play">🔊</button><span class="thai">เปลี่ยนใจ</span><span class="en-colloc">change of mind</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เปลี่ยนเป็น" aria-label="play">🔊</button><span class="thai">เปลี่ยนเป็น</span><span class="en-colloc">change to</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เปลี่ยนแผน" aria-label="play">🔊</button><span class="thai">เปลี่ยนแผน</span><span class="en-colloc">change plans</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ขอเปลี่ยนเป็นชาเย็นได้ไหมคะ" aria-label="play">🔊</button>
@@ -3369,7 +3376,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>ต่างกัน = different；ต่างคนต่าง... = each person does their own thing。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ต่างกัน" aria-label="play">🔊</button><span class="thai">ต่างกัน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แตกต่าง" aria-label="play">🔊</button><span class="thai">แตกต่าง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ต่างประเทศ" aria-label="play">🔊</button><span class="thai">ต่างประเทศ</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ต่างคนต่าง" aria-label="play">🔊</button><span class="thai">ต่างคนต่าง</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ต่างกัน" aria-label="play">🔊</button><span class="thai">ต่างกัน</span><span class="en-colloc">different</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แตกต่าง" aria-label="play">🔊</button><span class="thai">แตกต่าง</span><span class="en-colloc">differ</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ต่างประเทศ" aria-label="play">🔊</button><span class="thai">ต่างประเทศ</span><span class="en-colloc">overseas</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ต่างคนต่าง" aria-label="play">🔊</button><span class="thai">ต่างคนต่าง</span><span class="en-colloc">each their own</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="สองร้านนี้ต่างกันมาก" aria-label="play">🔊</button>
@@ -3401,7 +3408,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可指下一步，也可表示未來繼續。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ต่อไปนี้" aria-label="play">🔊</button><span class="thai">ต่อไปนี้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ขั้นต่อไป" aria-label="play">🔊</button><span class="thai">ขั้นต่อไป</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำต่อไป" aria-label="play">🔊</button><span class="thai">ทำต่อไป</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ต่อไปนี้" aria-label="play">🔊</button><span class="thai">ต่อไปนี้</span><span class="en-colloc">from now on</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ขั้นต่อไป" aria-label="play">🔊</button><span class="thai">ขั้นต่อไป</span><span class="en-colloc">next step</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ทำต่อไป" aria-label="play">🔊</button><span class="thai">ทำต่อไป</span><span class="en-colloc">continue doing</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ต่อไปเราจะฝึกฟังมากขึ้น" aria-label="play">🔊</button>
@@ -3433,7 +3440,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可指看東西，也可接形容詞表示「看起來」。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ดูหนัง" aria-label="play">🔊</button><span class="thai">ดูหนัง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ดูเมนู" aria-label="play">🔊</button><span class="thai">ดูเมนู</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ดูเหมือน" aria-label="play">🔊</button><span class="thai">ดูเหมือน</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ดูดี" aria-label="play">🔊</button><span class="thai">ดูดี</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ดูหนัง" aria-label="play">🔊</button><span class="thai">ดูหนัง</span><span class="en-colloc">watch movie</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ดูเมนู" aria-label="play">🔊</button><span class="thai">ดูเมนู</span><span class="en-colloc">look at menu</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ดูเหมือน" aria-label="play">🔊</button><span class="thai">ดูเหมือน</span><span class="en-colloc">looks like</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ดูดี" aria-label="play">🔊</button><span class="thai">ดูดี</span><span class="en-colloc">looks good</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="ดูเมนูได้ไหมคะ" aria-label="play">🔊</button>
@@ -3465,7 +3472,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>較書面，用於地方量詞或正式名稱；口語少用。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แห่งนี้" aria-label="play">🔊</button><span class="thai">แห่งนี้</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เมืองแห่ง" aria-label="play">🔊</button><span class="thai">เมืองแห่ง</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หลายแห่ง" aria-label="play">🔊</button><span class="thai">หลายแห่ง</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แห่งนี้" aria-label="play">🔊</button><span class="thai">แห่งนี้</span><span class="en-colloc">this place</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="เมืองแห่ง" aria-label="play">🔊</button><span class="thai">เมืองแห่ง</span><span class="en-colloc">city of</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="หลายแห่ง" aria-label="play">🔊</button><span class="thai">หลายแห่ง</span><span class="en-colloc">many places</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="กรุงเทพฯ เป็นเมืองแห่งอาหาร" aria-label="play">🔊</button>
@@ -3497,7 +3504,7 @@
           </div>
         </div>
         <div class="usage"><span class="tag local">Usage</span>可指尺寸、規模、年紀排行；พี่ใหญ่ = eldest/leader-like older sibling。</div>
-        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ใหญ่กว่า" aria-label="play">🔊</button><span class="thai">ใหญ่กว่า</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ใหญ่มาก" aria-label="play">🔊</button><span class="thai">ใหญ่มาก</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แก้วใหญ่" aria-label="play">🔊</button><span class="thai">แก้วใหญ่</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ส่วนใหญ่" aria-label="play">🔊</button><span class="thai">ส่วนใหญ่</span></span></div>
+        <div class="colloc"><span class="tag blue">Collocations</span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ใหญ่กว่า" aria-label="play">🔊</button><span class="thai">ใหญ่กว่า</span><span class="en-colloc">bigger than</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ใหญ่มาก" aria-label="play">🔊</button><span class="thai">ใหญ่มาก</span><span class="en-colloc">very big</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="แก้วใหญ่" aria-label="play">🔊</button><span class="thai">แก้วใหญ่</span><span class="en-colloc">large cup</span></span><span class="colloc-chip"><button class="speak mini" type="button" data-thai="ส่วนใหญ่" aria-label="play">🔊</button><span class="thai">ส่วนใหญ่</span><span class="en-colloc">mostly</span></span></div>
         <div class="examples">
           <div class="ex">
             <button class="speak mini" data-thai="แก้วใหญ่เท่าไหร่คะ" aria-label="play">🔊</button>
@@ -5084,5 +5091,19 @@ document.addEventListener('click',()=>{
     }
   })();
   </script>
+<script>
+// Colloc chips: click to play
+document.querySelectorAll('.colloc-chip').forEach(chip => {
+  const btn = chip.querySelector('.speak');
+  if (btn) chip.addEventListener('click', () => btn.click());
+});
+
+// Example sentences: click Thai text to play
+document.querySelectorAll('.ex').forEach(ex => {
+  const btn = ex.querySelector('.speak.mini');
+  const thai = ex.querySelector('.thai');
+  if (btn && thai) thai.addEventListener('click', () => btn.click());
+});
+</script>
 </body>
 </html>
