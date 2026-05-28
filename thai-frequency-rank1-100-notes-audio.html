@@ -274,6 +274,171 @@
       100% { outline: 0px solid transparent; outline-offset: 0; }
     }
     .fav-highlight { animation: fav-highlight 1.6s ease forwards; }
+
+
+    /* ── Playback state upgrade: 🔊 ⇄ ⏸ + .speaking ───────────────────── */
+    .speak.speaking {
+      background: #fff1df !important;
+      border-color: rgba(245,158,11,.68) !important;
+      color: #9a3412 !important;
+      box-shadow: 0 0 0 4px rgba(245,158,11,.12), 0 8px 18px rgba(245,158,11,.16);
+      animation: speakPulse .65s ease-in-out infinite alternate;
+    }
+    .speak.mini.speaking {
+      animation: none;
+      transform: none !important;
+      box-shadow: 0 0 0 3px rgba(245,158,11,.10);
+    }
+    @keyframes speakPulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.12); }
+    }
+    .colloc-chip.speaking {
+      background: rgba(255,247,237,.9) !important;
+      border-color: rgba(245,158,11,.42) !important;
+      transform: none !important;
+      animation: none !important;
+    }
+
+    /* ── Favorites flashcard upgrade ───────────────────────────────────── */
+    .favorites-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:14px;
+      margin-top:14px;
+    }
+    .favorite-card {
+      position:relative;
+      background:rgba(255,255,255,.78);
+      border:.5px solid var(--line);
+      border-radius:22px;
+      padding:16px;
+      box-shadow:0 10px 24px rgba(15,23,42,.07);
+      transition:box-shadow .15s, transform .12s;
+    }
+    .favorite-card:hover { box-shadow:0 14px 30px rgba(15,23,42,.10); transform:translateY(-1px); }
+    .favorite-card .fav-rank {
+      display:inline-flex;align-items:center;justify-content:center;
+      font-size:12px;color:var(--muted);background:rgba(255,255,255,.76);
+      border:.5px solid var(--line);border-radius:999px;padding:2px 8px;margin-bottom:8px;
+    }
+    .favorite-card .fav-word {
+      font-family:"Noto Sans Thai","Tahoma",sans-serif;
+      font-size:32px;font-weight:800;line-height:1.18;color:var(--text);
+      padding-right:50px;margin-bottom:2px;
+    }
+    .favorite-card .fav-audio { position:absolute;right:14px;top:14px; }
+    .favorite-card .fav-meaning { margin-top:8px;font-size:14px;font-weight:650;color:#374151; }
+    .favorite-card .fav-usage {
+      margin-top:10px;padding:10px 11px;border-radius:14px;
+      background:rgba(240,253,244,.62);border:.5px solid rgba(22,163,74,.18);font-size:13px;
+    }
+    .favorite-card .fav-collocs { margin-top:10px; }
+    .favorite-card .fav-colloc-pill {
+      display:inline-flex;flex-direction:column;align-items:flex-start;gap:1px;
+      border:.5px solid rgba(2,132,199,.18);background:rgba(239,246,255,.62);
+      border-radius:12px;padding:5px 8px;margin:3px 4px 3px 0;cursor:pointer;
+    }
+    .favorite-card .fav-colloc-pill .thai { font-size:13px;font-weight:650;line-height:1.15; }
+    .favorite-card .fav-colloc-pill .en-colloc { font-size:10.5px;color:var(--muted);line-height:1.15; }
+    .favorite-card .example-box {
+      background:rgba(255,250,244,.72);border:.5px dashed rgba(120,130,140,.28);
+      border-radius:15px;padding:10px;margin-top:10px;
+    }
+    .favorite-card .example-box + .example-box { margin-top:8px; }
+    .favorite-card .remove-fav {
+      border:.5px solid rgba(231,111,81,.32);background:rgba(255,241,239,.85);color:#b4533e;
+      border-radius:999px;padding:5px 10px;cursor:pointer;font-size:12px;font-weight:800;margin-top:12px;
+    }
+    .favorite-card .jump-full {
+      border:.5px solid rgba(245,158,11,.35);background:#fff7ed;color:#9a3412;
+      border-radius:999px;padding:5px 10px;cursor:pointer;font-size:12px;font-weight:800;margin-top:12px;margin-left:6px;
+    }
+    #favs-empty .empty-favs-card {
+      background:rgba(239,246,255,.72);border:.5px dashed rgba(2,132,199,.28);
+      border-radius:20px;padding:28px;text-align:center;
+    }
+
+
+
+    /* ── Favorites lightweight flashcards v2 ───────────────────────────── */
+    .favorites-grid.lightweight {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:12px;
+      margin-top:14px;
+    }
+    .favorite-card.light {
+      position:relative;
+      background:rgba(255,255,255,.78);
+      border:.5px solid var(--line);
+      border-radius:20px;
+      padding:14px;
+      box-shadow:0 8px 20px rgba(15,23,42,.055);
+      transition:box-shadow .15s, transform .12s;
+    }
+    .favorite-card.light:hover { box-shadow:0 12px 26px rgba(15,23,42,.09); transform:translateY(-1px); }
+    .favorite-card.light .fav-audio { position:absolute;right:12px;top:12px; }
+    .favorite-card.light .fav-rank {
+      display:inline-flex;align-items:center;justify-content:center;
+      font-size:11px;color:var(--muted);background:rgba(255,255,255,.76);
+      border:.5px solid var(--line);border-radius:999px;padding:2px 8px;margin-bottom:7px;
+    }
+    .favorite-card.light .fav-word {
+      font-family:"Noto Sans Thai","Tahoma",sans-serif;
+      font-size:30px;font-weight:800;line-height:1.15;color:var(--text);
+      padding-right:46px;margin-bottom:2px;
+    }
+    .favorite-card.light .fav-meaning { margin-top:6px;font-size:14px;font-weight:700;color:#374151; }
+    .favorite-card.light .fav-core-example {
+      margin-top:10px;padding:9px 10px;border-radius:14px;
+      background:rgba(255,250,244,.72);border:.5px dashed rgba(120,130,140,.25);
+    }
+    .favorite-card.light details {
+      background:rgba(255,255,255,.55);
+      border:.5px solid rgba(120,130,140,.22);
+      border-radius:14px;
+      padding:8px 10px;
+      margin:10px 0 0;
+    }
+    .favorite-card.light summary {
+      cursor:pointer;
+      color:#9a3412;
+      font-size:12px;
+      font-weight:900;
+      list-style:none;
+    }
+    .favorite-card.light summary::-webkit-details-marker { display:none; }
+    .favorite-card.light summary::after { content:' ＋'; }
+    .favorite-card.light details[open] summary::after { content:' －'; }
+    .favorite-card.light .fav-usage {
+      margin-top:9px;padding:9px 10px;border-radius:12px;
+      background:rgba(240,253,244,.58);border:.5px solid rgba(22,163,74,.16);font-size:13px;
+    }
+    .favorite-card.light .fav-collocs { margin-top:8px; }
+    .favorite-card.light .fav-colloc-pill {
+      display:inline-flex;flex-direction:column;align-items:flex-start;gap:1px;
+      border:.5px solid rgba(2,132,199,.18);background:rgba(239,246,255,.58);
+      border-radius:12px;padding:5px 8px;margin:3px 4px 3px 0;cursor:pointer;
+    }
+    .favorite-card.light .fav-colloc-pill .thai { font-size:13px;font-weight:650;line-height:1.15; }
+    .favorite-card.light .fav-colloc-pill .en-colloc { font-size:10.5px;color:var(--muted);line-height:1.15; }
+    .favorite-card.light .example-box {
+      background:rgba(255,250,244,.72);border:.5px dashed rgba(120,130,140,.24);
+      border-radius:13px;padding:9px;margin-top:8px;
+    }
+    .favorite-card.light .fav-actions { display:flex;flex-wrap:wrap;gap:6px;margin-top:11px; }
+    .favorite-card.light .remove-fav,
+    .favorite-card.light .jump-full {
+      border-radius:999px;padding:5px 10px;cursor:pointer;font-size:12px;font-weight:850;margin:0;
+    }
+    .favorite-card.light .remove-fav {
+      border:.5px solid rgba(231,111,81,.32);background:rgba(255,241,239,.85);color:#b4533e;
+    }
+    .favorite-card.light .jump-full {
+      border:.5px solid rgba(245,158,11,.35);background:#fff7ed;color:#9a3412;
+    }
+
 </style>
 </head>
 <body>
@@ -4661,6 +4826,23 @@
     let allVoices = [];
     let selectedVoiceName = '';
     let currentUtterance = null;
+    let activeSpeakBtn = null;
+
+    function resetSpeakButton(btn) {
+      if (!btn) return;
+      btn.classList.remove('speaking');
+      btn.textContent = '🔊';
+      var chip = btn.closest && btn.closest('.colloc-chip');
+      if (chip) chip.classList.remove('speaking');
+    }
+
+    function setSpeakButtonPlaying(btn) {
+      if (!btn) return;
+      btn.classList.add('speaking');
+      btn.textContent = '⏸';
+      var chip = btn.closest && btn.closest('.colloc-chip');
+      if (chip) chip.classList.add('speaking');
+    }
 
     const voiceSelect = document.getElementById('voiceSelect');
     const audioStatus = document.getElementById('audioStatus');
@@ -4730,14 +4912,25 @@
       });
     }
 
-    async function speakThai(text) {
+    async function speakThai(text, btn) {
       if (!text) return;
       if (!('speechSynthesis' in window)) {
         alert('這個瀏覽器不支援語音朗讀。建議用 Chrome / Edge / Safari。');
         return;
       }
+
+      // 點同一顆播放中的按鈕 = 停止
+      if (btn && activeSpeakBtn === btn && (window.speechSynthesis.speaking || window.speechSynthesis.pending)) {
+        window.speechSynthesis.cancel();
+        resetSpeakButton(btn);
+        activeSpeakBtn = null;
+        setStatus('已停止播放。');
+        return;
+      }
+
       await ensureVoicesReady();
       window.speechSynthesis.cancel();
+      if (activeSpeakBtn) resetSpeakButton(activeSpeakBtn);
 
       currentUtterance = new SpeechSynthesisUtterance(text);
       currentUtterance.lang = 'th-TH';
@@ -4747,12 +4940,23 @@
       const voice = chooseVoice();
       if (voice) currentUtterance.voice = voice;
 
-      currentUtterance.onstart = () => setStatus(`播放中：${text.slice(0, 40)}${text.length > 40 ? '...' : ''}`);
-      currentUtterance.onend = () => setStatus(thaiVoices.length ? '播放完成。' : '播放完成；但目前未偵測到 Thai voice，發音可能不準。');
-      currentUtterance.onerror = (e) => setStatus(`播放失敗：${e.error || 'unknown'}。請換 Chrome / Safari 或檢查系統 Thai 語音。`);
+      currentUtterance.onstart = () => {
+        activeSpeakBtn = btn || null;
+        if (btn) setSpeakButtonPlaying(btn);
+        setStatus(`播放中：${text.slice(0, 40)}${text.length > 40 ? '...' : ''}`);
+      };
+      currentUtterance.onend = () => {
+        if (btn) resetSpeakButton(btn);
+        if (activeSpeakBtn === btn) activeSpeakBtn = null;
+        setStatus(thaiVoices.length ? '播放完成。' : '播放完成；但目前未偵測到 Thai voice，發音可能不準。');
+      };
+      currentUtterance.onerror = (e) => {
+        if (btn) resetSpeakButton(btn);
+        if (activeSpeakBtn === btn) activeSpeakBtn = null;
+        setStatus(`播放失敗：${e.error || 'unknown'}。請換 Chrome / Safari 或檢查系統 Thai 語音。`);
+      };
 
       window.speechSynthesis.speak(currentUtterance);
-      // Chrome sometimes pauses speechSynthesis unexpectedly; this keeps it awake.
       setTimeout(() => {
         if (window.speechSynthesis.paused) window.speechSynthesis.resume();
       }, 250);
@@ -4763,15 +4967,8 @@
       if (btn) {
         e.preventDefault();
         e.stopPropagation();
-        const text = btn.dataset.thai || btn.textContent.trim();
-        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-          window.speechSynthesis.cancel();
-          const u = new SpeechSynthesisUtterance(text);
-          u.lang = 'th-TH'; u.rate = 0.78; u.pitch = 1.0;
-          window.speechSynthesis.speak(u);
-        } else {
-          speakThai(text);
-        }
+        const text = btn.dataset.thai || btn.getAttribute('data-thai') || btn.textContent.trim();
+        speakThai(text, btn);
       }
     });
 
@@ -4783,6 +4980,8 @@
     }
     if (stopAudio) stopAudio.addEventListener('click', () => {
       if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      if (activeSpeakBtn) resetSpeakButton(activeSpeakBtn);
+      activeSpeakBtn = null;
       setStatus('已停止播放。');
     });
 
@@ -4807,7 +5006,7 @@
     if (playVisible) playVisible.addEventListener('click', () => {
       const visible = cards.filter(c => c.style.display !== 'none').slice(0, 25);
       const text = visible.map(c => c.dataset.word).join(' ... ');
-      speakThai(text);
+      speakThai(text, null);
     });
 
     if ('speechSynthesis' in window) {
@@ -4829,7 +5028,7 @@ document.addEventListener('click',()=>{
 
 // ── Mobile audio fix: iOS/Android capture-phase intercept ──────────────
 (function(){
-  if(!/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) return;
+  return; // disabled: unified .speak handler above now handles mobile and playback state
   document.addEventListener('click', function(e){
     var btn = e.target && e.target.closest && e.target.closest('.speak');
     if(!btn) return;
@@ -4915,19 +5114,46 @@ document.addEventListener('click',()=>{
     }
 
     /* ── 收藏 Tab 面板 ────────────────────────────────────────────────────── */
+    function cleanText(el) {
+      return el ? el.textContent.replace(/\s+/g, ' ').trim() : '';
+    }
+
     function getCardData(rank) {
       var card = document.querySelector('.word-card[data-rank="' + rank + '"]');
       if (!card) return null;
-      var romEl     = card.querySelector('.rom');
+      var romEl     = card.querySelector('.word-head .rom');
       var meaningEl = card.querySelector('.meaning b');
       var enEl      = card.querySelector('.meaning span');
+      var usageEl   = card.querySelector('.usage');
+      var collocEls = Array.from(card.querySelectorAll('.colloc-chip')).slice(0, 4).map(function(chip){
+        var thai = cleanText(chip.querySelector('.thai'));
+        var en = cleanText(chip.querySelector('.en-colloc'));
+        return { thai: thai, en: en };
+      }).filter(function(x){ return x.thai; });
+      var exampleEls = Array.from(card.querySelectorAll('.examples .ex')).slice(0, 2).map(function(ex){
+        return {
+          thai: cleanText(ex.querySelector('.thai')),
+          rom: cleanText(ex.querySelector('.rom')),
+          en: cleanText(ex.querySelector('.en')),
+          zh: cleanText(ex.querySelector('.zh'))
+        };
+      }).filter(function(x){ return x.thai; });
       return {
         rank:    rank,
         word:    card.dataset.word || '',
-        rom:     romEl     ? romEl.firstChild.textContent.trim() : '',
-        meaning: meaningEl ? meaningEl.textContent.trim() : '',
-        en:      enEl      ? enEl.textContent.trim() : '',
+        rom:     romEl ? (romEl.childNodes[0] ? romEl.childNodes[0].textContent.trim() : cleanText(romEl)) : '',
+        meaning: meaningEl ? cleanText(meaningEl) : '',
+        en:      enEl ? cleanText(enEl).replace(/^｜\s*/, '') : '',
+        usage:   usageEl ? cleanText(usageEl).replace(/^Usage\s*/i, '') : '',
+        collocs: collocEls,
+        examples: exampleEls
       };
+    }
+
+    function escapeHtml(s) {
+      return String(s || '').replace(/[&<>"]/g, function(ch){
+        return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]);
+      });
     }
 
     function jumpToCard(rank) {
@@ -4956,18 +5182,20 @@ document.addEventListener('click',()=>{
       if (!ranks.length) {
         panel.innerHTML =
           '<div id="favs-empty">' +
-          '<p style="font-size:44px;margin:0">☆</p>' +
-          '<p style="font-size:16px;font-weight:500">還沒有收藏的字</p>' +
-          '<p style="font-size:13px">在單字卡右下角點 ☆ 來標記不熟悉的字</p>' +
+            '<div class="empty-favs-card">' +
+              '<p style="font-size:44px;margin:0">☆</p>' +
+              '<p style="font-size:16px;font-weight:700;margin:6px 0">還沒有收藏的字</p>' +
+              '<p style="font-size:13px;margin:0;color:var(--muted,#6b7280)">在 Vocabulary Cards 單字卡右下角點 ☆，收藏會出現在這裡。</p>' +
+            '</div>' +
           '</div>';
         return;
       }
 
       panel.innerHTML =
-        '<h2 style="font-size:22px;margin:0 0 4px">我的收藏</h2>' +
+        '<h2 style="font-size:22px;margin:0 0 4px">我的收藏 Flashcards</h2>' +
         '<p style="color:var(--muted,#6b7280);font-size:13px;margin:0 0 16px">' +
-        '點擊字卡跳至完整內容 ▸ 收藏狀態自動儲存於瀏覽器</p>' +
-        '<div class="grid" id="favGrid"></div>';
+        '這版改成輕量字卡：先看泰文、拼音、核心意思與一個代表例句；需要時再展開搭配詞、Usage 與更多例句。</p>' +
+        '<div class="favorites-grid lightweight" id="favGrid"></div>';
 
       var grid = panel.querySelector('#favGrid');
 
@@ -4975,21 +5203,65 @@ document.addEventListener('click',()=>{
         var d = getCardData(rank);
         if (!d) return;
 
-        var mc = document.createElement('div');
-        mc.className = 'fav-mini-card';
-        mc.setAttribute('role', 'button');
-        mc.setAttribute('tabindex', '0');
-        mc.innerHTML =
-          '<div class="fmc-rank">#' + d.rank + '</div>' +
-          '<div class="fmc-word">' + d.word + '</div>' +
-          '<div class="fmc-rom">' + d.rom + '</div>' +
-          '<div class="fmc-zh">' + d.meaning +
-            ' <span style="color:var(--muted,#6b7280);font-weight:400">' + d.en + '</span>' +
-          '</div>' +
-          '<div class="fav-jump-hint">點擊看完整卡片 →</div>' +
-          '<button class="fmc-remove" aria-label="取消收藏" title="取消收藏">★</button>';
+        var card = document.createElement('div');
+        card.className = 'favorite-card light';
 
-        mc.querySelector('.fmc-remove').addEventListener('click', function (e) {
+        var firstEx = d.examples[0] || null;
+        var coreExampleHtml = firstEx ?
+          '<div class="fav-core-example">' +
+            '<div><span class="thai">' + escapeHtml(firstEx.thai) + '</span>' +
+              '<button class="speak mini" type="button" data-thai="' + escapeHtml(firstEx.thai) + '" aria-label="play">🔊</button></div>' +
+            '<div class="rom">' + escapeHtml(firstEx.rom) + '</div>' +
+            '<div class="en">' + escapeHtml(firstEx.en) + '</div>' +
+            '<div class="zh">' + escapeHtml(firstEx.zh) + '</div>' +
+          '</div>' : '';
+
+        var collocHtml = d.collocs.length ?
+          '<div class="fav-collocs">' +
+            '<div class="zh" style="font-weight:800;margin-bottom:4px">Collocations</div>' +
+            d.collocs.map(function(c){
+              return '<button class="fav-colloc-pill" type="button" data-thai="' + escapeHtml(c.thai) + '">' +
+                '<span class="thai">' + escapeHtml(c.thai) + '</span>' +
+                '<span class="en-colloc">' + escapeHtml(c.en) + '</span>' +
+              '</button>';
+            }).join('') +
+          '</div>' : '';
+
+        var extraExamples = d.examples.slice(1);
+        var extraExampleHtml = extraExamples.length ? extraExamples.map(function(ex){
+          return '<div class="example-box">' +
+            '<div><span class="thai">' + escapeHtml(ex.thai) + '</span>' +
+              '<button class="speak mini" type="button" data-thai="' + escapeHtml(ex.thai) + '" aria-label="play">🔊</button></div>' +
+            '<div class="rom">' + escapeHtml(ex.rom) + '</div>' +
+            '<div class="en">' + escapeHtml(ex.en) + '</div>' +
+            '<div class="zh">' + escapeHtml(ex.zh) + '</div>' +
+          '</div>';
+        }).join('') : '';
+
+        var detailHtml = (d.usage || collocHtml || extraExampleHtml) ?
+          '<details>' +
+            '<summary>展開更多：Usage / Collocations / More examples</summary>' +
+            (d.usage ? '<div class="fav-usage">' + escapeHtml(d.usage) + '</div>' : '') +
+            collocHtml +
+            extraExampleHtml +
+          '</details>' : '';
+
+        card.innerHTML =
+          '<button class="speak fav-audio" type="button" data-thai="' + escapeHtml(d.word) + '" aria-label="play">🔊</button>' +
+          '<div class="fav-rank">#' + escapeHtml(d.rank) + '</div>' +
+          '<div class="fav-word">' + escapeHtml(d.word) + '</div>' +
+          '<div class="rom">' + escapeHtml(d.rom) + '</div>' +
+          '<div class="fav-meaning">' + escapeHtml(d.meaning) +
+            (d.en ? ' <span class="en">｜' + escapeHtml(d.en) + '</span>' : '') +
+          '</div>' +
+          coreExampleHtml +
+          detailHtml +
+          '<div class="fav-actions">' +
+            '<button class="remove-fav" type="button">移除收藏</button>' +
+            '<button class="jump-full" type="button">看完整卡片 →</button>' +
+          '</div>';
+
+        card.querySelector('.remove-fav').addEventListener('click', function (e) {
           e.stopPropagation();
           favs.delete(rank);
           save();
@@ -5004,11 +5276,20 @@ document.addEventListener('click',()=>{
           renderFavCards();
         });
 
-        mc.addEventListener('click', function () { jumpToCard(rank); });
-        mc.addEventListener('keydown', function (e) {
-          if (e.key === 'Enter' || e.key === ' ') jumpToCard(rank);
+        card.querySelector('.jump-full').addEventListener('click', function(e){
+          e.stopPropagation();
+          jumpToCard(rank);
         });
-        grid.appendChild(mc);
+
+        card.querySelectorAll('.fav-colloc-pill').forEach(function(pill){
+          pill.addEventListener('click', function(e){
+            e.stopPropagation();
+            var thai = pill.getAttribute('data-thai');
+            speakThaiFromButton(thai, pill);
+          });
+        });
+
+        grid.appendChild(card);
       });
     }
 
@@ -5029,7 +5310,7 @@ document.addEventListener('click',()=>{
       favTab.className = 'tab';
       favTab.dataset.tab = 'favs';
       favTab.innerHTML =
-        '我的收藏' +
+        'Favorites' +
         ' <span id="favTabBadge" style="' +
           'display:inline-block;background:#f59e0b;color:#fff;' +
           'border-radius:999px;padding:0 6px;font-size:11px;font-weight:700;' +
@@ -5100,7 +5381,10 @@ document.addEventListener('click',()=>{
 <script>
 document.querySelectorAll('.colloc-chip').forEach(chip => {
   const btn = chip.querySelector('.speak');
-  if (btn) chip.addEventListener('click', () => btn.click());
+  if (btn) chip.addEventListener('click', (e) => {
+    if (e.target.closest('.speak')) return;
+    btn.click();
+  });
 });
 </script>
 </body>
