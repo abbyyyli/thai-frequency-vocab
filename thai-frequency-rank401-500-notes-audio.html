@@ -338,6 +338,106 @@ details.qa summary { cursor:pointer; font-weight:700; }
 }
 
 /* === THAI FREQUENCY UI PATCH: END === */
+
+/* === THAI FREQUENCY COLLOCATION AUDIO PILL PATCH: START === */
+
+/*
+  Collocations audio pill:
+  - 比 Collocations tag 的藍色更淺
+  - 預設是淡藍底 + 細藍邊
+  - hover 時稍微亮一點
+  - speaking 時有淡橘/藍光暈，讓你知道正在播放
+*/
+
+/* Vocabulary Cards 裡的 collocation pill */
+.colloc-chip {
+  background: rgba(239, 246, 255, .50) !important;
+  border: .5px solid rgba(147, 197, 253, .42) !important;
+  color: var(--text, #263238) !important;
+  box-shadow: 0 3px 8px rgba(2, 132, 199, .045);
+  transition:
+    background .16s ease,
+    border-color .16s ease,
+    box-shadow .16s ease,
+    transform .12s ease;
+}
+
+.colloc-chip:hover {
+  background: rgba(219, 234, 254, .62) !important;
+  border-color: rgba(96, 165, 250, .55) !important;
+  box-shadow: 0 5px 12px rgba(2, 132, 199, .08);
+  transform: translateY(-1px);
+}
+
+.colloc-chip .thai {
+  color: #1f4f72;
+}
+
+.colloc-chip .en-colloc {
+  color: #64748b;
+}
+
+/* Favorites 展開區裡的 collocation pill */
+.favorite-card .fav-colloc-pill,
+.favorite-card.light .fav-colloc-pill,
+.tf-fav-section .colloc-chip {
+  background: rgba(239, 246, 255, .48) !important;
+  border: .5px solid rgba(147, 197, 253, .40) !important;
+  box-shadow: 0 3px 8px rgba(2, 132, 199, .04);
+  transition:
+    background .16s ease,
+    border-color .16s ease,
+    box-shadow .16s ease,
+    transform .12s ease;
+}
+
+.favorite-card .fav-colloc-pill:hover,
+.favorite-card.light .fav-colloc-pill:hover,
+.tf-fav-section .colloc-chip:hover {
+  background: rgba(219, 234, 254, .60) !important;
+  border-color: rgba(96, 165, 250, .55) !important;
+  box-shadow: 0 5px 12px rgba(2, 132, 199, .08);
+  transform: translateY(-1px);
+}
+
+/* 播放中：簡單明顯，但不彈跳 */
+.colloc-chip.speaking,
+.pill.speaking,
+.favorite-card .fav-colloc-pill.speaking,
+.favorite-card.light .fav-colloc-pill.speaking,
+.tf-fav-section .colloc-chip.speaking {
+  background: rgba(255, 247, 237, .92) !important;
+  border-color: rgba(245, 158, 11, .55) !important;
+  color: var(--text, #263238) !important;
+  box-shadow:
+    0 0 0 3px rgba(245, 158, 11, .12),
+    0 7px 16px rgba(245, 158, 11, .12) !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+.colloc-chip.speaking .thai,
+.favorite-card .fav-colloc-pill.speaking .thai,
+.favorite-card.light .fav-colloc-pill.speaking .thai,
+.tf-fav-section .colloc-chip.speaking .thai {
+  color: #9a3412 !important;
+}
+
+.colloc-chip.speaking .en-colloc,
+.favorite-card .fav-colloc-pill.speaking .en-colloc,
+.favorite-card.light .fav-colloc-pill.speaking .en-colloc,
+.tf-fav-section .colloc-chip.speaking .en-colloc {
+  color: #92400e !important;
+}
+
+/* 防止 hidden speak button 影響 pill 版面 */
+.colloc-chip .speak,
+.favorite-card .fav-colloc-pill .speak,
+.favorite-card.light .fav-colloc-pill .speak {
+  display: none !important;
+}
+
+/* === THAI FREQUENCY COLLOCATION AUDIO PILL PATCH: END === */
 </style>
 </head>
 <body>
