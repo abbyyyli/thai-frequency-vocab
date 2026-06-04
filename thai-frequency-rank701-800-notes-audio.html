@@ -385,7 +385,7 @@
 <header class="hero">
 <h1>Thai Frequency Notes｜Rank 701–800 高頻詞｜修正版</h1>
 <div class="subtitle">來源：Thai frequency lists combined.xlsx｜工作表 top 4000｜Rank 701–800｜生成日期：2026-05-21</div>
-<div class="pillrow"><span class="pill">每字：Thai / Romanization / IPA / 中文 / English / 用法 / 生活例句</span><span class="pill">🔊 Online Thai TTS audio 優先＋Browser Thai voice fallback</span><span class="pill">Source Corpus 不放單字卡，只放 Notes</span><span class="pill">本版加強：Mixed Sentences / Dialogues / Practice</span></div>
+<div class="pillrow"><span class="pill">每字：Thai / Romanization / IPA / 中文 / English / 用法 / 生活例句</span><span class="pill">🔊 平板穩定：Browser Thai voice 優先＋Online TTS 備援</span><span class="pill">Source Corpus 不放單字卡，只放 Notes</span><span class="pill">本版加強：Mixed Sentences / Dialogues / Practice</span></div>
 </header>
 <nav aria-label="tabs" class="tabs">
 <button class="tab active" data-tab="overview">Overview</button><button class="tab" data-tab="cards">Vocabulary Cards</button><button class="tab" data-tab="table">Quick Table</button><button class="tab" data-tab="patterns">Structures</button><button class="tab" data-tab="sentences">Mixed Sentences</button><button class="tab" data-tab="dialogues">Dialogues</button><button class="tab" data-tab="practice">Practice</button><button class="tab" data-tab="source">Source Notes</button>
@@ -399,10 +399,10 @@
 <div class="audio-check-row">
 <button class="speak" data-thai="สวัสดีค่ะ วันนี้เราจะฝึกคำศัพท์ไทยอันดับเจ็ดร้อยหนึ่งถึงแปดร้อยค่ะ" type="button">🔊</button>
 <button class="tab" id="stopAudio" style="position:static;" type="button">停止</button>
-<select class="audio-select" id="audioMode"><option value="online">Online TTS audio 優先（推薦）</option><option value="speech">Browser Thai voice 優先</option></select>
+<select class="audio-select" id="audioMode"><option value="speech" selected>Browser Thai voice 優先（平板推薦）</option><option value="online">Online TTS audio 備援</option></select>
 <select class="audio-select" id="voiceSelect"><option>Kanya (th-TH)</option></select>
 </div>
-<div class="audio-status" id="audioStatus">使用 Online Thai TTS audio 播放中。</div>
+<div class="audio-status" id="audioStatus">平板模式：使用 Browser Thai voice 優先，避免 Online TTS 在 iPad 延遲或被擋。</div>
 </div>
 <h3>這一批建議先背</h3>
 <div class="patterns">
@@ -1810,7 +1810,7 @@
 <details class="source-example"><summary>#798 <span class="thai">ก้าว</span> / <span class="rom">gâao</span> / 步伐；前進</summary><div class="corpus-line"><b>Corpus:</b> <span class="thai">แม่กวางวิ่งหนีกระสุนปืนไปได้ 2-3 ก้าวก็ล้มหมอบลงอีก</span></div><div class="zh">此句為原始語料參考，可能偏新聞、正式或不適合直接背。主卡片例句請優先複習。</div></details>
 <details class="source-example"><summary>#799 <span class="thai">ศาสนา</span> / <span class="rom">sàat-sà-nǎa</span> / 宗教</summary><div class="corpus-line"><b>Corpus:</b> <span class="thai">ในสังคมจะต้องมีเรื่องของศาสนาเข้ามาเกี่ยวข้องเพื่อเป็นบรรทัดฐานให้สังคมอยู่ร่วมกันได้</span></div><div class="zh">此句為原始語料參考，可能偏新聞、正式或不適合直接背。主卡片例句請優先複習。</div></details>
 <details class="source-example"><summary>#800 <span class="thai">งดงาม</span> / <span class="rom">ngót-ngaam</span> / 美麗、優美</summary><div class="corpus-line"><b>Corpus:</b> <span class="thai">มะละกอแกะสลักจานนี้งดงามมาก</span></div><div class="zh">此句為原始語料參考，可能偏新聞、正式或不適合直接背。主卡片例句請優先複習。</div></details></section>
-<div class="footer">Thai Frequency Notes Rank 701–800｜Static HTML｜No API generation｜Audio: Online Thai TTS + Browser SpeechSynthesis fallback</div>
+<div class="footer">Thai Frequency Notes Rank 701–800｜Static HTML｜No API generation｜Audio: Browser SpeechSynthesis first + Online fallback for tablet stability</div>
 </div>
 <script>
 let voices = [];
@@ -2253,50 +2253,7 @@ document.addEventListener('click',()=>{
     }
   })();
   </script>
-<script>
-(function () {
-  function playCollocation(text) {
-    if (!text) return;
-    if (typeof window.speakThai === 'function') {
-      window.speakThai(text);
-      return;
-    }
-    try {
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        const u = new SpeechSynthesisUtterance(text);
-        u.lang = 'th-TH';
-        u.rate = 0.86;
-        window.speechSynthesis.speak(u);
-      }
-    } catch (e) {}
-  }
 
-  document.querySelectorAll('.colloc-chip').forEach(chip => {
-    chip.setAttribute('role', 'button');
-    chip.setAttribute('tabindex', '0');
-
-    const getThai = () => {
-      const btn = chip.querySelector('.speak[data-thai]');
-      const thai = chip.querySelector('.thai');
-      return (btn?.dataset.thai || thai?.textContent || '').trim();
-    };
-
-    chip.addEventListener('click', (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      playCollocation(getThai());
-    });
-
-    chip.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        playCollocation(getThai());
-      }
-    });
-  });
-})();
-</script>
 <script>
 (function() {
   "use strict";
@@ -2308,30 +2265,59 @@ document.addEventListener('click',()=>{
   let activeUtterance = null;
   let voices = [];
 
+  function setStatus(msg) {
+    const el = document.getElementById("audioStatus");
+    if (el) el.textContent = msg;
+  }
+
+  function isIOSLike() {
+    return /iPad|iPhone|iPod/i.test(navigator.userAgent) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  }
+
   function loadVoices() {
     if (!("speechSynthesis" in window)) return;
     voices = window.speechSynthesis.getVoices ? window.speechSynthesis.getVoices() : [];
+    const select = document.getElementById("voiceSelect");
+    if (!select) return;
+    const current = select.value;
+    const thaiVoices = voices.filter(v => /th-TH/i.test(v.lang || "") || /^th/i.test(v.lang || "") || /Kanya|Thai|ไทย/i.test(v.name || ""));
+    const list = thaiVoices.length ? thaiVoices : voices;
+    if (!list.length) return;
+    select.innerHTML = "";
+    list.forEach(v => {
+      const opt = document.createElement("option");
+      opt.value = voices.indexOf(v);
+      opt.textContent = `${v.name} (${v.lang})${thaiVoices.includes(v) ? " ✓ Thai" : ""}`;
+      select.appendChild(opt);
+    });
+    if (current) select.value = current;
   }
 
   if ("speechSynthesis" in window) {
     loadVoices();
     window.speechSynthesis.onvoiceschanged = loadVoices;
+    setTimeout(loadVoices, 250);
+    setTimeout(loadVoices, 900);
   }
 
-  function thaiVoice() {
-    return voices.find(v => /th-TH/i.test(v.lang))
-        || voices.find(v => /^th/i.test(v.lang))
-        || voices.find(v => /Kanya|Thai/i.test(v.name))
+  function selectedThaiVoice() {
+    const select = document.getElementById("voiceSelect");
+    if (select && select.value !== "") {
+      const v = voices[Number(select.value)];
+      if (v) return v;
+    }
+    return voices.find(v => /th-TH/i.test(v.lang || ""))
+        || voices.find(v => /^th/i.test(v.lang || ""))
+        || voices.find(v => /Kanya|Thai|ไทย/i.test(v.name || ""))
         || null;
   }
 
   function resetSpeakButton(btn) {
     if (!btn) return;
     btn.classList.remove("speaking");
-    if (btn.dataset && btn.dataset.originalText) {
-      btn.textContent = btn.dataset.originalText;
-    } else if (btn.matches(".speak, .tts")) {
-      btn.textContent = "🔊";
+    if (btn.matches && btn.matches(".speak, .tts")) {
+      btn.textContent = btn.dataset.originalText || "🔊";
     }
   }
 
@@ -2339,438 +2325,185 @@ document.addEventListener('click',()=>{
     document.querySelectorAll(".speak.speaking, .tts.speaking, .colloc-chip.speaking, .pill.speaking")
       .forEach(el => {
         el.classList.remove("speaking");
-        if (el.matches(".speak, .tts")) resetSpeakButton(el);
+        if (el.matches && el.matches(".speak, .tts")) resetSpeakButton(el);
       });
   }
 
-  function getThaiFromAudioTarget(target) {
-    const btn = target.closest(".speak, .tts");
-    if (btn) return { btn, text: btn.dataset.thai || btn.getAttribute("data-thai") || "" };
+  function stopSpeech() {
+    try { if (window.currentAudio) { window.currentAudio.pause(); window.currentAudio.currentTime = 0; } } catch(e) {}
+    try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch(e) {}
+    resetAllAudioUI();
+    activeBtn = null;
+    activeUtterance = null;
+    setStatus("已停止播放。");
+  }
 
-    const chip = target.closest(".colloc-chip[data-thai], .pill[data-thai]");
+  function textFromChip(chip) {
+    if (!chip) return "";
+    const btn = chip.querySelector(".speak[data-thai], .tts[data-thai]");
+    const thai = chip.querySelector(".thai");
+    return (chip.dataset.thai || btn?.dataset?.thai || btn?.getAttribute("data-thai") || thai?.textContent || "").trim();
+  }
+
+  function getThaiFromAudioTarget(target) {
+    if (!target || !target.closest) return null;
+
+    const btn = target.closest(".speak, .tts");
+    if (btn) {
+      const chip = btn.closest(".colloc-chip, .pill");
+      return { btn, chip, text: btn.dataset.thai || btn.getAttribute("data-thai") || textFromChip(chip) || "" };
+    }
+
+    // 重要：原始 vocabulary 的 collocation pill 沒有 data-thai，只有 hidden .speak 有。
+    // 所以這裡必須攔截所有 .colloc-chip，而不是只有 .colloc-chip[data-thai]。
+    const chip = target.closest(".colloc-chip, .pill[data-thai]");
     if (chip) {
-      let innerBtn = chip.querySelector(".speak, .tts");
-      return {
-        btn: innerBtn || chip,
-        chip,
-        text: chip.dataset.thai || chip.getAttribute("data-thai") || ""
-      };
+      const innerBtn = chip.querySelector(".speak[data-thai], .tts[data-thai]");
+      return { btn: innerBtn || chip, chip, text: textFromChip(chip) };
     }
     return null;
   }
 
-  function speakThai(text, btn, chip) {
-    if (!text || !("speechSynthesis" in window)) return;
+  function speakByBrowser(text, btn, chip) {
+    return new Promise((resolve, reject) => {
+      if (!("speechSynthesis" in window)) return reject(new Error("No speechSynthesis"));
+      if (!text) return reject(new Error("No text"));
 
-    if (activeBtn === btn && window.speechSynthesis.speaking) {
-      window.speechSynthesis.cancel();
-      resetAllAudioUI();
-      activeBtn = null;
-      activeUtterance = null;
-      return;
-    }
+      try {
+        window.speechSynthesis.cancel();
+        resetAllAudioUI();
 
-    window.speechSynthesis.cancel();
-    resetAllAudioUI();
-
-    if (btn && btn.matches(".speak, .tts")) {
-      if (!btn.dataset.originalText) btn.dataset.originalText = btn.textContent.trim() || "🔊";
-      btn.textContent = "⏸";
-      btn.classList.add("speaking");
-    }
-    if (chip) chip.classList.add("speaking");
-
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = "th-TH";
-    u.rate = 0.86;
-    u.pitch = 1.0;
-
-    const voice = thaiVoice();
-    if (voice) u.voice = voice;
-
-    activeBtn = btn;
-    activeUtterance = u;
-
-    u.onend = function() {
-      resetAllAudioUI();
-      activeBtn = null;
-      activeUtterance = null;
-    };
-
-    u.onerror = function() {
-      resetAllAudioUI();
-      activeBtn = null;
-      activeUtterance = null;
-    };
-
-    window.speechSynthesis.speak(u);
-  }
-
-  function favArray() {
-    try {
-      return JSON.parse(localStorage.getItem(STORE_KEY) || "[]").map(String);
-    } catch (e) {
-      return [];
-    }
-  }
-
-  function favSet() {
-    return new Set(favArray());
-  }
-
-  function saveFavs(set) {
-    localStorage.setItem(STORE_KEY, JSON.stringify(Array.from(set)));
-  }
-
-  function getCardRank(card) {
-    return String(card?.dataset?.rank || card?.getAttribute("data-rank") || "");
-  }
-
-  function ensureFavButtons() {
-    document.querySelectorAll(".word-card").forEach(card => {
-      if (card.querySelector(":scope > .fav-btn")) return;
-      const rank = getCardRank(card);
-      if (!rank) return;
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "fav-btn";
-      btn.setAttribute("aria-label", "favorite");
-      btn.textContent = "☆";
-      card.appendChild(btn);
-    });
-  }
-
-  function updateFavUI() {
-    const favs = favSet();
-    document.querySelectorAll(".word-card").forEach(card => {
-      const rank = getCardRank(card);
-      const btn = card.querySelector(":scope > .fav-btn");
-      if (!btn) return;
-      const on = favs.has(rank);
-      btn.classList.toggle("faved", on);
-      btn.textContent = on ? "★" : "☆";
-    });
-
-    const count = favs.size;
-    const favCount = document.getElementById("favCount");
-    if (favCount) favCount.textContent = "已收藏 " + count + " 字";
-
-    const favTab = document.querySelector('.tab[data-tab="favs"], .tab[data-tab="favorites"]');
-    if (favTab) favTab.textContent = "我的收藏 " + (count ? "(" + count + ")" : "");
-
-    const showFav = document.getElementById("showFav");
-    if (showFav) showFav.textContent = "只看收藏 ★" + (count ? " (" + count + ")" : "");
-  }
-
-  function cleanText(text) {
-    return (text || "").replace(/\s+/g, " ").trim();
-  }
-
-  function firstDirectText(el) {
-    if (!el) return "";
-    const clone = el.cloneNode(true);
-    clone.querySelectorAll("button, .speak, .tts").forEach(x => x.remove());
-    return cleanText(clone.textContent);
-  }
-
-  function parseMeaning(card) {
-    const meaningEl = card.querySelector(".meaning");
-    const raw = cleanText(meaningEl?.textContent || "");
-    if (!raw) return { zh: "", en: "" };
-
-    const parts = raw.split("｜");
-    if (parts.length >= 2) {
-      return {
-        zh: cleanText(parts[0]),
-        en: cleanText(parts.slice(1).join("｜"))
-      };
-    }
-    return { zh: raw, en: "" };
-  }
-
-  function extractExample(ex) {
-    if (!ex) return null;
-    const thai = firstDirectText(ex.querySelector(".thai"));
-    const rom = cleanText(ex.querySelector(".rom")?.textContent || "");
-    const en = cleanText(ex.querySelector(".en, .eng")?.textContent || "");
-    const zh = cleanText(ex.querySelector(".zh")?.textContent || "");
-    const btn = ex.querySelector(".speak[data-thai], .tts[data-thai]");
-    const audio = btn?.dataset?.thai || thai;
-    return { thai, rom, en, zh, audio };
-  }
-
-  function cardData(card) {
-    const rank = getCardRank(card);
-    const word = cleanText(card.dataset.word || card.querySelector(".word")?.textContent || card.querySelector(".thai.word")?.textContent || "");
-    const romFull = cleanText(card.querySelector(".word-head .rom, .rom")?.textContent || "");
-    const rom = cleanText(romFull.replace(/IPA:.*/i, ""));
-    const meaning = parseMeaning(card);
-    const usage = cleanText(card.querySelector(".usage")?.textContent || "");
-    const examples = Array.from(card.querySelectorAll(".ex")).map(extractExample).filter(Boolean);
-    const collocs = Array.from(card.querySelectorAll(".colloc-chip")).map(chip => {
-      const thai = firstDirectText(chip.querySelector(".thai")) || cleanText(chip.dataset.thai || "");
-      const en = cleanText(chip.querySelector(".en-colloc, .eng, .en")?.textContent || "");
-      const audio = chip.dataset.thai || chip.querySelector(".speak[data-thai], .tts[data-thai]")?.dataset?.thai || thai;
-      return { thai, en, audio };
-    }).filter(x => x.thai);
-
-    return { rank, word, rom, meaning, usage, examples, collocs };
-  }
-
-  function escapeHtml(s) {
-    return String(s || "")
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;");
-  }
-
-  function makeSpeakButton(text, className) {
-    return '<button class="' + className + '" type="button" data-thai="' + escapeHtml(text) + '">🔊</button>';
-  }
-
-  function favCardHTML(data) {
-    const firstEx = data.examples[0];
-    const examplesMore = data.examples.slice(1);
-    const meaningLINE = [data.meaning.zh, data.meaning.en].filter(Boolean).join(" ｜ ");
-
-    const collocHTML = data.collocs.length ? data.collocs.map(c => `
-      <button class="colloc-chip" type="button" data-thai="${escapeHtml(c.audio || c.thai)}">
-        <span class="thai">${escapeHtml(c.thai)}</span>
-        ${c.en ? `<span class="en-colloc">${escapeHtml(c.en)}</span>` : ""}
-      </button>
-    `).join("") : '<div class="en">No collocations found.</div>';
-
-    const moreExamplesHTML = examplesMore.length ? examplesMore.map(ex => `
-      <div class="tf-fav-example">
-        ${makeSpeakButton(ex.audio || ex.thai, "speak mini")}
-        <div>
-          <div class="thai">${escapeHtml(ex.thai)}</div>
-          <div class="rom">${escapeHtml(ex.rom)}</div>
-          <div class="en">${escapeHtml(ex.en)}</div>
-          <div class="zh">${escapeHtml(ex.zh)}</div>
-        </div>
-      </div>
-    `).join("") : '<div class="en">No more examples.</div>';
-
-    return `
-      <article class="tf-fav-card" data-rank="${escapeHtml(data.rank)}">
-        <div class="tf-fav-rank">#${escapeHtml(data.rank)}</div>
-        <div class="tf-fav-head">
-          ${makeSpeakButton(data.word, "speak")}
-          <div>
-            <div class="tf-fav-word">${escapeHtml(data.word)}</div>
-            <div class="tf-fav-rom">${escapeHtml(data.rom)}</div>
-            <div class="tf-fav-meaning">${escapeHtml(meaningLINE)}</div>
-          </div>
-        </div>
-
-        ${firstEx ? `
-          <div class="tf-fav-example">
-            ${makeSpeakButton(firstEx.audio || firstEx.thai, "speak mini")}
-            <div>
-              <div class="thai">${escapeHtml(firstEx.thai)}</div>
-              <div class="rom">${escapeHtml(firstEx.rom)}</div>
-              <div class="en">${escapeHtml(firstEx.en)}</div>
-              <div class="zh">${escapeHtml(firstEx.zh)}</div>
-            </div>
-          </div>
-        ` : ""}
-
-        <details class="tf-fav-details">
-          <summary>展開更多：Usage / Collocations / Examples</summary>
-
-          <div class="tf-fav-section">
-            <div class="tf-fav-section-title">Usage</div>
-            <div>${escapeHtml(data.usage || "No usage note found.")}</div>
-          </div>
-
-          <div class="tf-fav-section">
-            <div class="tf-fav-section-title">Collocations</div>
-            <div>${collocHTML}</div>
-          </div>
-
-          <div class="tf-fav-section">
-            <div class="tf-fav-section-title">More Examples</div>
-            ${moreExamplesHTML}
-          </div>
-        </details>
-
-        <div class="tf-fav-actions">
-          <button type="button" class="tf-fav-action remove" data-remove-rank="${escapeHtml(data.rank)}">移除收藏</button>
-          <button type="button" class="tf-fav-action" data-jump-rank="${escapeHtml(data.rank)}">看完整卡片</button>
-        </div>
-      </article>
-    `;
-  }
-
-  function ensureFavPanel() {
-    let favPanel = document.getElementById("favs") || document.getElementById("favorites");
-    let favTab = document.querySelector('.tab[data-tab="favs"], .tab[data-tab="favorites"]');
-
-    const tabs = document.querySelector(".tabs");
-    const lastPanel = Array.from(document.querySelectorAll(".panel")).pop();
-
-    if (!favTab && tabs) {
-      favTab = document.createElement("button");
-      favTab.className = "tab";
-      favTab.dataset.tab = "favs";
-      favTab.type = "button";
-      favTab.textContent = "我的收藏";
-      tabs.appendChild(favTab);
-    }
-
-    if (!favPanel) {
-      favPanel = document.createElement("section");
-      favPanel.id = "favs";
-      favPanel.className = "panel";
-      favPanel.innerHTML = `
-        <h2>Favorites｜我的收藏</h2>
-        <div class="tf-favs-wrap" id="tfFavsRoot"></div>
-      `;
-      if (lastPanel) {
-        lastPanel.insertAdjacentElement("afterend", favPanel);
-      } else {
-        document.body.appendChild(favPanel);
-      }
-    } else if (!favPanel.querySelector("#tfFavsRoot")) {
-      favPanel.innerHTML = `
-        <h2>Favorites｜我的收藏</h2>
-        <div class="tf-favs-wrap" id="tfFavsRoot"></div>
-      `;
-    }
-
-    return favPanel;
-  }
-
-  function renderFavs() {
-    ensureFavPanel();
-    const root = document.getElementById("tfFavsRoot");
-    if (!root) return;
-
-    const favs = favArray();
-    const cards = favs.map(rank => document.querySelector(`.word-card[data-rank="${CSS.escape(String(rank))}"]`)).filter(Boolean);
-
-    if (!cards.length) {
-      root.innerHTML = `
-        <div class="tf-empty-favs">
-          <h3>還沒有收藏字卡</h3>
-          <p>到 Vocabulary Cards 點星星，就會出現在這裡。</p>
-        </div>
-      `;
-      updateFavUI();
-      return;
-    }
-
-    root.innerHTML = `
-      <div class="tf-favs-toolbar">
-        <div class="tf-favs-count">已收藏 ${cards.length} 字</div>
-      </div>
-      <div class="tf-favs-grid">
-        ${cards.map(card => favCardHTML(cardData(card))).join("")}
-      </div>
-    `;
-    updateFavUI();
-  }
-
-  function activateTab(tabName) {
-    const targetName = tabName === "favorites" ? "favs" : tabName;
-    document.querySelectorAll(".tab").forEach(t => t.classList.toggle("active", (t.dataset.tab === targetName || (targetName === "favs" && t.dataset.tab === "favorites"))));
-    document.querySelectorAll(".panel").forEach(p => p.classList.toggle("active", p.id === targetName || (targetName === "favs" && p.id === "favorites")));
-    if (targetName === "favs") renderFavs();
-  }
-
-  function toggleFavorite(card) {
-    const rank = getCardRank(card);
-    if (!rank) return;
-    const favs = favSet();
-    if (favs.has(rank)) favs.delete(rank);
-    else favs.add(rank);
-    saveFavs(favs);
-    updateFavUI();
-    renderFavs();
-  }
-
-  function removeFavorite(rank) {
-    const favs = favSet();
-    favs.delete(String(rank));
-    saveFavs(favs);
-    updateFavUI();
-    renderFavs();
-  }
-
-  function jumpToCard(rank) {
-    activateTab("cards");
-    const card = document.querySelector(`.word-card[data-rank="${CSS.escape(String(rank))}"]`);
-    if (!card) return;
-    card.scrollIntoView({ behavior: "smooth", block: "center" });
-    card.classList.remove("tf-fav-highlight");
-    void card.offsetWidth;
-    card.classList.add("tf-fav-highlight");
-  }
-
-  function initPatch() {
-    ensureFavButtons();
-    ensureFavPanel();
-    updateFavUI();
-
-    window.addEventListener("click", function(e) {
-      const audioTarget = getThaiFromAudioTarget(e.target);
-      if (audioTarget) {
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-        speakThai(audioTarget.text, audioTarget.btn, audioTarget.chip);
-        return;
-      }
-
-      const favBtn = e.target.closest(".fav-btn");
-      if (favBtn) {
-        const card = favBtn.closest(".word-card");
-        if (card) {
-          e.preventDefault();
-          e.stopPropagation();
-          e.stopImmediatePropagation();
-          toggleFavorite(card);
+        if (btn && btn.matches && btn.matches(".speak, .tts")) {
+          if (!btn.dataset.originalText) btn.dataset.originalText = btn.textContent.trim() || "🔊";
+          btn.textContent = "⏸";
+          btn.classList.add("speaking");
         }
-        return;
-      }
+        if (chip) chip.classList.add("speaking");
 
-      const removeBtn = e.target.closest("[data-remove-rank]");
-      if (removeBtn) {
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-        removeFavorite(removeBtn.dataset.removeRank);
-        return;
-      }
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = "th-TH";
+        u.rate = 0.86;
+        u.pitch = 1.0;
+        const voice = selectedThaiVoice();
+        if (voice) u.voice = voice;
 
-      const jumpBtn = e.target.closest("[data-jump-rank]");
-      if (jumpBtn) {
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-        jumpToCard(jumpBtn.dataset.jumpRank);
-        return;
-      }
+        activeBtn = btn;
+        activeUtterance = u;
 
-      const tab = e.target.closest(".tab[data-tab]");
-      if (tab && (tab.dataset.tab === "favs" || tab.dataset.tab === "favorites")) {
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-        activateTab("favs");
-      }
-    }, true);
+        u.onstart = () => setStatus(voice ? `使用瀏覽器 Thai voice：${voice.name}` : "使用瀏覽器語音播放中；若發音不自然，請在系統加入 Thai voice。");
+        u.onend = () => { resetAllAudioUI(); activeBtn = null; activeUtterance = null; resolve(); };
+        u.onerror = (e) => { resetAllAudioUI(); activeBtn = null; activeUtterance = null; reject(e); };
 
-    renderFavs();
+        window.speechSynthesis.speak(u);
+
+        // iOS/Safari 偶爾需要 resume；這仍在使用者點擊事件鏈中執行。
+        if (window.speechSynthesis.paused) window.speechSynthesis.resume();
+      } catch (e) {
+        resetAllAudioUI();
+        reject(e);
+      }
+    });
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initPatch);
-  } else {
-    initPatch();
+  function speakByOnline(text, btn, chip) {
+    return new Promise((resolve, reject) => {
+      try {
+        const url = "https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=th&q=" + encodeURIComponent(text);
+        const a = new Audio(url);
+        a.preload = "auto";
+        window.currentAudio = a;
+
+        resetAllAudioUI();
+        if (btn && btn.matches && btn.matches(".speak, .tts")) {
+          if (!btn.dataset.originalText) btn.dataset.originalText = btn.textContent.trim() || "🔊";
+          btn.textContent = "⏸";
+          btn.classList.add("speaking");
+        }
+        if (chip) chip.classList.add("speaking");
+
+        a.onplay = () => setStatus("Browser voice 無法播放，改用線上 Thai TTS。");
+        a.onended = () => { resetAllAudioUI(); resolve(); };
+        a.onerror = () => { resetAllAudioUI(); reject(new Error("Online TTS failed")); };
+        const p = a.play();
+        if (p && typeof p.catch === "function") p.catch(err => { resetAllAudioUI(); reject(err); });
+      } catch (e) {
+        resetAllAudioUI();
+        reject(e);
+      }
+    });
   }
+
+  async function speakThaiStable(text, btn, chip) {
+    const clean = (text || "").trim();
+    if (!clean) return;
+
+    if (activeBtn === btn && window.speechSynthesis && window.speechSynthesis.speaking) {
+      stopSpeech();
+      return;
+    }
+
+    // 平板 Safari 最穩：Browser SpeechSynthesis 優先。
+    try {
+      await speakByBrowser(clean, btn, chip);
+      return;
+    } catch (err) {
+      try {
+        await speakByOnline(clean, btn, chip);
+      } catch (err2) {
+        setStatus("音訊播放失敗：平板請確認不是靜音模式，並用 Safari/Chrome 開啟 GitHub Pages 版本後再點一次。若仍無聲，請在系統語音加入 Thai voice。");
+        console.warn("Thai audio failed", err, err2);
+      }
+    }
+  }
+
+  // 覆蓋舊版全域 speakThai，避免 collocation bridge 再跑回 Online-first。
+  window.speakThai = function(text) { return speakThaiStable(text, null, null); };
+  window.stopAudio = stopSpeech;
+
+  document.addEventListener("click", function(e) {
+    const stopBtn = e.target.closest && e.target.closest("#stopAudio");
+    if (stopBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      stopSpeech();
+      return;
+    }
+
+    const audioTarget = getThaiFromAudioTarget(e.target);
+    if (audioTarget) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      speakThaiStable(audioTarget.text, audioTarget.btn, audioTarget.chip);
+    }
+  }, true);
+
+  document.addEventListener("keydown", function(e) {
+    if (e.key !== "Enter" && e.key !== " ") return;
+    const audioTarget = getThaiFromAudioTarget(e.target);
+    if (audioTarget) {
+      e.preventDefault();
+      e.stopPropagation();
+      e.stopImmediatePropagation();
+      speakThaiStable(audioTarget.text, audioTarget.btn, audioTarget.chip);
+    }
+  }, true);
+
+  // 讓 pill 可鍵盤操作，同時不改視覺。
+  function initAudioRoles() {
+    document.querySelectorAll(".colloc-chip").forEach(chip => {
+      chip.setAttribute("role", "button");
+      chip.setAttribute("tabindex", "0");
+    });
+    const mode = document.getElementById("audioMode");
+    if (mode) mode.value = "speech";
+    loadVoices();
+    setStatus(isIOSLike() ? "iPad 平板模式：Browser Thai voice 優先，避免 Online TTS 被擋。" : "Browser Thai voice 優先，Online TTS 作備援。");
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initAudioRoles);
+  else initAudioRoles();
 })();
 </script>
 </body>
