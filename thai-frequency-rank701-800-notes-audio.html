@@ -1813,7 +1813,7 @@
 <div class="footer">Thai Frequency Notes Rank 701–800｜Static HTML｜No API generation｜Audio: Online Thai TTS + Browser SpeechSynthesis fallback</div>
 </div>
 <script>
-let currentAudio=null;let voices=[];const audioStatus=()=>document.getElementById("audioStatus");const voiceSelect=()=>document.getElementById("voiceSelect");function setStatus(msg){const el=audioStatus();if(el)el.textContent=msg}function loadVoices(){voices=window.speechSynthesis?window.speechSynthesis.getVoices():[];const sel=voiceSelect();if(!sel)return;sel.innerHTML="";let thai=voices.filter(v=>(v.lang||"").toLowerCase().includes("th")||/thai|ไทย|kanya/i.test(v.name));let list=thai.length?thai:voices;list.forEach((v,i)=>{let opt=document.createElement("option");opt.value=voices.indexOf(v);opt.textContent=`${v.name} (${v.lang})`;sel.appendChild(opt)});if(thai.length){let k=thai.find(v=>/Kanya/i.test(v.name))||thai[0];sel.value=voices.indexOf(k);setStatus(`พร้อมใช้เสียง ${k.name} (${k.lang})`)}else{setStatus("ไม่พบ Thai voice ในระบบ แต่ยังลองใช้ Online Thai TTS ได้")}}function stopAudio(){if(currentAudio){currentAudio.pause();currentAudio.currentTime=0;currentAudio=null}if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".speak.loading").forEach(b=>b.classList.remove("loading"));setStatus("หยุดเสียงแล้ว")}function speakByOnlineAudio(text,btn){return new Promise((resolve,reject)=>{try{if(currentAudio){currentAudio.pause();currentAudio=null}const url=`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=th&q=${encodeURIComponent(text)}`;const a=new Audio(url);currentAudio=a;a.onplaying=()=>{setStatus("使用 Online Thai TTS audio 播放中。"); if(btn)btn.classList.add("loading")};a.onended=()=>{if(btn)btn.classList.remove("loading");resolve()};a.onerror=()=>{if(btn)btn.classList.remove("loading");reject(new Error("online tts failed"))};a.play().catch(err=>{if(btn)btn.classList.remove("loading");reject(err)})}catch(e){reject(e)}})}function speakByBrowserVoice(text,btn){return new Promise((resolve,reject)=>{try{if(!window.speechSynthesis){reject(new Error("no speech synthesis"));return}window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="th-TH";const idx=parseInt((voiceSelect()||{}).value,10);if(!isNaN(idx)&&voices[idx])u.voice=voices[idx];else{const th=voices.find(v=>(v.lang||"").toLowerCase().includes("th")||/thai|ไทย|kanya/i.test(v.name));if(th)u.voice=th}u.rate=.86;u.pitch=1;u.onstart=()=>{setStatus(`使用 Browser Thai voice 播放中${u.voice?`：${u.voice.name} (${u.voice.lang})`:"。"}`);if(btn)btn.classList.add("loading")};u.onend=()=>{if(btn)btn.classList.remove("loading");resolve()};u.onerror=(e)=>{if(btn)btn.classList.remove("loading");reject(e)};window.speechSynthesis.speak(u)}catch(e){reject(e)}})}async function speakThai(text,btn=null){stopAudio();const mode=(document.getElementById("audioMode")||{}).value||"online";try{if(mode==="speech"){await speakByBrowserVoice(text,btn)}else{await speakByOnlineAudio(text,btn)}}catch(e){try{setStatus("Online audio 失敗，改用 Browser Thai voice。");await speakByBrowserVoice(text,btn)}catch(err){setStatus("音訊播放失敗：請確認瀏覽器、網路或 Thai voice 設定。")}}}
+let currentAudio=null;let voices=[];const audioStatus=()=>document.getElementById("audioStatus");const voiceSelect=()=>document.getElementById("voiceSelect");function setStatus(msg){const el=audioStatus();if(el)el.textContent=msg}function loadVoices(){voices=window.speechSynthesis?window.speechSynthesis.getVoices():[];const sel=voiceSelect();if(!sel)return;sel.innerHTML="";let thai=voices.filter(v=>(v.lang||"").toLowerCase().includes("th")||/thai|ไทย|kanya/i.test(v.name));let list=thai.length?thai:voices;list.forEach((v,i)=>{let opt=document.createElement("option");opt.value=voices.indexOf(v);opt.textContent=`${v.name} (${v.lang})`;sel.appendChild(opt)});if(thai.length){let k=thai.find(v=>/Kanya/i.test(v.name))||thai[0];sel.value=voices.indexOf(k);setStatus(`พร้อมใช้เสียง ${k.name} (${k.lang})`)}else{setStatus("ไม่พบ Thai voice ในระบบ แต่ยังลองใช้ Online Thai TTS ได้")}}function stopAudio(){if(currentAudio){currentAudio.pause();currentAudio.currentTime=0;currentAudio=null}if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".speak.loading,.speak.speaking,.tts.speaking,.colloc-chip.speaking,.pill.speaking").forEach(b=>{b.classList.remove("loading","speaking"); if((b.classList&&b.classList.contains("speak"))||b.matches&&b.matches(".speak,.tts")){b.textContent="🔊"}});setStatus("หยุดเสียงแล้ว")}function speakByOnlineAudio(text,btn){return new Promise((resolve,reject)=>{try{if(btn){btn.classList.add("loading");btn.classList.add("speaking")}if(currentAudio){currentAudio.pause();currentAudio=null}const url=`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=th&q=${encodeURIComponent(text)}`;const a=new Audio(url);currentAudio=a;a.onplaying=()=>{setStatus("使用 Online Thai TTS audio 播放中。"); if(btn)btn.classList.add("loading")};a.onended=()=>{if(btn)btn.classList.remove("loading");resolve()};a.onerror=()=>{if(btn)btn.classList.remove("loading");reject(new Error("online tts failed"))};a.play().catch(err=>{if(btn)btn.classList.remove("loading");reject(err)})}catch(e){reject(e)}})}function speakByBrowserVoice(text,btn){return new Promise((resolve,reject)=>{try{if(btn){btn.classList.add("loading");btn.classList.add("speaking")}if(!window.speechSynthesis){reject(new Error("no speech synthesis"));return}window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="th-TH";const idx=parseInt((voiceSelect()||{}).value,10);if(!isNaN(idx)&&voices[idx])u.voice=voices[idx];else{const th=voices.find(v=>(v.lang||"").toLowerCase().includes("th")||/thai|ไทย|kanya/i.test(v.name));if(th)u.voice=th}u.rate=.86;u.pitch=1;u.onstart=()=>{setStatus(`使用 Browser Thai voice 播放中${u.voice?`：${u.voice.name} (${u.voice.lang})`:"。"}`);if(btn)btn.classList.add("loading")};u.onend=()=>{if(btn)btn.classList.remove("loading");resolve()};u.onerror=(e)=>{if(btn)btn.classList.remove("loading");reject(e)};window.speechSynthesis.speak(u)}catch(e){reject(e)}})}async function speakThai(text,btn=null){stopAudio();const mode=(document.getElementById("audioMode")||{}).value||"online";try{if(mode==="speech"){await speakByBrowserVoice(text,btn)}else{await speakByOnlineAudio(text,btn)}}catch(e){try{setStatus("Online audio 失敗，改用 Browser Thai voice。");await speakByBrowserVoice(text,btn)}catch(err){setStatus("音訊播放失敗：請確認瀏覽器、網路或 Thai voice 設定。")}}}
 document.addEventListener("DOMContentLoaded",()=>{loadVoices();if(window.speechSynthesis)window.speechSynthesis.onvoiceschanged=loadVoices;document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));t.classList.add("active");document.getElementById(t.dataset.tab).classList.add("active")}));document.querySelectorAll(".speak").forEach(btn=>btn.addEventListener("click",e=>{e.stopPropagation();speakThai(btn.dataset.thai,btn)}));const stop=document.getElementById("stopAudio");if(stop)stop.addEventListener("click",stopAudio);const search=document.getElementById("search");if(search)search.addEventListener("input",()=>{const q=search.value.toLowerCase().trim();document.querySelectorAll(".word-card").forEach(card=>{card.style.display=card.dataset.search.toLowerCase().includes(q)?"":"none"})});const showAll=document.getElementById("showAll");if(showAll)showAll.addEventListener("click",()=>{if(search)search.value="";document.querySelectorAll(".word-card").forEach(c=>c.style.display="")});const playVisible=document.getElementById("playVisible");if(playVisible)playVisible.addEventListener("click",()=>{const words=[...document.querySelectorAll(".word-card")].filter(c=>c.style.display!=="none").slice(0,25).map(c=>c.dataset.word).join("。");speakThai(words,playVisible)});});
 
 // ── Mobile audio fix: iOS/Android capture-phase intercept ──────────────
@@ -2087,16 +2087,7 @@ document.addEventListener("DOMContentLoaded",()=>{loadVoices();if(window.speechS
   })();
   </script>
 
-<script>
-document.querySelectorAll('.colloc-chip').forEach(chip => {
-  const btn = chip.querySelector('.speak');
-  if (btn) chip.addEventListener('click', (e) => {
-    // 防止 programmatic btn.click() 冒泡回 colloc-chip 後重複觸發 / 連續播放
-    if (e.target && e.target.closest && e.target.closest('.speak')) return;
-    btn.click();
-  });
-});
-</script>
+
 
 
 
@@ -2149,15 +2140,31 @@ document.querySelectorAll('.colloc-chip').forEach(chip => {
 
   function getThaiFromAudioTarget(target) {
     const btn = target.closest(".speak, .tts");
-    if (btn) return { btn, text: btn.dataset.thai || btn.getAttribute("data-thai") || "" };
+    if (btn) {
+      return {
+        btn,
+        text: (btn.dataset.thai || btn.getAttribute("data-thai") || "").trim()
+      };
+    }
 
-    const chip = target.closest(".colloc-chip[data-thai], .pill[data-thai]");
+    // 701–800 fix: many collocation pills do NOT have data-thai on the chip itself.
+    // The Thai text is stored on the hidden inner .speak button or inside .thai.
+    // Capture the chip directly so it reacts immediately and does not fall back to the old Online TTS bridge.
+    const chip = target.closest(".colloc-chip, .pill[data-thai]");
     if (chip) {
-      let innerBtn = chip.querySelector(".speak, .tts");
+      const innerBtn = chip.querySelector(".speak[data-thai], .tts[data-thai]");
+      const thaiText = chip.querySelector(".thai");
+      const text = (
+        chip.dataset.thai ||
+        chip.getAttribute("data-thai") ||
+        (innerBtn && (innerBtn.dataset.thai || innerBtn.getAttribute("data-thai"))) ||
+        (thaiText && thaiText.textContent) ||
+        ""
+      ).trim();
       return {
         btn: innerBtn || chip,
         chip,
-        text: chip.dataset.thai || chip.getAttribute("data-thai") || ""
+        text
       };
     }
     return null;
@@ -2578,15 +2585,6 @@ document.querySelectorAll('.colloc-chip').forEach(chip => {
 })();
 </script>
 <!-- === THAI FREQUENCY UI PATCH JS: END === -->
-<script>
-document.querySelectorAll('.colloc-chip').forEach(chip => {
-  const btn = chip.querySelector('.speak');
-  if (btn) chip.addEventListener('click', (e) => {
-    // 防止 programmatic btn.click() 冒泡回 colloc-chip 後重複觸發 / 連續播放
-    if (e.target && e.target.closest && e.target.closest('.speak')) return;
-    btn.click();
-  });
-});
-</script>
+
 </body>
 </html>
