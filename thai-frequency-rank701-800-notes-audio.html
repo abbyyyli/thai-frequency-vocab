@@ -1813,8 +1813,177 @@
 <div class="footer">Thai Frequency Notes Rank 701–800｜Static HTML｜No API generation｜Audio: Online Thai TTS + Browser SpeechSynthesis fallback</div>
 </div>
 <script>
-let currentAudio=null;let voices=[];const audioStatus=()=>document.getElementById("audioStatus");const voiceSelect=()=>document.getElementById("voiceSelect");function setStatus(msg){const el=audioStatus();if(el)el.textContent=msg}function loadVoices(){voices=window.speechSynthesis?window.speechSynthesis.getVoices():[];const sel=voiceSelect();if(!sel)return;sel.innerHTML="";let thai=voices.filter(v=>(v.lang||"").toLowerCase().includes("th")||/thai|ไทย|kanya/i.test(v.name));let list=thai.length?thai:voices;list.forEach((v,i)=>{let opt=document.createElement("option");opt.value=voices.indexOf(v);opt.textContent=`${v.name} (${v.lang})`;sel.appendChild(opt)});if(thai.length){let k=thai.find(v=>/Kanya/i.test(v.name))||thai[0];sel.value=voices.indexOf(k);setStatus(`พร้อมใช้เสียง ${k.name} (${k.lang})`)}else{setStatus("ไม่พบ Thai voice ในระบบ แต่ยังลองใช้ Online Thai TTS ได้")}}function stopAudio(){if(currentAudio){currentAudio.pause();currentAudio.currentTime=0;currentAudio=null}if(window.speechSynthesis)window.speechSynthesis.cancel();document.querySelectorAll(".speak.loading,.speak.speaking,.tts.speaking,.colloc-chip.speaking,.pill.speaking").forEach(b=>{b.classList.remove("loading","speaking"); if((b.classList&&b.classList.contains("speak"))||b.matches&&b.matches(".speak,.tts")){b.textContent="🔊"}});setStatus("หยุดเสียงแล้ว")}function speakByOnlineAudio(text,btn){return new Promise((resolve,reject)=>{try{if(btn){btn.classList.add("loading");btn.classList.add("speaking")}if(currentAudio){currentAudio.pause();currentAudio=null}const url=`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=th&q=${encodeURIComponent(text)}`;const a=new Audio(url);currentAudio=a;a.onplaying=()=>{setStatus("使用 Online Thai TTS audio 播放中。"); if(btn)btn.classList.add("loading")};a.onended=()=>{if(btn)btn.classList.remove("loading");resolve()};a.onerror=()=>{if(btn)btn.classList.remove("loading");reject(new Error("online tts failed"))};a.play().catch(err=>{if(btn)btn.classList.remove("loading");reject(err)})}catch(e){reject(e)}})}function speakByBrowserVoice(text,btn){return new Promise((resolve,reject)=>{try{if(btn){btn.classList.add("loading");btn.classList.add("speaking")}if(!window.speechSynthesis){reject(new Error("no speech synthesis"));return}window.speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="th-TH";const idx=parseInt((voiceSelect()||{}).value,10);if(!isNaN(idx)&&voices[idx])u.voice=voices[idx];else{const th=voices.find(v=>(v.lang||"").toLowerCase().includes("th")||/thai|ไทย|kanya/i.test(v.name));if(th)u.voice=th}u.rate=.86;u.pitch=1;u.onstart=()=>{setStatus(`使用 Browser Thai voice 播放中${u.voice?`：${u.voice.name} (${u.voice.lang})`:"。"}`);if(btn)btn.classList.add("loading")};u.onend=()=>{if(btn)btn.classList.remove("loading");resolve()};u.onerror=(e)=>{if(btn)btn.classList.remove("loading");reject(e)};window.speechSynthesis.speak(u)}catch(e){reject(e)}})}async function speakThai(text,btn=null){stopAudio();const mode=(document.getElementById("audioMode")||{}).value||"online";try{if(mode==="speech"){await speakByBrowserVoice(text,btn)}else{await speakByOnlineAudio(text,btn)}}catch(e){try{setStatus("Online audio 失敗，改用 Browser Thai voice。");await speakByBrowserVoice(text,btn)}catch(err){setStatus("音訊播放失敗：請確認瀏覽器、網路或 Thai voice 設定。")}}}
-document.addEventListener("DOMContentLoaded",()=>{loadVoices();if(window.speechSynthesis)window.speechSynthesis.onvoiceschanged=loadVoices;document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));t.classList.add("active");document.getElementById(t.dataset.tab).classList.add("active")}));document.querySelectorAll(".speak").forEach(btn=>btn.addEventListener("click",e=>{e.stopPropagation();speakThai(btn.dataset.thai,btn)}));const stop=document.getElementById("stopAudio");if(stop)stop.addEventListener("click",stopAudio);const search=document.getElementById("search");if(search)search.addEventListener("input",()=>{const q=search.value.toLowerCase().trim();document.querySelectorAll(".word-card").forEach(card=>{card.style.display=card.dataset.search.toLowerCase().includes(q)?"":"none"})});const showAll=document.getElementById("showAll");if(showAll)showAll.addEventListener("click",()=>{if(search)search.value="";document.querySelectorAll(".word-card").forEach(c=>c.style.display="")});const playVisible=document.getElementById("playVisible");if(playVisible)playVisible.addEventListener("click",()=>{const words=[...document.querySelectorAll(".word-card")].filter(c=>c.style.display!=="none").slice(0,25).map(c=>c.dataset.word).join("。");speakThai(words,playVisible)});});
+let voices = [];
+let currentAudio = null;
+let selectedVoice = null;
+
+function setStatus(msg) {
+  const el = document.getElementById('audioStatus');
+  if (el) el.textContent = msg;
+}
+
+function stopAudio() {
+  try {
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+      currentAudio = null;
+    }
+  } catch(e) {}
+  try { window.speechSynthesis.cancel(); } catch(e) {}
+  setStatus('已停止播放。');
+}
+
+function loadVoices() {
+  if (!('speechSynthesis' in window)) {
+    setStatus('這個瀏覽器不支援 Web Speech API；將只嘗試線上音訊。');
+    return;
+  }
+  voices = window.speechSynthesis.getVoices() || [];
+  const select = document.getElementById('voiceSelect');
+  if (!select) return;
+  select.innerHTML = '';
+  const thaiVoices = voices.filter(v => (v.lang || '').toLowerCase().includes('th') || /thai|ไทย/i.test(v.name || ''));
+  const list = thaiVoices.length ? thaiVoices : voices;
+  if (!list.length) {
+    select.innerHTML = '<option>尚未偵測到語音，請再點一次測試</option>';
+    return;
+  }
+  list.forEach((v, idx) => {
+    const opt = document.createElement('option');
+    opt.value = voices.indexOf(v);
+    opt.textContent = `${v.name} (${v.lang})${thaiVoices.includes(v) ? ' ✓ Thai' : ''}`;
+    select.appendChild(opt);
+    if (idx === 0) selectedVoice = v;
+  });
+  select.onchange = () => {
+    selectedVoice = voices[Number(select.value)] || null;
+    setStatus('已選擇語音：' + (selectedVoice ? selectedVoice.name + ' / ' + selectedVoice.lang : '預設'));
+  };
+  if (thaiVoices.length) setStatus('已偵測到 Thai voice。小喇叭會先嘗試線上音訊，失敗時使用此語音。');
+  else setStatus('未偵測到 Thai voice；仍會先嘗試線上音訊。');
+}
+
+function speakByBrowserVoice(text) {
+  return new Promise((resolve, reject) => {
+    if (!('speechSynthesis' in window)) return reject(new Error('No speechSynthesis'));
+    try {
+      window.speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      u.lang = 'th-TH';
+      u.rate = 0.82;
+      u.pitch = 1.0;
+      const thaiVoice = selectedVoice || voices.find(v => (v.lang || '').toLowerCase().includes('th') || /thai|ไทย/i.test(v.name || ''));
+      if (thaiVoice) u.voice = thaiVoice;
+      u.onend = () => resolve();
+      u.onerror = (e) => reject(e);
+      window.speechSynthesis.speak(u);
+      setStatus('使用瀏覽器 Thai voice 播放中。');
+    } catch(err) {
+      reject(err);
+    }
+  });
+}
+
+function speakByOnlineAudio(text) {
+  return new Promise((resolve, reject) => {
+    try {
+      if (!text || !text.trim()) return reject(new Error('Empty text'));
+      const url = 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=th&q=' + encodeURIComponent(text);
+      if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+      }
+      currentAudio = new Audio(url);
+      currentAudio.crossOrigin = 'anonymous';
+      currentAudio.onplay = () => setStatus('使用線上 Thai TTS 播放中。若沒有聲音，會自動改用瀏覽器語音。');
+      currentAudio.onended = () => resolve();
+      currentAudio.onerror = () => reject(new Error('Online audio failed'));
+      const p = currentAudio.play();
+      if (p && typeof p.then === 'function') p.then(() => {}).catch(reject);
+    } catch(err) {
+      reject(err);
+    }
+  });
+}
+
+async function speakThai(text) {
+  stopAudio();
+  const clean = (text || '').trim();
+  if (!clean) return;
+  try {
+    await speakByOnlineAudio(clean);
+  } catch(err) {
+    try {
+      setStatus('線上音訊失敗，改用瀏覽器 Thai voice。');
+      await speakByBrowserVoice(clean);
+    } catch(err2) {
+      setStatus('音訊播放失敗：請確認瀏覽器音量、允許播放，或改用 Chrome / Safari / GitHub Pages。');
+      console.warn(err, err2);
+    }
+  }
+}
+
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.speak');
+  if (btn) {
+    e.preventDefault();
+    const text = btn.getAttribute('data-thai') || '';
+    speakThai(text);
+  }
+});
+
+document.getElementById('stopAudio')?.addEventListener('click', stopAudio);
+
+document.querySelectorAll('.tab[data-tab]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab[data-tab]').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab)?.classList.add('active');
+  });
+});
+
+const searchInput = document.getElementById('search');
+const cards = Array.from(document.querySelectorAll('.word-card'));
+function filterCards(q) {
+  const query = (q || '').trim().toLowerCase();
+  cards.forEach(card => {
+    const hay = (card.dataset.search || '').toLowerCase();
+    card.style.display = (!query || hay.includes(query)) ? '' : 'none';
+  });
+}
+searchInput?.addEventListener('input', e => filterCards(e.target.value));
+document.getElementById('showAll')?.addEventListener('click', () => {
+  if (searchInput) searchInput.value = '';
+  filterCards('');
+});
+document.getElementById('playVisible')?.addEventListener('click', async () => {
+  const visible = cards.filter(c => c.style.display !== 'none').slice(0, 20);
+  for (const card of visible) {
+    const w = card.dataset.word;
+    if (w) {
+      await speakThai(w);
+      await new Promise(r => setTimeout(r, 450));
+    }
+  }
+});
+
+if ('speechSynthesis' in window) {
+  loadVoices();
+  window.speechSynthesis.onvoiceschanged = loadVoices;
+  setTimeout(loadVoices, 800);
+} else {
+  setStatus('此瀏覽器不支援系統語音；仍會嘗試線上音訊。');
+}
+
+// iOS audio unlock
+let _audioUnlocked=false;
+document.addEventListener('click',()=>{
+  if(_audioUnlocked)return;
+  const _s=new Audio('data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=');
+  _s.play().then(()=>{_audioUnlocked=true;}).catch(()=>{});
+},{once:false});
 
 // ── Mobile audio fix: iOS/Android capture-phase intercept ──────────────
 (function(){
@@ -1833,9 +2002,7 @@ document.addEventListener("DOMContentLoaded",()=>{loadVoices();if(window.speechS
 })();
 // ── End mobile audio fix ────────────────────────────────────────────────
 </script>
-
-  <!-- ── 收藏功能 (auto-injected) ─────────────────────────────────────────── -->
-  <script>
+<script>
   (function () {
     'use strict';
 
@@ -2086,12 +2253,50 @@ document.addEventListener("DOMContentLoaded",()=>{loadVoices();if(window.speechS
     }
   })();
   </script>
+<script>
+(function () {
+  function playCollocation(text) {
+    if (!text) return;
+    if (typeof window.speakThai === 'function') {
+      window.speakThai(text);
+      return;
+    }
+    try {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = 'th-TH';
+        u.rate = 0.86;
+        window.speechSynthesis.speak(u);
+      }
+    } catch (e) {}
+  }
 
+  document.querySelectorAll('.colloc-chip').forEach(chip => {
+    chip.setAttribute('role', 'button');
+    chip.setAttribute('tabindex', '0');
 
+    const getThai = () => {
+      const btn = chip.querySelector('.speak[data-thai]');
+      const thai = chip.querySelector('.thai');
+      return (btn?.dataset.thai || thai?.textContent || '').trim();
+    };
 
+    chip.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      playCollocation(getThai());
+    });
 
-
-<!-- === THAI FREQUENCY UI PATCH JS: START === -->
+    chip.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        playCollocation(getThai());
+      }
+    });
+  });
+})();
+</script>
 <script>
 (function() {
   "use strict";
@@ -2140,31 +2345,15 @@ document.addEventListener("DOMContentLoaded",()=>{loadVoices();if(window.speechS
 
   function getThaiFromAudioTarget(target) {
     const btn = target.closest(".speak, .tts");
-    if (btn) {
-      return {
-        btn,
-        text: (btn.dataset.thai || btn.getAttribute("data-thai") || "").trim()
-      };
-    }
+    if (btn) return { btn, text: btn.dataset.thai || btn.getAttribute("data-thai") || "" };
 
-    // 701–800 fix: many collocation pills do NOT have data-thai on the chip itself.
-    // The Thai text is stored on the hidden inner .speak button or inside .thai.
-    // Capture the chip directly so it reacts immediately and does not fall back to the old Online TTS bridge.
-    const chip = target.closest(".colloc-chip, .pill[data-thai]");
+    const chip = target.closest(".colloc-chip[data-thai], .pill[data-thai]");
     if (chip) {
-      const innerBtn = chip.querySelector(".speak[data-thai], .tts[data-thai]");
-      const thaiText = chip.querySelector(".thai");
-      const text = (
-        chip.dataset.thai ||
-        chip.getAttribute("data-thai") ||
-        (innerBtn && (innerBtn.dataset.thai || innerBtn.getAttribute("data-thai"))) ||
-        (thaiText && thaiText.textContent) ||
-        ""
-      ).trim();
+      let innerBtn = chip.querySelector(".speak, .tts");
       return {
         btn: innerBtn || chip,
         chip,
-        text
+        text: chip.dataset.thai || chip.getAttribute("data-thai") || ""
       };
     }
     return null;
@@ -2584,7 +2773,5 @@ document.addEventListener("DOMContentLoaded",()=>{loadVoices();if(window.speechS
   }
 })();
 </script>
-<!-- === THAI FREQUENCY UI PATCH JS: END === -->
-
 </body>
 </html>
